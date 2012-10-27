@@ -17,7 +17,7 @@ The microprocessor code is documented in the hardware section because it is very
 
 \subsection{The Display Backend}
 
-The general plan for the backend is to write modules for a Django web application. This modules will either be running in the background and reporting to the through the REST API functions, or responding to user requests.
+The general plan for the backend is to write modules for a Django web application. These modules will either be running in the background and reporting to the through the REST API functions, or responding to user requests.
 
 The logic for using Django as the base, and write modules around Django, is one of necessity. We do not have enough time or manpower to make everything we need from scratch. Therefore, we will be using several open source utilities to assist us. 
 
@@ -29,7 +29,7 @@ Another advantage of Django is that is comes with a very extensive, expandable, 
 
 \subsection{The Display Frontend}
 
-The general plan for the frontend is to serve up some fairly static pages, and uses extensive amounts of Javascript to fill in the content and animate things. The frontend will communicate with the backend through the REST API.
+The general plan for the frontend is to serve up some fairly static pages, and uses extensive amounts of Javascript to fill in the content and animate things. The frontend will communicate with the backend through the REST API. This will be fairly simply, since the backend API will support multiple formats, including JSON.
 
 \section{Program Flow}
 
@@ -47,12 +47,12 @@ This application will use a SQL database to store all data. Each module will int
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5]{Software/images/DataFlowDiagram.png}
+\includegraphics[scale=0.75]{Software/images/DataFlowDiagram.png}
 \caption{Data Flow Diagram}
 \label{DataFlowDiagram}
 \end{figure}
 
-Figure \ref{DataFlowDiagram} shows how various components will be interacting. Notice that the database is not directly accessed by any components, but goes the a REST API instead. This allows us to provide a standard interface should be more-or-less accessible from any programming language or system. This will also allow us to use some well-known security features, such as TLS.
+Figure \ref{DataFlowDiagram} shows how various components will be interacting. Notice that the database is not directly accessed by any components, but goes through the REST API instead. This allows us to provide a standard interface should be more-or-less accessible from any programming language or system. This will also allow us to use some well-known security features, such as TLS.
 
 \section{UML Diagrams}
 
@@ -61,11 +61,29 @@ Figure \ref{DataFlowDiagram} shows how various components will be interacting. N
 
 \section{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them. Elaborate on why the problem
-%  exists
+Using open-source libraries requires us to learn them. This is a big problem because of the time constraints on this project, and will require us to spend almost as much time learning as we will be in development (possibly more). This can lead to frustration, especially in light of the fact that we will need to learn the languages in addition to the libraries.
 
-\section{Sub-modules 1}
+However, using well developed and designed libraries allows us to skip over a good part of the development and planning. We will be able to use extensive API's without taking responsibility for maintaining the software. This will allow us to focus on our product instead of the all the small things that make it up. 
+
+\section{The Backend}
+
+% The backend things
+\input{Software/Backend-Authentication}
+\input{Software/Backend-REST}
+\input{Software/Backend-Satellite}
+\input{Software/Backend-Devices}
+\input{Software/Backend-PowerBillGuestimator}
+\input{Software/Backend-FactoryReset}
+
+\section{The Frontend}
+
+% And these are the frontend things
+\input{Software/Frontend-Authentication}
+\input{Software/Frontend-Satellite}
+\input{Software/Frontend-Devices}
+\input{Software/Frontend-ViewData}
+\input{Software/Frontend-PowerBillGuestimator}
+\input{Software/Frontend-FactoryReset}
 
 % This is a second section of modules,
 %  and should consists of this module broken 
