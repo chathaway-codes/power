@@ -3,6 +3,30 @@
 % Replace "Name of Module" with the name of this module
 \subsection{PC Hardware}
 
-% Talk about server board / ssd / etc,
-% y'know. Actual physical server. That stuff.
-% Drop some specs in here. Maybe a chart?
+\subsubsection{Mainboard}
+The Server's main hardware component is the mainboard, a SYS9400-ECX Developer\-Ready
+Reference Platform. It's a small form\-factor, low\-power machine with the following specs:
+
+\begin{itemize}
+	\item 1.6 GHz Intel Atom E6XX Series Processor
+	\item 1 GB DDR2 RAM
+	\item Roughly 6" by 4"
+	\item Various connection interfaces:
+	\begin{itemize}
+		\item 2x SATA ports
+		\item Header for Solid State Drive (SSD) power
+		\item Ethernet port
+		\item 5x USB ports
+		\item GPIO pin header
+	\end{itemize}
+\end{itemize}
+
+If for whatever reason, using this mainboard falls through, it should be noted that the
+requirements for the Server hardware concern not just specifications, but interfaces as well.
+In particular, this project requires at least Ethernet, 2 USB ports, a SATA port, and accessible
+GPIO pins.
+\subsection{Storage}
+The Server's mainboard is connected via SATA to a 40GB SSD
+
+\subsection{Power Supply}
+An adapter rated for 12VDC @ 3A is used to connect the Server's board to mains electricity.
