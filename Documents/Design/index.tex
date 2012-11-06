@@ -1,12 +1,29 @@
 \documentclass[titlepage]{report}
 
+
 % Preamble
+
+%% Packages to deal with images and links
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{parskip}
+\usepackage[hyphens]{url}
+\usepackage[hypertexnames=false, bookmarks=true, bookmarksnumbered=true, breaklinks=true, linkbordercolor={1 1 1}]{hyperref}
+
+%% Chapter titles
+\usepackage[T1]{fontenc}
+\usepackage{titlesec, blindtext, color}
+\definecolor{gray75}{gray}{0.75}
+\newcommand{\hsp}{\hspace{20pt}}
+\titleformat{\chapter}[hang]{\Huge\bfseries}{\thechapter\hsp\textcolor{gray75}{|}\hsp}{0pt}{\Huge\bfseries}
 
 % Required packages
 \usepackage{graphicx}
 
 % Formatting options
 \renewcommand{\chaptername}{}
+\newcommand{\theTitle}{System And Software Architecture}
 
 \begin{document}
 
@@ -27,14 +44,25 @@
 }
 \maketitle
 
+\setcounter{page}{1}
+\pagenumbering{roman}
+
 % Table of contents
 \tableofcontents
+\newpage
+
+\listoffigures
+\textbf{\addcontentsline{toc}{chapter}{List of Figures}}
+\newpage
+
+\setcounter{page}{1}
+\pagenumbering{arabic}
 
 % Introduction and some basic things
 \input{Introduction}
 
 % Hardware design
-\input{Hardware/overview}
+%\input{Hardware/overview}
 
 % Software design
 \input{Software/overview}

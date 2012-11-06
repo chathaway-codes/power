@@ -7,20 +7,17 @@
 
 This module describes the architecture of how the backend will manage features related to users and groups (authentication features).
 
+The backend authentication management provided by Django is very robust. It includes user authentication, access control (including groups and individual permissions), administrative panels, and logging of who does what. 
+
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+The authentication module will be called whenever a user tries to access something. It will verify that the user is logged in, has permissions, and even write a short log message if it is an administrative function.
 
 \subsubsection{Data Flow}
 
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
+Because this module is not being written by us, it will not be following the standards we are using. Therefore, it will be using the standard Django classes to access database objects instead of going through the REST API. 
 
-\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
+While that is not ideal, it should be OK anyway. This part of the Django framework has been tested extensively, in many production environments. There is a low risk that something will not work, and if there is a problem there is a very high chance that upon being reported to the Django project, it will be fixed quickly.
 
 \subsubsection{Potential Problems}
 
