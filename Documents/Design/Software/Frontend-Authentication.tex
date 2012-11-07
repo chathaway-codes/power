@@ -7,29 +7,24 @@
 
 This module describes the architecture of how the frontend will create pages that allow the user to manage user and groups.
 
+The authentication front end will consist of both the "login" page, and the user management pages. These pages either post directly to the server using standard form-submission methods (ie, not Ajax) or by using AJAX (if we have time to recreate the entire management system). 
+
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+The user will first be presented with a login screen, which will take two pieces of information:
+\begin{itemize}
+ \item Username - The user's username
+ \item Password - The user's password
+\end{itemize}
+
+After these two pieces of information have been verified (ie, that password belongs to that user), the user will be logged in.
+
+From here, the user has all kinds of options. The only ones that are interesting to this module is the settings panel, which includes a link to the user administration panel. The user administration panel will, initially, be a themed Django-admin view. Time permitting, this may be recreated to be a AJAX type interface.
 
 \subsubsection{Data Flow}
 
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
+All data will be sent to the server through POST requests, not through the REST API. This will allow us to skip over this module almost entirely. This is not consistent with everything else, and will need to be remade later on if there is time.
 
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them. Elaborate on why the problem
-%  exists
-
-\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+Themeing the admin interface to match our site will be tricky. At best, it will involve telling Django to include some extra stylesheets or using a different template. At worst, it will involve modifying the Django stylesheets directly. Either option works, but due to version control it would greatly preferred to be able to tell Django what styles to use.

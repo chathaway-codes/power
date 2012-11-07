@@ -19,14 +19,10 @@ Because this module is not being written by us, it will not be following the sta
 
 While that is not ideal, it should be OK anyway. This part of the Django framework has been tested extensively, in many production environments. There is a low risk that something will not work, and if there is a problem there is a very high chance that upon being reported to the Django project, it will be fixed quickly.
 
+Something worth noting is the way passwords will be handled. Django hashes all passwords in a variety of algorithms, as specified in the password field. It also salts the passwords. This is much better than the lazy way of hashing it (maybe) and storing it in a database column. For more details, please see \url{https://docs.djangoproject.com/en/dev/topics/auth/} for more information.
+
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them. Elaborate on why the problem
-%  exists
+Like I stated above, the largest potentional problems will be bugs in this piece of the code. Because we did not create, and we will not be supporting it, any bugs that we find will need to be reported to the Django framework community and we will have to wait for them to roll out a fix.
 
-\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+Another problem that might be common is the difficulty in expanding on the user profiles. This will not be a problem for us because Django did such a good job in keeping their framework extensible. All we need to do is declare a OneToOneField in our model, and add a few panels to the administrative interface and we will have an instant user profile. Not only that, but we will have successfully separated user information from the authentication information, which is considered "good practice" as it is faster and more secure.
