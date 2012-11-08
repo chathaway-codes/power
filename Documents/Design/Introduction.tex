@@ -1,13 +1,14 @@
 \chapter{Introduction}
 
 \section{Purpose of this Document}
-This document describes the high level design of all components of the Power Outlet Wireless Energy Reporting (POWER) system.
+This document describes the high level design of all components of the Power Outlet Wireless Reporter (POW-R) system.
 
 \section{Architectural Assumptions}
 It is assumed that an entire system consists of one Server, and one or more Satellites.
 
 \section{Summary of Requirements}
-The POWER project aims to produce a low cost, low powered, device that will allow home owners to track their power consumption on a per-device basis. The hope is that by allowing home owners to see where all their power is going, they can take steps to disable or replace the most inefficient offenders.
+The POW-R project aims to produce a low cost, low powered, device that will allow home owners to track their power consumption on a per-device basis. 
+The hope is that by allowing home owners to see where all their power is going, they can take steps to disable or replace the most inefficient offenders.
 
 To accomplish the stated purpose, this project provides the following components:
 \begin{itemize}
@@ -16,29 +17,29 @@ To accomplish the stated purpose, this project provides the following components
  \item The Display
 \end{itemize}
 
-Each of these documents have their own requirements. The basic summary of each one would be:
+Each of these components have their own requirements. The basic summary of each one would be:
 
 \subsection{Satellite Requirements}
 \begin{itemize}
  \item Ability to plug into standard NEMA 5-15 mains electrical outlets
  \item Two outlet sockets on the opposite side of the plugs (if it takes up two outlets, it should provide two outlets)
- \item Less than 5% error on current and voltage reading
+ \item Less than 5\% error on current and voltage reading
  \item Power draw less than 1W (Watt) per Satellite
  \item Broadcasts information up to 500m (meters)
  \item Transmits every 1.0 seconds
- \item Shall be Zigbee compatible
- \item Requires encryption on all communication
+ \item Zigbee compatible
+ \item Encrypted communication
 \end{itemize}
 
 \subsection{Server Requirements}
 \begin{itemize}
- \item Physical Server inside building
+ \item Physical Server inside the monitored building
  \item Runs on less than 10W (Watts)
- \item Hosts Display
- \item Button to connect nodes
- \item Ability to connect to the clients network
- \item Shall be Zigbee compatible
- \item Requires encryption on all communication
+ \item Hosts web server for Display
+ \item Button to connect Satellites
+ \item Ability to connect to the user's network
+ \item Zigbee compatible
+ \item Encrypted communication
 \end{itemize}
 
 \subsection{Display Requirements}
@@ -59,22 +60,22 @@ Each of these documents have their own requirements. The basic summary of each o
 	\end{itemize}
  \item Device Management
 	\begin{itemize}
-	 \item Add devices
-	 \item Disable devices
+	 \item Add Devices
+	 \item Disable Devices
 		\begin{itemize}
-	 		\item Does not include deleting devices, since that would invalidate history
+	 		\item Does not include deleting Devices, since that would invalidate history
 		\end{itemize}
-	 \item Modify devices
+	 \item Modify Devices
 		\begin{itemize}
 	 		\item Rename
 	 		\item Change outlet association
 		\end{itemize}
 	 \item Device Groups*
 		\begin{itemize}
-		 \item Device groups are logical groupings of devices that can be 
-		 	viewed as a single device in the view data section
-		 \item Create device groups
-		 \item Delete device groups
+		 \item Device groups are logical groupings of Devices that can be 
+		 	viewed as a single Device in the View Data section
+		 \item Create Device groups
+		 \item Delete Device groups
 		 \item Modify Device groups
 		\end{itemize}
 	\end{itemize}
@@ -82,8 +83,8 @@ Each of these documents have their own requirements. The basic summary of each o
 	\begin{itemize}
 	 \item Add Satellites
 	 \item Remove Satellite
-	 \item Changing the state of associated Satellite
-	 \item Changing of the reporting frequency of the Satellite
+	% \item Changing the state of associated Satellite
+	%\item Changing of the reporting frequency of the Satellite
 	\end{itemize}
  \item View Data
 	\begin{itemize}
@@ -100,7 +101,7 @@ Each of these documents have their own requirements. The basic summary of each o
 		\begin{itemize}
 		 \item Shows the user the cost to run a device, or group of devices, over a specified time range
 		 \item Shows the user a comparison of device costs over a specified range with a given interval
-		 \item i.e.:  show them the device cost every month for the past year
+		 \item E.g. Show them the device cost every month for the past year
 		\end{itemize}
 	\end{itemize}
  \item Power Bill Guesstimator*
@@ -109,14 +110,14 @@ Each of these documents have their own requirements. The basic summary of each o
 	 \item View cost to run multiple devices over a period of time
 	 \item View expected power bill if a device is added
 	 \item Allow the user to specify cost of power for
-	 \item Specific time ranges
-	 \item Specific power-usage ranges
-		\begin{itemize}
-		 \item i.e.: Power cost the user \$0.08 per kW/hr for 
+	 \begin{itemize}
+		\item Specific time ranges
+		\item Specific power-usage ranges
+		 \item E.g. Power cost the user \$0.08 per kW/hr for 
 		 	the first 500 kW/hrs, and \$0.10 after that
 		\end{itemize}
 	\end{itemize}
- \item Factory reset
+ \item Factory reset*
 	\begin{itemize}
 	 \item Allow the user to reset the system to default settings via...
 		\begin{itemize}
