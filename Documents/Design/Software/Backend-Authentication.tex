@@ -7,22 +7,37 @@
 
 This module describes the architecture of how the backend will manage features related to users and groups (authentication features).
 
-The backend authentication management provided by Django is very robust. It includes user authentication, access control (including groups and individual permissions), administrative panels, and logging of who does what. 
+The backend authentication management provided by Django is very robust.
+It includes user authentication, access control (including groups and individual permissions), administrative panels, and logging of who does what.
+
 
 \subsubsection{Program Flow}
 
-The authentication module will be called whenever a user tries to access something. It will verify that the user is logged in, has permissions, and even write a short log message if it is an administrative function.
+The authentication module will be called whenever a user tries to access something.
+It will verify that the user is logged in, has permissions, and even write a short log message if it is an administrative function.
 
 \subsubsection{Data Flow}
 
-Because this module is not being written by us, it will not be following the standards we are using. Therefore, it will be using the standard Django classes to access database objects instead of going through the REST API. 
+Because this module is not being written by us, it will not be following the standards we are using.
+Therefore, it will be using the standard Django classes to access database objects instead of going through the REST API.
 
-While that is not ideal, it should be OK anyway. This part of the Django framework has been tested extensively, in many production environments. There is a low risk that something will not work, and if there is a problem there is a very high chance that upon being reported to the Django project, it will be fixed quickly.
 
-Something worth noting is the way passwords will be handled. Django hashes all passwords in a variety of algorithms, as specified in the password field. It also salts the passwords. This is much better than the lazy way of hashing it (maybe) and storing it in a database column. For more details, please see \url{https://docs.djangoproject.com/en/dev/topics/auth/} for more information.
+While that is not ideal, it should be OK anyway.
+This part of the Django framework has been tested extensively, in many production environments.
+There is a low risk that something will not work, and if there is a problem there is a very high chance that upon being reported to the Django project, it will be fixed quickly.
+
+Something worth noting is the way passwords will be handled.
+Django hashes all passwords in a variety of algorithms, as specified in the password field.
+It also salts the passwords.
+This is much better than the lazy way of hashing it (maybe) and storing it in a database column.
+For more details, please see \url{https://docs.djangoproject.com/en/dev/topics/auth/} for more information.
 
 \subsubsection{Potential Problems}
 
-Like I stated above, the largest potentional problems will be bugs in this piece of the code. Because we did not create, and we will not be supporting it, any bugs that we find will need to be reported to the Django framework community and we will have to wait for them to roll out a fix.
+Like I stated above, the largest potentional problems will be bugs in this piece of the code.
+Because we did not create, and we will not be supporting it, any bugs that we find will need to be reported to the Django framework community and we will have to wait for them to roll out a fix.
 
-Another problem that might be common is the difficulty in expanding on the user profiles. This will not be a problem for us because Django did such a good job in keeping their framework extensible. All we need to do is declare a OneToOneField in our model, and add a few panels to the administrative interface and we will have an instant user profile. Not only that, but we will have successfully separated user information from the authentication information, which is considered "good practice" as it is faster and more secure.
+Another problem that might be common is the difficulty in expanding on the user profiles.
+This will not be a problem for us because Django did such a good job in keeping their framework extensible.
+All we need to do is declare a OneToOneField in our model, and add a few panels to the administrative interface and we will have an instant user profile.
+Not only that, but we will have successfully separated user information from the authentication information, which is considered "good practice" as it is faster and more secure.
