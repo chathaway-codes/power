@@ -1,13 +1,13 @@
-\subsection{The Server}
+\chapter{The Server}
 
-\subsubsection{Description}
+\subsection{Description}
 
 The server will be responsible for collecting and recording data given to it by the Satellites, storing the display, and responding to user requests. 
 This section reiterates the hardware of the server, which is also documented in the hardware section because so many parts of it belong specifically to the Zigbee things.
 
-\subsubsection{The Hardware}
+\subsection{The Hardware}
 
-\paragraph{Mainboard}
+\subsubsection{Mainboard}
 The Server's main hardware component is the mainboard, a SYS9400-ECX Developer-Ready Reference Platform. 
 It's a small form-factor, low-power machine with the following specs:
 
@@ -25,22 +25,22 @@ It's a small form-factor, low-power machine with the following specs:
 	\end{itemize}
 \end{itemize}
 
-\paragraph{Potential Problems}
+\subsubsection{Potential Problems}
 If for whatever reason using this mainboard falls through: 
 It should be noted that the requirements for the Server hardware concern not just specifications, but interfaces as well.
 In particular, this project requires at least Ethernet, 2 USB ports, a SATA port, and accessible GPIO pins.
-\paragraph{Storage}
+\subsubsection{Storage}
 The Server's mainboard is connected via SATA to a 40GB SSD.
 
-\paragraph{Power Supply}
+\subsubsection{Power Supply}
 An adapter rated for 12VDC @ 3A is used to connect the Server's board to mains electricity.
 
-\subsubsection{Software}
+\subsection{Software}
 
 In addition to storing our custom written software, which is documented in the software section, the server will utilize a good number of other programs. 
 This section will document what software will be used, and for what purpose.
 
-\paragraph{Ubuntu Server 12.04}
+\subsubsection{Ubuntu Server 12.04}
 
 The base system running on the server will a Ubuntu server base install. 
 We will be installing additional packages on top of this, using the aptitude package manager.
@@ -53,23 +53,23 @@ The filesystem will contain 3 partitions.
  \item <Restore> - This partition will contain a minimal boot system, and a tarball will all the factory default software. It will be used to restore the /boot and / systems when requested, but will not normally be mounted
 \end{itemize}
 
-\paragraph{Apache2}
+\subsubsection{Apache2}
 
 We will use an Apache2 server with mod\_wsgi to deal with responding to requests on the REST API or executing parts of the web application.
 This server will not be server static files, as that would be a waste of it's features (which includes caching of recently accessed pages to avoid re-executing the same code several times over).
 
-\paragraph{lighttpd}
+\subsubsection{lighttpd}
 
 The lighttpd is also a web server.
 This web server is much less robust than Apache, but much faster at serving up static files.
 It will be responsible for giving images, javascript, css, html, and other static content to the user.
 
-\paragraph{MySQL}
+\subsubsection{MySQL}
 
 Initially, we will use a MySQL database to store data from the Satellites.
 This may be changed to posgresql if performance becomes an issue, but MySQL is much easier to install and configure.
 
-\paragraph{Python}
+\subsubsection{Python}
 
 To run our application, we will need Python 2.7 installed.
 We will have a whole bunch of modules, which will be discovered as we are doing the lower level design and implementation, installed along with Python.
@@ -77,7 +77,7 @@ To track packages we need for Python, we will use pip.
 In addition to pip, we will use virtualenv to simply the maintance and portability issues of using Python + pip in place of the aptitude package manager.
 We are not using the aptitude package manager because it does not have the most recent PyPy packages.
 
-\paragraph{IP Tables}
+\subsubsection{IP Tables}
 
 IP tables will be used to prevent traffic from bridging the server, and to prevent the server from sending out requests anywhere.
 This will prevent a wanna-be-hacker from using the machine to attack the client's network.
