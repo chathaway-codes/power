@@ -5,14 +5,30 @@
 
 \subsubsection{Description}
 
-This module describes the architecture of how the backend will manage features related to device management.
+This module describes the architecture of how the back end will manage features related to Device Management.
+
+The Device Management back end will be in charge of maintaining the database with information pertaining to the Devices. 
+
+ 
 
 \subsubsection{Program Flow}
+
+The user will be presented with the option to add, edit, or disable a device. 
+Adding a device allows the user to name the new device and associate it with a specific Satellite. 
+Editing a device allows the user to change the Satellite associated with the device. 
+The user will not have the option to edit the name of the device once it has been created in order to maintain consistant data with each device. 
+Disabling a device will remove it from 
 
 % Insert a flow chart here with a high-level look
 %  at the states this part of the system goes through
 
 \subsubsection{Data Flow}
+
+The back end Device Management module will receive data from the Device Management front end via the REST API. 
+This includes data that needs to be changed in the database, and requests for data. 
+This module will then modify or query the database as needed, 
+returning the requested data or a confirmation of modification to the front end through the REST API. 
+
 
 % Describe where data goes and comes from in this subsubsection
 % Flow charts are encouraged

@@ -5,7 +5,10 @@
 
 \subsubsection{Description}
 
-This module describes the architecture of how the backend will manage features related to managing Satellites.
+This module describes the architecture of how the back end will manage features related to managing Satellites.
+
+The Satellite Management back end is in control of maintaining the information in the database. 
+
 
 \subsubsection{Program Flow}
 
@@ -13,6 +16,10 @@ This module describes the architecture of how the backend will manage features r
 %  at the states this part of the system goes through
 
 \subsubsection{Data Flow}
+The back end Satellite Management module will receive data from the Satellite Management front end via the REST API. 
+This includes data that needs to be changed in the database, and requests for data. 
+This module will then modify or query the database as needed, 
+returning the requested data or a confirmation of modification to the front end through the REST API. 
 
 % Describe where data goes and comes from in this subsubsection
 % Flow charts are encouraged
