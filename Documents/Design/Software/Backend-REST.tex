@@ -14,6 +14,10 @@ These could be achieved by simply using the tastypie URL's, which can be generat
 
 The REST API will be activated by the Django chain when a request comes in for the access to the API, or when another module directly calls functions in the API during their response to a request from the user.
 
+Having each module register itself when the system launches should work, but there may be a problem with things getting registered twice.
+Early experiments indicate that the \_\_init\_\_.py file is called twice during the loading of the system.
+This could be solved a number of ways, or it might not even be a problem (it's very possible the first time the module is loaded it is just being checked for syntax and compiled, then the program is restarting with the compiled files).
+
 \subsubsection{Data Flow}
 
 All data will be returned to the calling client either as a Python dictionary (if called directly from another module), or as JSON, XML, or YAML through a web request (as specified in the query filter using ?format=json).
@@ -32,8 +36,11 @@ The good news is that django-tastypie is well supported by the community, and so
 It follows Python commenting standards, and should be fairly easy to navigate.
 In addition, members of our team have already used tastypie for projects in both work and the garage.
 
-
 The most problematic bit about using tastypie for the initial run-through is the compatibility problems it has with Backbone.js.
 However, the community has developed an addition to Backbone to help deal with this.
 It is called Backbone-tastypie.
 It is a simple modification to the Backbone sync operations that allows it to communicate with a standard tastypie REST-API.
+
+When the web server is launched, it initialized all modules by calling their \_\_init\_\_.py file.
+In this file, each module can register themselves with the API.
+This will allow all modules to be self-contained, which is ideal in that it will allow us to upgrade on module without breaking everything else.

@@ -6,30 +6,29 @@
 \subsubsection{Description}
 
 This module describes the architecture of how the backend will manage features related to the factory reset.
+The factory reset will restore everything to the exact same way it was when the system came out of the "factory".
+This means that all data will be wiped, and custom modifications will be wiped, and any software upgrade will be wiped.
 
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+This function will be invoked either through a call passed down from the web interface (it will be handled by the REST API, and the call will be intercepted and result in an action) or by a program picking up on the push of the physical factory-reset button.
 
 \subsubsection{Data Flow}
 
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
+Doing the factory restore will involve a good bit of trickery. 
+First, we will need to put a partition on the disk that stores all the files that make up the "live" running system. 
+This might be best done by simply putting a tarball and a script on a small partition at the end of the disk. 
+The script will be responsible for wiping the primary partition, re-creating it, and extracting the tarball.
 
-\subsubsection{UML Diagrams}
+Getting the system to boot into the "restore" mode will involve modifying grub settings on the fly. 
+We can do this, and it shouldn't be too hard, but it feels like a really bad idea.
 
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
+After the machine is in recovery mode, something will need to launch the script to do the restore.
+This shouldn't be too difficult if just use an old-school rc.conf script or something of the sort.
+The script will also restore grub, so we don't have to worry about returning that to it's old good state.
 
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them. Elaborate on why the problem
-%  exists
-
-\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+One of the biggest risks here is failing to boot into the restore partition and ruining our grub configuration.
+This would cause the customer to need to send us back the back, we would have to flash it, and send it back.
+If we can get this feature working however, we will not have to worry so much about breaking the web UI by accident.
