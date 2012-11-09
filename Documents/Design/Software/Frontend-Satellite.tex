@@ -5,40 +5,26 @@
 
 \subsubsection{Description}
 
-This module describes the architecture of how the frontend will create pages that allow the user to add, remove, and modify Satellites associated with the system. 
+This module describes the architecture of how the frontend will create pages that allow the user to add and delete Satellites associated with the system. 
 
-
+It will receive a basic framework for the web pages from the back end module and use Javascript to render the rest of the page. 
+These pages include the Satellite Management page and the Add Satellite wizard. 
 
 \subsubsection{Program Flow}
 
-
-
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+The user will be presented with the option to add or delete a Satellite. 
+Adding a Satellite allows the user to then associate it with a Device. 
+Deleting a Satellite will disassociate the Device from the Satellite, leaving it unassociated to anything. 
+The Satellite will then no longer be available to be associated with a Device. 
 
 \subsubsection{Data Flow}
 
+The Satellite Management front end sends a 
 This module receives the basic format for the web pages from the back end Satellite module. 
 It then fills in the additional and page-specific content. 
 
-
-
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-%\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
-
-\subsubsection{Potential Problems}
+%\subsubsection{Potential Problems}
 
 % A list of potentional programs along with suggestions
 %  on ways to work around them.
 % Elaborate on why the problem exists
-
-%\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components

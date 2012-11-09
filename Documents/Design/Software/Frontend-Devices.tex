@@ -6,40 +6,27 @@
 \subsubsection{Description}
 
 This module describes the architecture of how the frontend will create pages that allow the user to manage devices in the system. 
+
 The Device Management front end includes the Device Management page, Add Devices page, and the Confirm Disable Device dialog. 
 
 
 \subsubsection{Program Flow}
 
-The user will be presented with the option to add, edit, or disable a device. 
-Adding a device allows the user to name the new device and associate it with a specific Satellite. 
-Editing a device allows the user to change the Satellite associated with the device. 
-The user will not have the option to edit the name of the device once it has been created in order to maintain consistant data with each device. 
-Disabling a device will remove it from 
-
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+The user will be presented with the option to add, edit, or disable a Device. 
+Adding a Device allows the user to name the new Device and associate it with a specific Satellite. 
+Editing a Device allows the user to change the Satellite associated with the Device. 
+The user will not have the option to edit the name of the Device once it has been created in order to maintain consistant data. 
+Disabling a Device will remove it from all graphs and tables and data will no longer be collected on the Device.
+Devices cannot be deleted in order to maintain past data.
 
 \subsubsection{Data Flow}
 
 The data will be sent to the Device Management back end module through the REST API. 
+This module receives the basic format for the web pages from the back end Device module. 
+It then fills in the additional and page-specific content. 
 
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-%\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
-
-\subsubsection{Potential Problems}
+%\subsubsection{Potential Problems}
 
 % A list of potentional programs along with suggestions
 %  on ways to work around them.
 %  Elaborate on why the problem exists
-
-%\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
