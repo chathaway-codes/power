@@ -14,7 +14,7 @@ The POWER project will consist of the following pieces of software:
  \item The client code to render the display for the user
 \end{itemize}
 
-The microprocessor code is documented in the hardware section because it is very related to the hardware, and it is much more logical to put the  code there.
+The microprocessor code is documented in the hardware section.
 
 \subsection{The Display Backend}
 
@@ -32,9 +32,9 @@ Using Django gives us almost all of the security benefits listed in our non-func
 
 To make our REST API, we will utilize an open-source Django library called tastypie.
 Tastypie gives us both model resources (that is, api elements that are basically the database tables) and the ability to create custom resources that may, or may not, map to the database.
-The one (that's right, one) instance where we may not want to directly map something to the database is when we are looking at turning the outlets on and off.
+The one instance where we may not want to directly map something to the database is when we are looking at turning the outlets on and off.
 
-Another advantage of Django is that is comes with a very extensive, expandable, and adaptable authentication system.
+Another advantage of Django is that it comes with a very extensive, expandable, and adaptable authentication system.
 This will help accomplish several optional and required features almost instantly.
 
 
@@ -42,7 +42,7 @@ This will help accomplish several optional and required features almost instantl
 
 The general plan for the frontend is to serve up some fairly static pages, and use extensive amounts of Javascript to fill in the content and animate things.
 The frontend will communicate with the backend through the REST API.
-This will be fairly simply, since the backend API will support multiple formats, including JSON.
+This will be fairly simple since the backend API will support multiple formats, including JSON.
 
 To assist us on the frontend, we will be using several open source libraries.
 They will all serve a very clear function.
@@ -129,7 +129,7 @@ This will allow us to focus on our product instead of the all the small things t
 
 Another potential problem with using the suggested architecture will be clients that don't like using Javascript in their browser.
 Using heavy javascript allows us to offset a good bit of the load from our low-powered server to the clients computers, which will have a good deal more power.
-If we wanted to support clients that don't like using javascript (ie, security nuts), we would be looking at adding a significant load to our server (text-processing can consume a good bit of resources, especially string manipulation).
+If we wanted to support clients that don't like using javascript (E.g. security nuts), we would be looking at adding a significant load to our server (text-processing can consume a good bit of resources, especially string manipulation).
 Although we may be able to do, for the first version we will simply add "Javascript support" as a requirement for the clients.
 
 \section{The Backend}

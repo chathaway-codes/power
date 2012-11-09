@@ -30,7 +30,7 @@ Something worth noting is the way passwords will be handled.
 Django hashes all passwords in a variety of algorithms, as specified in the password field.
 It also salts the passwords.
 This is much better than the lazy way of hashing it (maybe) and storing it in a database column.
-For more details, please see \url{https://docs.djangoproject.com/en/dev/topics/auth/} for more information.
+For more details, please reference \url{https://docs.djangoproject.com/en/dev/topics/auth/}.
 
 \subsubsection{Potential Problems}
 
@@ -40,4 +40,4 @@ Because we did not create, and we will not be supporting it, any bugs that we fi
 Another problem that might be common is the difficulty in expanding on the user profiles.
 This will not be a problem for us because Django did such a good job in keeping their framework extensible.
 All we need to do is declare a OneToOneField in our model, and add a few panels to the administrative interface and we will have an instant user profile.
-Not only that, but we will have successfully separated user information from the authentication information, which is considered "good practice" as it is faster and more secure.
+Not only that, but we will have successfully separated user information from the authentication information, which is considered good practice as it is faster and more secure.
