@@ -5,39 +5,27 @@
 
 \subsubsection{Description}
 
-This module describes the architecture of how the back end will manage features related to managing Satellites.
+This module describes the architecture of how the back end will manage features related to managing Satellites. 
 
-The Satellite Management back end is in control of maintaining the information in the database.  
-It will authenticate the data passed to it by making sure they fit into their respective fields in the database. 
-This module will also pass the basic form of the Satellite Management page to the front end to be filled in by the display.
+The Satellite Management back end is in control of maintaining the information in the database pertaining to Satellites. 
+The back end will also generate the framework for the web pages. 
+It will pass the basic form of the Satellite Management page to the front end to be filled in by the display. 
 
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+The back end Satellite Management module will be activated by a request from the front end Satellite Management. 
+This module will complete the request by adding information to the SQL database or querying said database for specific data. 
 
 \subsubsection{Data Flow}
+
+The Data Flow will behave in much the same manner as the Program Flow. 
 The back end Satellite Management module will receive data from the Satellite Management front end via the REST API. 
 This includes data that needs to be changed in the database, and requests for data. 
 This module will then modify or query the database as needed, 
 returning the requested data or a confirmation of modification to the front end through the REST API. 
-
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-%\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
 
 \subsubsection{Potential Problems}
 
 % A list of potentional programs along with suggestions
 %  on ways to work around them.
 % Elaborate on why the problem exists
-
-%\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
