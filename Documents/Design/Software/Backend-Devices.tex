@@ -26,8 +26,12 @@ This module will then modify or query the database as needed,
 returning the requested data or a confirmation of modification to the front end through the REST API. 
 The data for the basic format of the web pages will also be sent from the back end to the front end through the REST API. 
 
-%\subsubsection{Potential Problems}
+\subsubsection{Sub-modules}
+The Device-Satellite Association: \\
+Devices will be associated to a Satellite at all times, unless the Device is disabled. 
+That way we can associate the power consumption data from the Satellite with the correct Device. 
+This association will be made in the database. 
+These associations not be static, Devices will be able to be moved from one location to another. 
+By associating the Device with each new Satellite it is physically connected to we can track that Device regardless of its location. 
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them.
-% Elaborate on why the problem exists
+This module will implement the associations between the Devices and the Satellites. 
