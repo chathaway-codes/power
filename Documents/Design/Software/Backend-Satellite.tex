@@ -24,8 +24,9 @@ This includes data that needs to be changed in the database, and requests for da
 This module will then modify or query the database as needed, 
 returning the requested data or a confirmation of modification to the front end through the REST API. 
 
-%\subsubsection{Potential Problems}
-
-% A list of potentional programs along with suggestions
-%  on ways to work around them.
-% Elaborate on why the problem exists
+\subsubsection{Sub-modules}
+Communication with the Satellites:\\
+This modules serves as an interface and a form listnener. 
+It will receive POSTed commands for dispatch to the ZigBee network via a serial-port connected ZigBee. 
+It will also receive the incoming data from the ZigBee network and store it in the Database. 
+The data will consist of the current and voltage readings from each Satellite on the network. 
