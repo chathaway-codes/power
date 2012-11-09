@@ -28,10 +28,14 @@
 \newcommand{\theTitle}{System And Software Architecture}
 \newcommand{\filename}[1]{\texttt{#1}}
 
+% Footnote stuff
+\newcommand{\savefootnote}[2]{\footnote{\label{#1}#2}}
+\newcommand{\repeatfootnote}[1]{\textsuperscript{\ref{#1}}}
+
 \begin{document}
 
 % Title and authors
-\title{P.O.W.E.R. High Level Design Document}
+\title{P.O.W.-R. High Level Design Document}
 \author{
   Grace De Geus\\
   \texttt{gdegeus@vtc.edu}
@@ -44,6 +48,9 @@
   \and
   Niloc Quimby\\
   \texttt{nquimby@vtc.edu}
+  \and
+  Forest Immel\\
+  \texttt{fimmel@vtc.edu}
 }
 \maketitle
 
