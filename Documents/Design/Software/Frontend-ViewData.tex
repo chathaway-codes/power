@@ -8,21 +8,24 @@
 This module describes the architecture of how the frontend will create pages that allow the user to view various pieces of data in various formats.
 
 The View Data front end is responsible for providing the user with data regarding each device and device group. 
-It will 
+It will provide three separate graphs and tables with data specified by the user; 
+Device Power Consumption, Monthly Power Consumption, and Power Consumption Over Time. 
+
 
 \subsubsection{Program Flow}
 
-
-
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+From the Home page the user will be able to select which graph or table they would like to view.  
+These graphs and tables provide the user with information pertaining to the Devices specified and within the time-frame selected.  
 
 \subsubsection{Data Flow}
+
+This module requests data for the graphs and tables from the back end through the REST API. 
+
 
 % Describe where data goes and comes from in this subsubsection
 % Flow charts are encouraged
 
-\subsubsection{UML Diagrams}
+%\subsubsection{UML Diagrams}
 
 % Any diagrams that can describe the system design
 %  Such as inheritance and actors
@@ -33,7 +36,7 @@ It will
 %  on ways to work around them.
 % Elaborate on why the problem exists
 
-\subsubsection{Sub-modules 1}
+%\subsubsection{Sub-modules 1}
 
 % This is a second subsubsection of modules,
 %  and should consists of this module broken 
