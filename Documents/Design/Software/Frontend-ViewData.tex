@@ -10,6 +10,8 @@ This module describes the architecture of how the frontend will create pages tha
 The View Data front end is responsible for providing the user with data regarding each device and device group. 
 It will provide three separate graphs and tables with data specified by the user; 
 Device Power Consumption, Monthly Power Consumption, and Power Consumption Over Time. 
+This module will be using jqPlot to render the graphs on the web page. 
+This will allow the back end to provide the data for the content and the front end to plot the graphs as needed. 
 
 
 \subsubsection{Program Flow}
@@ -20,24 +22,12 @@ These graphs and tables provide the user with information pertaining to the Devi
 \subsubsection{Data Flow}
 
 This module requests data for the graphs and tables from the back end through the REST API. 
-
-
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-%\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
+It receives a response and renders the graphs and tables with the data provided. 
 
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them.
-% Elaborate on why the problem exists
-
-%\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+The main sources of concern with this module have been stated previously in Section 3.5. 
+We will be facing a large learning curve as we must familiarize ourselves with the software we will be using, such as jqPlot. 
+There is also the problem where some users will not have Javascript supported in their browsers. 
+This will keep them from being able to view any of the information presented by this module using Javascript or jqPlot. 
+These problems have been addressed previously. 
