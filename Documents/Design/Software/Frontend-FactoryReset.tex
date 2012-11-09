@@ -6,31 +6,17 @@
 \subsubsection{Description}
 
 This module describes the architecture of how the frontend will create pages that allow the user to reset the system back to factory default settings.
+It will receive a basic framework for the web pages in HTML from the back end module and use Javascript to render the rest of the page. 
+This front end module will be a page that will allow the user to initiate a Factory Reset.
+
 
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
-
-\subsubsection{Data Flow}
-
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
+When the user loads this page they will be presented with an option to perform a factory reset.
+If they choose that option, this module will ask the user if they are sure and list the consiquences of doing so.
+If the user still agrees, it will request a factory reset to be performed from the back end module.
 
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them.
-Elaborate on why the problem
-%  exists
-
-\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+Making sure only administrators can reset the device to reduce the risk of accidentally breaking it.
+Also may want to implement a method of backing up and restoring all of the data.

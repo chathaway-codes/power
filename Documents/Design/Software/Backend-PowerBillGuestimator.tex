@@ -5,32 +5,17 @@
 
 \subsubsection{Description}
 
-This module describes the architecture of how the backend will manage features related to the power bill guestimator.
+The Power Bill Guestimator backend will be in charge of maintaing a record of utility power costs for different times and usage rates.
+These rates are set by the user on the front end and stored in the database.
+It will be able to calculate the cost of the power used between certain time ranges and give that data to the front end to be formatted.
 
 \subsubsection{Program Flow}
 
-% Insert a flow chart here with a high-level look
-%  at the states this part of the system goes through
+Data flows through this module when the front end requests the cost of power used for Satelites. 
+This triggers a query of data from the database of the power usage history for that Satelite (or combination of Satelites) and a query of the rates that applied to the time period.
+With that data the module will calculate how much power was used at each rate and give that data back to the front end.
 
-\subsubsection{Data Flow}
-
-% Describe where data goes and comes from in this subsubsection
-% Flow charts are encouraged
-
-\subsubsection{UML Diagrams}
-
-% Any diagrams that can describe the system design
-%  Such as inheritance and actors
 
 \subsubsection{Potential Problems}
 
-% A list of potentional programs along with suggestions
-%  on ways to work around them.
-Elaborate on why the problem
-%  exists
-
-\subsubsection{Sub-modules 1}
-
-% This is a second subsubsection of modules,
-%  and should consists of this module broken 
-%  down further into components
+Since rates can vary based on time of day, total power used, or other unknown factors, keeping track of rates may be tricky. Research must be done to find out the most common ways utilities charge for power and be able to store rates accordingly.
