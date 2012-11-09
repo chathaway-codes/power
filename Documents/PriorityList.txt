@@ -1,0 +1,66 @@
+File: PriorityList.txt
+Author: Niloc Quimby
+Created: 11/09/12
+Description: This is a list of our project requirements in a more formal tone, taken from the board on 11/02/12. I don't know what we should do with this information exactly, but I feel like a plan can be devised from this.
+
+
+
+First priority:
+	Server:
+		- Physical server
+		- Stays inside building being monitored 
+		- Runs a web server
+		- Web server provides the Display 
+		- Connects to the user's network 
+		- Communicates with ZigBee Mesh
+		- Does not lose data
+		
+	Satellites:
+		- Measure current 
+		- Measure voltage 
+		- Interface with NEMA 5-15 standard outlets 
+		- Connect to Server 
+		- Are safe (do not cause fire) 
+		- Support ZigBee mesh networking
+		- Status lights
+		- Designed to be compact
+		
+	Display:
+		- Provides users with many ways to view data
+		- Provides interface to manage Satellites
+		- Designed intuitively
+		
+Second priority:
+	Overall:
+		- Designed aesthetically
+	Server:
+		- Consumes < 10W
+		- Provides secure web server (https)
+		- Offers a factory reset button
+		- Controls user access to Server
+		
+	Satellites:
+		- Have On and Off modes
+		- Consume < 1W each
+		
+	Display:
+		- Provides user management
+		- Supports cost calculation for devices
+		- Designed for security
+		
+Third priority:
+	Overall:
+		- Costs not lots
+	Server:
+		- Encrypts database
+	Satellites:
+		- Have relay inside to cut device power
+	Display:
+		- Provides control over Satellite operating modes
+		- Provides a cost comparison for devices at selected times
+		- Provides a way to toggle device power
+		- Provides power bill estimation
+		- Provides a way to change reporting frequency of Satellites
+		- Supports software upgrades
+		- Designed for efficient use
+		
