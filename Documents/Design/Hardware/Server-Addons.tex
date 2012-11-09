@@ -24,7 +24,7 @@ This works well, since the Arduino connects over serial and thusly takes a byte 
 
 \subsection{GPIO Pins}
 As mentioned above in the "PC Hardware" section, the mainboard is outfitted with a GPIO pin header. 
-Linux will be used for the Server's operating system, which means that Linux has to have a way to interact with such pins. 
+A Linux distribution will be used for the Server's operating system, which must support interaction with such pins. 
 
 A folder can be found in the Linux kernel, at the location \filename{/sys/class/gpio} that helps with GPIO manipulation. 
 To set up a single GPIO pin, one must type the following command into a terminal (as root):
@@ -37,11 +37,10 @@ To set up a single GPIO pin, one must type the following command into a terminal
 When this command is issued, a directory is made inside the \filename{gpio} directory, named \filename{gpioN}, where N is the GPIO pin number you passed. 
 Two files will be in that new directory, \filename{direction} and \filename{value}. 
 \filename{direction} can only contain "in" or "out" with no leading characters, spaces, line breaks, etc.
-\filename{value} can only contain "1" or "0" and can be read or written to intermittently.
+\filename{value} can only contain "1" or "0" and can be read or written to at any time.
 These files, \filename{direction} and \filename{value} are responsible for what kind of pin it is (input or output) and what the current value is (1 or 0), respectively.
 
-NOTE: The pin number you must echo into \filename{/sys/class/gpio/export} is not necessarily the number of the actual pin on the board, 
-but may refer to the pin of the bridge that connects the GPIO port to the motherboard.
+NOTE: The pin number you must echo into \filename{/sys/class/gpio/export} is not necessarily the number of the actual pin on the board, but may refer to the pin of the bridge that connects the GPIO port to the motherboard.
 
 The subsections below are buttons that the Server must have, and each of these buttons connects to a GPIO pin.
 
@@ -57,7 +56,7 @@ that chaotic forces (children, mean people, God's divine will) will not notice i
 
 \subsubsection{Connect to Satellite}
 A button will be added to the Server that allows a user to add a Satellite easily.
-When a user wants to add a Satellite to the network, the following series of events should take place, in order of appearance:
+When a user wants to add a Satellite to the network, the following series of events should take place, in order:
 
 \begin{itemize}
 	\item User plugs Satellite into wall outlet
