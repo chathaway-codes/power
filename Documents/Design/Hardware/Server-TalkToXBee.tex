@@ -1,21 +1,20 @@
 %% Template file for all Software/Hardware modules
 
 \subsection{Talking to the ZigBee Mesh}
-This section is still about the Server, but the Satellites must be talked about here in
-regards to how they communicate with the Server. The mesh network that the ZigBee modules
-form (hereafter referred to as "the Mesh",) doesn't directly communicate with the Server
+The mesh network that the ZigBee modules
+form (hereafter referred to as "the Mesh") doesn't directly communicate with the Server
 at all. This means that there's a clear separation between the computational/utility
 hardware, and the measurement hardware.
 
 The only point of the Mesh that the Server can communicate with is the "ZigBee coordinator."
 Every ZigBee mesh needs exactly one coordinator. Holding the title of "Master" in the
-Mesh, it performs many tasks that will be discussed in the Satellite section, but in regards
-to the Server, the coordinator stands out in the following ways:
+Mesh, it performs many tasks that will be discussed in the Satellite section. 
+In regards to the Server, the coordinator stands out in the following ways:
 
 \begin{itemize}
 	\item Receives all messages from all Satellites in the Mesh
-	\item Sends those messages to the Server
-	\item Can receive messages from the Server
+	\item Sends measurement data to the Server
+	\item Receives commands from the Server
 \end{itemize}
 
 The coordinator communicates to the Server using serial protocol over USB cable. 

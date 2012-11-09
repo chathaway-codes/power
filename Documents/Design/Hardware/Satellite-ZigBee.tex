@@ -1,7 +1,7 @@
 %% Template file for all Software/Hardware modules
 
 \subsection{ZigBee Standard}
-ZigBee is a standard that uses 802.15.4 wireless protocol as it's foundation. It's 
+ZigBee is a standard that uses IEEE 802.15.4 wireless protocol as it's foundation. It's 
 particularly useful for setting up ad-hoc mesh networks. Much like how any Bluetooth
 devices can talk to each other, any ZigBee devices nearby can talk to each other (so 
 long as they have the proper permissions).
@@ -17,7 +17,7 @@ quickly and easily.
 
 \subsubsection{Device Types}
 The nodes of a ZigBee network are obviously ZigBee devices, but from the network's
-perspective, there are three distinct types of ZigBee device:
+perspective, there are three distinct types of ZigBee devices:
 
 \begin{itemize}
 	\item Coordinator
@@ -35,8 +35,8 @@ Routers are fully functional ZigBee modules, capable of taking care of themselve
 routing messages across the Mesh. Routers are capable of being "parent" devices.
 
 End devices are low-power ZigBee devices that don't do any routing. They can only talk
-to one other device, which is referred to as it's "parent" device. A router or a coordinator
-may be a parent device, but not another end device.
+to one other device, which is referred to as it's "parent" device. Only a router or a coordinator
+may be a parent device.
 
 In the POW-R project, the coordinator will be attached to the Server so that it may
 also act as a data bridge between the Server and the Satellites. The rest of the 

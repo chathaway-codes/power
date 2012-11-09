@@ -5,8 +5,8 @@
 
 \section{Description}
 
-The POWER project uses various pieces of software to control the Satellites, provide an API for displays, and generate pages for the primary display.
-The POWER project will consist of the following pieces of software:
+The POW-R project uses various pieces of software to control the Satellites, provide an API for displays, and generate pages for the primary display.
+The POW-R project will consist of the following pieces of software:
 \begin{itemize}
  \item The microprocessor code
  \item The server code to communicate with the Satellites
@@ -27,12 +27,11 @@ Therefore, we will be using several open source utilities to assist us.
 
 
 Django will give us an easy-to-use database interface.
-It will deal with sanitizing all SQL queries, and make sure all output is escaped (ie, no XSS).
+It will deal with sanitizing all SQL queries, and make sure all output is escaped (i.e. no XSS).
 Using Django gives us almost all of the security benefits listed in our non-functional requirements.
 
 To make our REST API, we will utilize an open-source Django library called tastypie.
-Tastypie gives us both model resources (that is, api elements that are basically the database tables) and the ability to create custom resources that may, or may not, map to the database.
-The one instance where we may not want to directly map something to the database is when we are looking at turning the outlets on and off.
+Tastypie gives us both model resources (that is, API elements that are basically the database tables) and the ability to create custom resources that may, or may not, map to the database.
 
 Another advantage of Django is that it comes with a very extensive, expandable, and adaptable authentication system.
 This will help accomplish several optional and required features almost instantly.
@@ -50,14 +49,14 @@ They will all serve a very clear function.
 \begin{itemize}
  \item Backbone.js - A library to provide basic functions dealing with fetching and syncing data with the server
  \begin{itemize}
-  \item Backbone.js will deal with tracking the "model" portion of our Javascript code.
+  \item Backbone.js will deal with tracking the "model" portion of our Javascript code
   \item Backbone.js will be made compatible with our REST API by using a small extension called backbone-tastypie
  \end{itemize}
- \item iCanHaz - A library that provides advanced templating functionality.
+ \item iCanHaz - A library that provides advanced templating functionality
 This is client-side templating, and relies on several "fake" HTML tags
- \item RequireJS - A library that deal with tracking and loading assets asynchronously.
+ \item RequireJS - A library that deals with tracking and loading assets asynchronously
 This includes loading libraries that we will be using
- \item jQuery - jQuery will be used for both parts of the front end and for the ajax support
+ \item jQuery - jQuery will be used for both parts of the front end and for the AJAX support
  \begin{itemize}
   \item We will use jqplot for dealing with graphs
   \item We will use the jquery UI to deal with most of our widgets and such
@@ -85,7 +84,6 @@ This thread will also retrieve images and CSS files from the server.
 
 This application will use a SQL database to store all data.
 Each module will interact with the REST API, which interacts with the database as needed.
-The diagram for this database is broken down in the "Sub-modules" section, with a diagram for each logical grouping of tables.
 
 \begin{figure}[H]
 \centering
@@ -96,10 +94,10 @@ The diagram for this database is broken down in the "Sub-modules" section, with 
 
 Figure \ref{img:S_DataFlowDiagram} shows how various components will be interacting.
 Notice that the database is not directly accessed by any components, but goes through the REST API instead.
-This allows us to provide a standard interface should be more-or-less accessible from any programming language or system.
+This allows us to provide a standard interface that should be more-or-less accessible from any programming language or system.
 This will also allow us to use some well-known security features, such as TLS.
 
-\section{UML Diagrams}
+\section{Description of Software Modules}
 
 % Any diagrams that can describe the system design
 %  Such as inheritance and actors
@@ -113,7 +111,7 @@ This will also allow us to use some well-known security features, such as TLS.
 Figure \ref{img:S_PackageListing} contains all the Django modules that will be created inside the actual Django "website" itself.
 This is basically the folder hierarchy of our web application source code.
 The "power" folder consists of folders for each module (not including the various open-source modules we are using, since those are being controlled via PIP).
-Each of these contains models.py file, which specifies what the database for that module should look like, a \_\_init\_\_.py file which will register the module with the REST API, and whatever other files that module needs.
+Each of these contains a \filename{models.py} file, which specifies what the database for that module should look like, an \filename{\_\_init\_\_.py} file which will register the module with the REST API, and whatever other files that module needs.
 
 
 \section{Potential Problems}
@@ -130,7 +128,7 @@ This will allow us to focus on our product instead of the all the small things t
 Another potential problem with using the suggested architecture will be clients that don't like using Javascript in their browser.
 Using heavy javascript allows us to offset a good bit of the load from our low-powered server to the clients computers, which will have a good deal more power.
 If we wanted to support clients that don't like using javascript (E.g. security nuts), we would be looking at adding a significant load to our server (text-processing can consume a good bit of resources, especially string manipulation).
-Although we may be able to do, for the first version we will simply add "Javascript support" as a requirement for the clients.
+Although we may be able to do it, for the first version we will simply add "Javascript support" as a requirement for the clients.
 
 \section{The Backend}
 
