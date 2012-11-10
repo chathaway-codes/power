@@ -32,6 +32,10 @@
 \newcommand{\savefootnote}[2]{\footnote{\label{#1}#2}}
 \newcommand{\repeatfootnote}[1]{\textsuperscript{\ref{#1}}}
 
+\usepackage{acronym}
+\acrodef{NEMA}[NEMA]{National Electrical Manufacturers Association}
+
+
 \begin{document}
 
 % Title and authors
@@ -54,6 +58,8 @@
 }
 \maketitle
 
+
+
 \setcounter{page}{1}
 \pagenumbering{roman}
 
@@ -61,9 +67,7 @@
 \tableofcontents
 \newpage
 
-\listoffigures
-\textbf{\addcontentsline{toc}{chapter}{List of Figures}}
-\newpage
+
 
 \setcounter{page}{1}
 \pagenumbering{arabic}
@@ -79,5 +83,42 @@
 
 % Stuff about the server
 \input{Server/overview}
+\newpage
+\listoffigures
+\textbf{\addcontentsline{toc}{chapter}{List of Figures}}
 
+\newpage
+
+\section{Acronyms}
+\begin{acronym}
+	\acro{A}{Amps}
+	\acro{AJAX}{Asynchronous JavaScript and XML}
+	\acro{API}{Application programming interface}
+	\acro{CSS}{Cascading Style Sheets}
+	\acro{GPIO}{General Purpose Input Output}
+	\acro{HTML}{HyperText Markup Language}
+	\acro{HTTP}{Hypertext Transfer Protocol}
+	\acro{IEEE}{Institute of Electrical and Electronics Engineers}
+	\acro{IP}{Internat Protocol}
+	\acro{JSON}{JavaScript Object Notation}
+	\acro{LCD}{Liquid Crystal Display}
+	\acro{M}{Meters}
+	\acro{NEMA}{National Electrical Manufacturers Association}
+	\acro{PIP}{Python package installer}
+	\acro{POST}{Request Method}
+	\acro{POW-R}{Power Outlet Wireless Reporter}
+	\acro{REST}{REpresentational State Transfer}
+	\acro{SATA}{Serial ATA}
+	\acro{SQL}{Structured Query Language}
+	\acro{SSD}{Solid State Srive}
+	\acro{TLS}{Transport Layer Security}
+	\acro{UI}{User Interface}
+	\acro{URL}{Uniform Resource Locator}
+	\acro{USB}{Universal Serial Bus}
+	\acro{VDC}{Volts DC (Direct Current)}
+	\acro{W}{Watts}
+	\acro{XML}{Extensible Markup Language}
+	\acro{XSS}{Cross-site scripting}
+	\acro{YAML}{YAML Ain't Markup Language}
+\end{acronym}
 \end{document}

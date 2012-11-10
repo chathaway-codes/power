@@ -8,7 +8,7 @@
 This module describes the architecture of how the frontend will create pages that allow the user to manage user and groups.
 
 The authentication front end will consist of both the "login" page, and the user management pages.
-These pages either post directly to the server using standard form-submission methods (ie, not Ajax) or by using AJAX (if we have time to recreate the entire management system).
+These pages either post directly to the server using standard form-submission methods (ie, not \ac{AJAX}) or by using \ac{AJAX} (if we have time to recreate the entire management system).
 
 \subsubsection{Program Flow}
 
@@ -23,11 +23,11 @@ After these two pieces of information have been verified (ie, that password belo
 From here, the user has all kinds of options.
 The only ones that are interesting to this module is the settings panel, which includes a link to the user administration panel.
 The user administration panel will, initially, be a themed Django-admin view.
-Time permitting, this may be recreated to be a AJAX type interface.
+Time permitting, this may be recreated to be a \ac{AJAX} type interface.
 
 \subsubsection{Data Flow}
 
-All data will be sent to the server through POST requests, not through the REST API.
+All data will be sent to the server through \ac{POST} requests, not through the \ac{REST} \ac{API}.
 This will allow us to skip over this module almost entirely.
 This is not consistent with everything else, and will need to be remade later on if there is time.
 

@@ -17,23 +17,23 @@ It's a small form-factor, low-power machine with the following specs:
 	\item Roughly 6" by 4"
 	\item Various connection interfaces:
 	\begin{itemize}
-		\item 2x SATA ports
-		\item Header for Solid State Drive (SSD) power
+		\item 2x \ac{SATA} ports
+		\item Header for \ac{SATA} power
 		\item Ethernet port
-		\item 5x USB 2.0 ports
-		\item General Purpose Input/Output (GPIO) pin header
+		\item 5x \ac{USB} 2.0 ports
+		\item \ac{GPIO} pin header
 	\end{itemize}
 \end{itemize}
 
 \subsubsection{Potential Problems}
 If for whatever reason using this mainboard falls through: 
 It should be noted that the requirements for the Server hardware concern not just specifications, but interfaces as well.
-In particular, this project requires at least Ethernet, 2 USB ports, a SATA port, and accessible GPIO pins.
+In particular, this project requires at least Ethernet, 2 \ac{USB} ports, a \ac{SATA} port, and accessible \ac{GPIO} pins.
 \subsubsection{Storage}
-The Server's mainboard is connected via SATA to a 40GB SSD.
+The Server's mainboard is connected via \ac{SATA} to a 40GB \ac{SSD}.
 
 \subsubsection{Power Supply}
-An adapter rated for 12VDC @ 3A is used to connect the Server's board to mains electricity.
+An adapter rated for 12\ac{VDC} @ 3\ac{A} is used to connect the Server's board to mains electricity.
 
 \subsection{Software}
 
@@ -55,7 +55,7 @@ The filesystem will contain 3 partitions.
 
 \subsubsection{Apache2}
 
-We will use an Apache2 server with mod\_wsgi to deal with responding to requests on the REST API or executing parts of the web application.
+We will use an Apache2 server with \filename{mod\_wsgi} to deal with responding to requests on the \ac{REST} \ac{API} or executing parts of the web application.
 This server will not be server static files, as that would be a waste of it's features (which includes caching of recently accessed pages to avoid re-executing the same code several times over).
 
 \subsubsection{lighttpd}
@@ -77,9 +77,9 @@ To track packages we need for Python, we will use pip.
 In addition to pip, we will use virtualenv to simply the maintance and portability issues of using Python + pip in place of the aptitude package manager.
 We are not using the aptitude package manager because it does not have the most recent PyPy packages.
 
-\subsubsection{IP Tables}
+\subsubsection{\ac{IP} Tables}
 
-IP tables will be used to prevent traffic from bridging the server, and to prevent the server from sending out requests anywhere.
+\ac{IP} tables will be used to prevent traffic from bridging the server, and to prevent the server from sending out requests anywhere.
 This will prevent a wanna-be-hacker from using the machine to attack the client's network.
 Note that this will not help if a hacker got root-access to the Server, but it is better than nothing.
 

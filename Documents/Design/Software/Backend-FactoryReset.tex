@@ -11,7 +11,7 @@ This means that all data will be wiped, and custom modifications will be wiped, 
 
 \subsubsection{Program Flow}
 
-This function will be invoked either through a call passed down from the web interface (it will be handled by the REST API, and the call will be intercepted and result in an action) or by a program picking up on the push of the physical factory-reset button.
+This function will be invoked either through a call passed down from the web interface (it will be handled by the \ac{REST} \ac{API}, and the call will be intercepted and result in an action) or by a program picking up on the push of the physical factory-reset button.
 
 \subsubsection{Data Flow}
 
@@ -24,7 +24,7 @@ Getting the system to boot into the "restore" mode will involve modifying grub s
 We can do this, and it shouldn't be too hard, but it feels like a really bad idea.
 
 After the machine is in recovery mode, something will need to launch the script to do the restore.
-This shouldn't be too difficult if just use an old-school rc.conf script or something of the sort.
+This shouldn't be too difficult if just use an old-school \filename{rc.conf} script or something of the sort.
 The script will also restore grub, so we don't have to worry about returning that to it's old good state.
 
 \subsubsection{Potential Problems}

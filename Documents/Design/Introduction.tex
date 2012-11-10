@@ -1,7 +1,7 @@
 \chapter{Introduction}
 
 \section{Purpose of this Document}
-This document describes the high level design of all components of the Power Outlet Wireless Reporter (POW-R) system.
+This document describes the high level design of all components of the \ac{POW-R} system.
 
 \section{Architectural Assumptions}
 It is assumed that an entire system consists of one Server, and one or more Satellites.
@@ -21,11 +21,11 @@ Each of these components have their own requirements. The basic summary of each 
 
 \subsection{Satellite Requirements}
 \begin{itemize}
- \item Ability to plug into standard NEMA 5-15 mains electrical outlets
+ \item Ability to plug into standard \ac{NEMA} 5-15 mains electrical outlets
  \item Two outlet sockets on the opposite side of the plugs (if it takes up two outlets, it should provide two outlets)
  \item Less than 5\% error on current and voltage reading
- \item Power draw less than 1W (Watt) per Satellite
- \item Broadcasts information up to 500m (meters)
+ \item Power draw less than 1\ac{W} per Satellite
+ \item Broadcasts information up to 500\ac{M}
  \item Transmits every 1.0 seconds
  \item Zigbee compatible
  \item Encrypted communication
@@ -34,7 +34,7 @@ Each of these components have their own requirements. The basic summary of each 
 \subsection{Server Requirements}
 \begin{itemize}
  \item Physical Server inside the monitored building
- \item Runs on less than 10W (Watts)
+ \item Runs on less than 10\ac{W}
  \item Hosts web server for Display
  \item Button to connect Satellites
  \item Ability to connect to the user's network

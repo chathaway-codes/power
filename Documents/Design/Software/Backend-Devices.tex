@@ -15,16 +15,16 @@ It will send the basic format of the Device Management page to the front end to 
 \subsubsection{Program Flow}
 
 The back end Device Management module will be activated by a request from the front end Device Management. 
-This module will complete the request by adding information to the SQL database or querying said database for specific data. 
+This module will complete the request by adding information to the \ac{SQL} database or querying said database for specific data. 
 
 \subsubsection{Data Flow}
 
 The Data Flow will behave in much the same manner as the Program Flow. 
-The back end Device Management module will receive data from the Device Management front end via the REST API. 
+The back end Device Management module will receive data from the Device Management front end via the \ac{REST} \ac{API}. 
 This includes data that needs to be changed in the database, and requests for data. 
 This module will then modify or query the database as needed, 
-returning the requested data or a confirmation of modification to the front end through the REST API. 
-The data for the basic format of the web pages will also be sent from the back end to the front end through the REST API. 
+returning the requested data or a confirmation of modification to the front end through the \ac{REST} \ac{API}. 
+The data for the basic format of the web pages will also be sent from the back end to the front end through the \ac{REST} \ac{API}. 
 
 \subsubsection{Sub-modules}
 The Device-Satellite Association: \\
