@@ -18,8 +18,10 @@ The microprocessor code is documented in the hardware section.
 
 \subsection{The Display Backend}
 
-The general plan for the backend is to write modules for a Django web application.
+The general plan for the backend is to write modules for a Django \cite{Web:Django} web application.
 These modules will either be running in the background and reporting the data given to the server from the Satellites to the database through the \ac{REST} \ac{API} functions, or responding to user requests sent through the \ac{REST} \ac{API}.
+
+
 
 The logic for using Django as the base, and write modules around Django, is one of necessity.
 We do not have enough time or manpower to make everything we need from scratch.
@@ -47,16 +49,16 @@ To assist us on the frontend, we will be using several open source libraries.
 They will all serve a very clear function.
 
 \begin{itemize}
- \item Backbone.js - A library to provide basic functions dealing with fetching and syncing data with the server
+ \item Backbone.js - A library to provide basic functions dealing with fetching and syncing data with the server \cite{Web:Backbone}
  \begin{itemize}
   \item Backbone.js will deal with tracking the "model" portion of our Javascript code
-  \item Backbone.js will be made compatible with our \ac{REST} \ac{API} by using a small extension called backbone-tastypie
+  \item Backbone.js will be made compatible with our \ac{REST} \ac{API} by using a small extension called backbone-tastypie \cite{Web:Backbone-TastyPie}
  \end{itemize}
  \item iCanHaz - A library that provides advanced templating functionality
-This is client-side templating, and relies on several "fake" \ac{HTML} tags
+This is client-side templating, and relies on several "fake" \ac{HTML} tags \cite{Web:iCanHaz}
  \item RequireJS - A library that deals with tracking and loading assets asynchronously
-This includes loading libraries that we will be using
- \item jQuery - jQuery will be used for both parts of the front end and for the AJAX support
+This includes loading libraries that we will be using \cite{Web:RequireJS}
+ \item jQuery - jQuery will be used for both parts of the front end and for the AJAX support \cite{Web:jQuery}
  \begin{itemize}
   \item We will use jqplot for dealing with graphs
   \item We will use the jquery UI to deal with most of our widgets and such
