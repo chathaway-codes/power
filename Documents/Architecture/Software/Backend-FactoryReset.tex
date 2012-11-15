@@ -1,0 +1,34 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Factory Reset}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the backend will manage features related to the factory reset.
+The factory reset will restore everything to the exact same way it was when the system came out of the "factory".
+This means that all data will be wiped, and custom modifications will be wiped, and any software upgrade will be wiped.
+
+\subsubsection{Program Flow}
+
+This function will be invoked either through a call passed down from the web interface (it will be handled by the \ac{REST} \ac{API}, and the call will be intercepted and result in an action) or by a program picking up on the push of the physical factory-reset button.
+
+\subsubsection{Data Flow}
+
+Doing the factory restore will involve a good bit of trickery. 
+First, we will need to put a partition on the disk that stores all the files that make up the "live" running system. 
+This might be best done by simply putting a tarball and a script on a small partition at the end of the disk. 
+The script will be responsible for wiping the primary partition, re-creating it, and extracting the tarball.
+
+Getting the system to boot into the "restore" mode will involve modifying grub settings on the fly. 
+We can do this, and it shouldn't be too hard, but it feels like a really bad idea.
+
+After the machine is in recovery mode, something will need to launch the script to do the restore.
+This shouldn't be too difficult if just use an old-school \filename{rc.conf} script or something of the sort.
+The script will also restore grub, so we don't have to worry about returning that to it's old good state.
+
+\subsubsection{Potential Problems}
+
+One of the biggest risks here is failing to boot into the restore partition and ruining our grub configuration.
+This would cause the customer to need to send us back the unit, we would have to flash it, and send it back.
+If we can get this feature working however, we will not have to worry so much about breaking the web UI by accident.

@@ -1,0 +1,158 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\chapter{Software Design Overview}
+
+\section{Description}
+
+The \ac{POW-R} project uses various pieces of software to control the Satellites, provide an \ac{API} for displays, and generate pages for the primary display.
+The \ac{POW-R} project will consist of the following pieces of software:
+\begin{itemize}
+ \item The microprocessor code
+ \item The server code to communicate with the Satellites
+ \item The server code to present the \ac{API}
+ \item The client code to render the display for the user
+\end{itemize}
+
+The microprocessor code is documented in the hardware section.
+
+\subsection{The Display Backend}
+
+The general plan for the backend is to write modules for a Django \cite{Web:Django} web application.
+These modules will either be running in the background and reporting the data given to the server from the Satellites to the database through the \ac{REST} \ac{API} functions, or responding to user requests sent through the \ac{REST} \ac{API}.
+
+
+
+The logic for using Django as the base, and write modules around Django, is one of necessity.
+We do not have enough time or manpower to make everything we need from scratch.
+Therefore, we will be using several open source utilities to assist us.
+
+
+Django will give us an easy-to-use database interface.
+It will deal with sanitizing all \ac{SQL} queries, and make sure all output is escaped (i.e. no \ac{XSS}).
+Using Django gives us almost all of the security benefits listed in our non-functional requirements.
+
+To make our \ac{REST} \ac{API}, we will utilize an open-source Django library called tastypie.
+Tastypie gives us both model resources (that is, \ac{API} elements that are basically the database tables) and the ability to create custom resources that may, or may not, map to the database.
+
+Another advantage of Django is that it comes with a very extensive, expandable, and adaptable authentication system.
+This will help accomplish several optional and required features almost instantly.
+
+
+\subsection{The Display Frontend}
+
+The general plan for the frontend is to serve up some fairly static pages, and use extensive amounts of Javascript to fill in the content and animate things.
+The frontend will communicate with the backend through the \ac{REST} \ac{API}.
+This will be fairly simple since the backend \ac{API} will support multiple formats, including \ac{JSON}.
+
+To assist us on the frontend, we will be using several open source libraries.
+They will all serve a very clear function.
+
+\begin{itemize}
+ \item Backbone.js - A library to provide basic functions dealing with fetching and syncing data with the server \cite{Web:Backbone}
+ \begin{itemize}
+  \item Backbone.js will deal with tracking the "model" portion of our Javascript code
+  \item Backbone.js will be made compatible with our \ac{REST} \ac{API} by using a small extension called backbone-tastypie \cite{Web:Backbone-TastyPie}
+ \end{itemize}
+ \item iCanHaz - A library that provides advanced templating functionality
+This is client-side templating, and relies on several "fake" \ac{HTML} tags \cite{Web:iCanHaz}
+ \item RequireJS - A library that deals with tracking and loading assets asynchronously
+This includes loading libraries that we will be using \cite{Web:RequireJS}
+ \item jQuery - jQuery will be used for both parts of the front end and for the AJAX support \cite{Web:jQuery}
+ \begin{itemize}
+  \item We will use jqplot for dealing with graphs
+  \item We will use the jquery UI to deal with most of our widgets and such
+ \end{itemize}
+\end{itemize}
+
+\section{Program Flow}
+
+This program will have three main "threads".
+One thread would be responsible for listening to messages from the Satellites, and another would be responsible for listening and responding to requests on the \ac{API}.
+The last thread would be responsible for serving up static files for the main display.
+
+The Satellite thread will be responsible for taking the logging information provided by the Satellites and storing it in the database.
+Each Satellite will report it's information to the server once every second.
+Therefore, all this thread needs to do is react to incoming connections.
+
+The \ac{API} thread would provide the Representation State Transfer \ac{API} (\ac{REST}) that will be used by all future displays to get data in a standardized, well defined way.
+This thread will NOT be serving up images or page templates.
+This is done to make best use of the caching functionality included in the HTTP server software that will be used.
+
+The last thread will be running a "dumb" web page that servers up static HTML and Javascript files.
+This thread will also retrieve images and \ac{CSS} files from the server.
+
+\section{Data Flow}
+
+This application will use a \ac{SQL} database to store all data.
+Each module will interact with the \ac{REST} \ac{API}, which interacts with the database as needed.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Software/images/DataFlowDiagram.png}
+\caption{Data Flow Diagram}
+\label{img:S_DataFlowDiagram}
+\end{figure}
+
+Figure \ref{img:S_DataFlowDiagram} shows how various components will be interacting.
+Notice that the database is not directly accessed by any components, but goes through the \ac{REST} \ac{API} instead.
+This allows us to provide a standard interface that should be more-or-less accessible from any programming language or system.
+This will also allow us to use some well-known security features, such as \ac{TLS}.
+
+\section{Description of Software Modules}
+
+% Any diagrams that can describe the system design
+%  Such as inheritance and actors
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Software/images/Power-Package-Listing.png}
+\caption{Listing of software modules}
+\label{img:S_PackageListing}
+\end{figure}
+
+Figure \ref{img:S_PackageListing} contains all the Django modules that will be created inside the actual Django "website" itself.
+This is basically the folder hierarchy of our web application source code.
+The "power" folder consists of folders for each module (not including the various open-source modules we are using, since those are being controlled via \ac{PIP}).
+Each of these contains a \filename{models.py} file, which specifies what the database for that module should look like, an \filename{\_\_init\_\_.py} file which will register the module with the \ac{REST} \ac{API}, and whatever other files that module needs.
+
+
+\section{Potential Problems}
+
+Using open-source libraries requires us to learn them.
+This is a big problem because of the time constraints on this project, and will require us to spend almost as much time learning as we will be in development (possibly more).
+This can lead to frustration, especially in light of the fact that we will need to learn the languages in addition to the libraries.
+
+However, using well developed and designed libraries allows us to skip over a good part of the development and planning.
+We will be able to use extensive \ac{API}'s without taking responsibility for maintaining the software.
+This will allow us to focus on our product instead of the all the small things that make it up.
+
+
+Another potential problem with using the suggested architecture will be clients that don't like using Javascript in their browser.
+Using heavy javascript allows us to offset a good bit of the load from our low-powered server to the clients computers, which will have a good deal more power.
+If we wanted to support clients that don't like using javascript (E.g. security nuts), we would be looking at adding a significant load to our server (text-processing can consume a good bit of resources, especially string manipulation).
+Although we may be able to do it, for the first version we will simply add "Javascript support" as a requirement for the clients.
+
+\section{The Backend}
+
+% The backend things
+\input{Software/Backend-Authentication}
+\input{Software/Backend-REST}
+\input{Software/Backend-Satellite}
+\input{Software/Backend-Devices}
+\input{Software/Backend-PowerBillGuestimator}
+\input{Software/Backend-FactoryReset}
+
+\section{The Frontend}
+
+% And these are the frontend things
+\input{Software/Frontend-Authentication}
+\input{Software/Frontend-Satellite}
+\input{Software/Frontend-Devices}
+\input{Software/Frontend-ViewData}
+\input{Software/Frontend-PowerBillGuestimator}
+\input{Software/Frontend-FactoryReset}
+
+% This is a second section of modules,
+%  and should consists of this module broken 
+%  down further into components
+

@@ -1,0 +1,32 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Satellite}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the frontend will create pages that allow the user to add and delete Satellites associated with the system. 
+
+It will receive a basic framework for the web pages in \ac{HTML} from the back end module and use Javascript to render the rest of the page. 
+The pages will be created with a mix of \ac{HTML} and \ac{CSS} from the back end and heavy Javascript from this module. 
+These pages include the Satellite Management page and the Add Satellite wizard. 
+
+\subsubsection{Program Flow}
+
+The user will be presented with the option to add or delete a Satellite. 
+Adding a Satellite allows the user to then associate it with a Device. 
+Deleting a Satellite will disassociate the Device from the Satellite, leaving it unassociated to anything. 
+The Satellite will then no longer be available to be associated with a Device. 
+
+\subsubsection{Data Flow}
+
+The Satellite Management front end sends a request to the back end through the \ac{REST} \ac{API}. 
+The back end returns either a confirmation of action or the requested data to the front end via the \ac{API}. 
+This module receives the basic format for the web pages from the back end Satellite module. 
+It then fills in the additional and page-specific content. 
+
+%\subsubsection{Potential Problems}
+
+% A list of potentional programs along with suggestions
+%  on ways to work around them.
+% Elaborate on why the problem exists

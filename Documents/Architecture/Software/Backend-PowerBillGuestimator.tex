@@ -1,0 +1,21 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Power Bill Guestimator}
+
+\subsubsection{Description}
+
+The Power Bill Guestimator backend will be in charge of maintaing a record of utility power costs for different times and usage rates.
+These rates are set by the user on the front end and stored in the database.
+It will be able to calculate the cost of the power used between certain time ranges and give that data to the front end to be formatted.
+
+\subsubsection{Program Flow}
+
+Data flows through this module when the front end requests the cost of power used for Satelites. 
+This triggers a query of data from the database of the power usage history for that Satelite (or combination of Satelites) and a query of the rates that applied to the time period.
+With that data the module will calculate how much power was used at each rate and give that data back to the front end.
+
+
+\subsubsection{Potential Problems}
+
+Since rates can vary based on time of day, total power used, or other unknown factors, keeping track of rates may be tricky. Research must be done to find out the most common ways utilities charge for power and be able to store rates accordingly.

@@ -1,0 +1,32 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Satellite}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the back end will manage features related to managing Satellites. 
+
+The Satellite Management back end is in control of maintaining the information in the database pertaining to Satellites. 
+The back end will also generate the framework for the web pages. 
+It will pass the basic form of the Satellite Management page to the front end to be filled in with additional formatting. 
+
+\subsubsection{Program Flow}
+
+The back end Satellite Management module will be activated by a request from the front end Satellite Management. 
+This module will complete the request by adding information to the \ac{SQL} database or querying said database for specific data. 
+
+\subsubsection{Data Flow}
+
+The Data Flow will behave in much the same manner as the Program Flow. 
+The back end Satellite Management module will receive data from the Satellite Management front end via the \ac{REST} \ac{API}. 
+This includes data that needs to be changed in the database, and requests for data. 
+This module will then modify or query the database as needed, 
+returning the requested data or a confirmation of modification to the front end through the \ac{REST} \ac{API}. 
+
+\subsubsection{Sub-modules}
+Communication with the Satellites:\\
+This modules serves as an interface and a form listener. 
+It will receive \ac{POST}ed commands for dispatch to the ZigBee network via a serial-port connected ZigBee. 
+It will also receive the incoming data from the ZigBee network and store it in the Database. 
+The data will consist of the current and voltage readings from each Satellite on the network. 

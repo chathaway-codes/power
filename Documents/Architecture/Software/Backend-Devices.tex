@@ -1,0 +1,37 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Devices}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the back end will manage features related to Device Management. 
+
+The Device Management back end will be in charge of maintaining the database with information pertaining to the Devices. 
+The back end will also generate the framework for the web pages. 
+It will send the basic format of the Device Management page to the front end to be filled in with additional formatting. 
+ 
+
+\subsubsection{Program Flow}
+
+The back end Device Management module will be activated by a request from the front end Device Management. 
+This module will complete the request by adding information to the \ac{SQL} database or querying said database for specific data. 
+
+\subsubsection{Data Flow}
+
+The Data Flow will behave in much the same manner as the Program Flow. 
+The back end Device Management module will receive data from the Device Management front end via the \ac{REST} \ac{API}. 
+This includes data that needs to be changed in the database, and requests for data. 
+This module will then modify or query the database as needed, 
+returning the requested data or a confirmation of modification to the front end through the \ac{REST} \ac{API}. 
+The data for the basic format of the web pages will also be sent from the back end to the front end through the \ac{REST} \ac{API}. 
+
+\subsubsection{Sub-modules}
+The Device-Satellite Association: \\
+Devices will be associated to a Satellite at all times, unless the Device is disabled. 
+That way we can associate the power consumption data from the Satellite with the correct Device. 
+This association will be made in the database. 
+These associations not be static, Devices will be able to be moved from one location to another. 
+By associating the Device with each new Satellite it is physically connected to we can track that Device regardless of its location. 
+
+This module will implement the associations between the Devices and the Satellites. 

@@ -1,0 +1,37 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\chapter{Hardware Design Overview}
+
+\section{Description}
+
+The \ac{POW-R} project is comprised of two main hardware components, the Server and the Satellites. 
+The Server refers to the physical hardware from which the Display shall be served. 
+It also acts as the data center for all Satellites associated to it, collecting data and storing it in a hard drive. 
+The Satellites will talk over ZigBee specification to the one Zigbee module connected to the Server. 
+That one Zigbee module can talk to the Server over \ac{USB}.
+ 
+Figure \ref{SystemOverview} shows the layout of the hardware system.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.3]{Hardware/images/SystemOverview.png}
+\caption{System Overview}
+\label{SystemOverview}
+\end{figure}
+
+\section{The Server}
+\input{Hardware/Server-Hardware}
+\input{Hardware/Server-Addons}
+\input{Hardware/Server-TalkToXbee}
+\input{Hardware/Server-Problems}
+
+\section{The Satellites}
+The Satellites are made up of two sets of hardware: 
+Instruments for measuring current and voltage, and radios for communicating that data to the Server. 
+The end product shall have a hard casing around it, \ac{NEMA} 5-15 sockets on one side, and prongs for a \ac{NEMA} 5-15 male end on the other. 
+However, it should be noted that prototyping will most likely involve all of the hardware being spread out on breadboards.
+\input{Hardware/Satellite-Circuit}
+\input{Hardware/Satellite-Hardware}
+\input{Hardware/Satellite-ZigBee}
+\input{Hardware/Satellite-Problems}

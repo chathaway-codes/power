@@ -1,0 +1,25 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Power Bill Guestimator}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the frontend will create pages that allow the user to view guestimates of their monthly power bill, in various scenarios.
+
+It will receive a basic framework for the web pages in \ac{HTML} from the back end module and use Javascript to render the rest of the page. 
+The pages will be created with a mix of \ac{HTML} and \ac{CSS} from the back end and heavy Javascript from this module. 
+
+\subsubsection{Program Flow}
+
+When the user would like to estimate a power bill they first have to select what devices they want to view and for what time period.
+With that information selected, this module asks the backend for the power cost data for said devices.
+
+When the user is modifiying the utility company rates they will be presented with a wizard that ill guide them through inputting them.
+This wizard will ask them several questions about how the utility company charges for power and will give data to the backend accordingly.
+
+
+\subsubsection{Potential Problems}
+
+One potential problem is having a utility company have rates change in a way we did not anticipate.
+One other issue is not having rates defined before trying to calculate the bill.

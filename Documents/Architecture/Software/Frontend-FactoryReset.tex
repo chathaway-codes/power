@@ -1,0 +1,21 @@
+%% Template file for all Software/Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{Factory Reset}
+
+\subsubsection{Description}
+
+This module describes the architecture of how the frontend will create pages that allow the user to reset the system back to factory default settings.
+It will receive a basic framework for the web pages in \ac{HTML} from the back end module and use Javascript to render the rest of the page. 
+This front end module will be a page that will allow the user to initiate a Factory Reset.
+
+\subsubsection{Program Flow}
+
+When the user loads this page they will be presented with an option to perform a factory reset.
+If they choose that option, this module will ask the user if they are sure and list the consiquences of doing so.
+If the user still agrees, it will request a factory reset to be performed from the back end module.
+
+\subsubsection{Potential Problems}
+
+Making sure only administrators can reset the device to reduce the risk of accidentally breaking it.
+Also may want to implement a method of backing up and restoring all of the data.

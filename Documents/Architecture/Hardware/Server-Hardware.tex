@@ -1,0 +1,31 @@
+%% Template file for all Hardware modules
+
+% Replace "Name of Module" with the name of this module
+\subsection{PC Hardware}
+
+\subsubsection{Mainboard}
+The Server's main hardware component is the mainboard, a SYS9400-ECX Developer-Ready Reference Platform. 
+It's a small form-factor, low-power machine with the following specs:
+
+\begin{itemize}
+	\item 1.6 GHz Intel Atom E6XX Series Processor
+	\item 1 GB DDR2 RAM
+	\item Roughly 6" by 4"
+	\item Various connection interfaces:
+	\begin{itemize}
+		\item 2x \ac{SATA} ports
+		\item Header for \ac{SATA} power
+		\item Ethernet port
+		\item 5x \ac{USB} 2.0 ports
+		\item \ac{GPIO} pin header
+	\end{itemize}
+\end{itemize}
+
+\subsubsection{Potential Problems}
+If for whatever reason using this mainboard falls through, it should be noted that the requirements for the Server hardware concern not just specifications, but interfaces as well.
+In particular, this project requires at least Ethernet, 2 \ac{USB} ports, a \ac{SATA} port, and accessible \ac{GPIO} pins.
+\subsubsection{Storage}
+The Server's mainboard is connected via \ac{SATA} to a 40GB \ac{SSD}.
+
+\subsubsection{Power Supply}
+An adapter rated for 12\ac{VDC} @ 3\ac{A} is used to connect the Server's board to mains electricity.

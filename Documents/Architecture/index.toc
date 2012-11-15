@@ -1,0 +1,115 @@
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.2}
+\contentsline {section}{\numberline {1.1}Purpose of this Document}{1}{section.3}
+\contentsline {section}{\numberline {1.2}Architectural Assumptions}{1}{section.5}
+\contentsline {section}{\numberline {1.3}Summary of Requirements}{1}{section.6}
+\contentsline {subsection}{\numberline {1.3.1}Satellite Requirements}{2}{subsection.7}
+\contentsline {subsection}{\numberline {1.3.2}Server Requirements}{2}{subsection.11}
+\contentsline {subsection}{\numberline {1.3.3}Display Requirements}{2}{subsection.12}
+\contentsline {chapter}{\numberline {2}Hardware Design Overview}{5}{chapter.14}
+\contentsline {section}{\numberline {2.1}Description}{5}{section.15}
+\contentsline {section}{\numberline {2.2}The Server}{5}{section.18}
+\contentsline {subsection}{\numberline {2.2.1}PC Hardware}{5}{subsection.19}
+\contentsline {subsubsection}{Mainboard}{5}{subsection.19}
+\contentsline {subsubsection}{Potential Problems}{6}{subsection.19}
+\contentsline {subsubsection}{Storage}{6}{subsection.19}
+\contentsline {subsubsection}{Power Supply}{6}{subsection.19}
+\contentsline {subsection}{\numberline {2.2.2}Add-Ons}{6}{subsection.25}
+\contentsline {subsection}{\numberline {2.2.3}Server Hardware IO}{6}{subsection.26}
+\contentsline {subsubsection}{\ac {IP} Display}{6}{subsection.26}
+\contentsline {subsubsection}{Power Switch}{7}{figure.29}
+\contentsline {subsubsection}{Factory Reset\textsuperscript {\ref {opt}}}{7}{figure.29}
+\contentsline {subsection}{\numberline {2.2.4}Server Hull}{7}{subsection.30}
+\contentsline {subsection}{\numberline {2.2.5}Talking to the ZigBee Mesh}{8}{subsection.31}
+\contentsline {subsection}{\numberline {2.2.6}Potential Problems}{8}{subsection.32}
+\contentsline {section}{\numberline {2.3}The Satellites}{8}{section.33}
+\contentsline {subsection}{\numberline {2.3.1}Measurement Hardware}{8}{subsection.34}
+\contentsline {subsection}{\numberline {2.3.2}Communications Hardware}{9}{subsection.35}
+\contentsline {subsubsection}{XBee Series 2 Radio Modules}{9}{subsection.35}
+\contentsline {subsubsection}{Interface Board}{9}{subsection.35}
+\contentsline {subsection}{\numberline {2.3.3}ZigBee Standard}{9}{subsection.36}
+\contentsline {subsubsection}{Why ZigBee?}{9}{subsection.36}
+\contentsline {subsubsection}{Device Types}{9}{subsection.36}
+\contentsline {subsubsection}{Network Topology}{10}{subsection.36}
+\contentsline {subsection}{\numberline {2.3.4}Potential Problems}{10}{subsection.39}
+\contentsline {chapter}{\numberline {3}Software Design Overview}{12}{chapter.40}
+\contentsline {section}{\numberline {3.1}Description}{12}{section.41}
+\contentsline {subsection}{\numberline {3.1.1}The Display Backend}{12}{subsection.43}
+\contentsline {subsection}{\numberline {3.1.2}The Display Frontend}{13}{subsection.47}
+\contentsline {section}{\numberline {3.2}Program Flow}{13}{section.50}
+\contentsline {section}{\numberline {3.3}Data Flow}{14}{section.52}
+\contentsline {section}{\numberline {3.4}Description of Software Modules}{15}{section.55}
+\contentsline {section}{\numberline {3.5}Potential Problems}{15}{section.58}
+\contentsline {section}{\numberline {3.6}The Backend}{16}{section.59}
+\contentsline {subsection}{\numberline {3.6.1}Authentication}{16}{subsection.60}
+\contentsline {subsubsection}{Description}{16}{subsection.60}
+\contentsline {subsubsection}{Program Flow}{16}{subsection.60}
+\contentsline {subsubsection}{Data Flow}{16}{subsection.60}
+\contentsline {subsubsection}{Potential Problems}{17}{subsection.60}
+\contentsline {subsection}{\numberline {3.6.2}The \ac {REST} \ac {API}}{17}{subsection.61}
+\contentsline {subsubsection}{Description}{17}{subsection.61}
+\contentsline {subsubsection}{Program Flow}{17}{subsection.61}
+\contentsline {subsubsection}{Data Flow}{17}{subsection.61}
+\contentsline {subsubsection}{Potential Problems}{18}{subsection.61}
+\contentsline {subsection}{\numberline {3.6.3}Satellite}{18}{subsection.66}
+\contentsline {subsubsection}{Description}{18}{subsection.66}
+\contentsline {subsubsection}{Program Flow}{19}{subsection.66}
+\contentsline {subsubsection}{Data Flow}{19}{subsection.66}
+\contentsline {subsubsection}{Sub-modules}{19}{subsection.66}
+\contentsline {subsection}{\numberline {3.6.4}Devices}{19}{subsection.68}
+\contentsline {subsubsection}{Description}{19}{subsection.68}
+\contentsline {subsubsection}{Program Flow}{19}{subsection.68}
+\contentsline {subsubsection}{Data Flow}{20}{subsection.68}
+\contentsline {subsubsection}{Sub-modules}{20}{subsection.68}
+\contentsline {subsection}{\numberline {3.6.5}Power Bill Guestimator}{20}{subsection.69}
+\contentsline {subsubsection}{Description}{20}{subsection.69}
+\contentsline {subsubsection}{Program Flow}{20}{subsection.69}
+\contentsline {subsubsection}{Potential Problems}{21}{subsection.69}
+\contentsline {subsection}{\numberline {3.6.6}Factory Reset}{21}{subsection.70}
+\contentsline {subsubsection}{Description}{21}{subsection.70}
+\contentsline {subsubsection}{Program Flow}{21}{subsection.70}
+\contentsline {subsubsection}{Data Flow}{21}{subsection.70}
+\contentsline {subsubsection}{Potential Problems}{22}{subsection.70}
+\contentsline {section}{\numberline {3.7}The Frontend}{22}{section.71}
+\contentsline {subsection}{\numberline {3.7.1}Authentication}{22}{subsection.72}
+\contentsline {subsubsection}{Description}{22}{subsection.72}
+\contentsline {subsubsection}{Program Flow}{22}{subsection.72}
+\contentsline {subsubsection}{Data Flow}{22}{subsection.72}
+\contentsline {subsubsection}{Potential Problems}{23}{subsection.72}
+\contentsline {subsection}{\numberline {3.7.2}Satellite}{23}{subsection.74}
+\contentsline {subsubsection}{Description}{23}{subsection.74}
+\contentsline {subsubsection}{Program Flow}{23}{subsection.74}
+\contentsline {subsubsection}{Data Flow}{23}{subsection.74}
+\contentsline {subsection}{\numberline {3.7.3}Devices}{23}{subsection.75}
+\contentsline {subsubsection}{Description}{23}{subsection.75}
+\contentsline {subsubsection}{Program Flow}{24}{subsection.75}
+\contentsline {subsubsection}{Data Flow}{24}{subsection.75}
+\contentsline {subsection}{\numberline {3.7.4}Frontend - View Data}{24}{subsection.76}
+\contentsline {subsubsection}{Description}{24}{subsection.76}
+\contentsline {subsubsection}{Program Flow}{25}{subsection.76}
+\contentsline {subsubsection}{Data Flow}{25}{subsection.76}
+\contentsline {subsubsection}{Potential Problems}{25}{subsection.76}
+\contentsline {subsubsection}{Sub-modules}{25}{subsection.76}
+\contentsline {subsection}{\numberline {3.7.5}Power Bill Guestimator}{26}{subsection.77}
+\contentsline {subsubsection}{Description}{26}{subsection.77}
+\contentsline {subsubsection}{Program Flow}{26}{subsection.77}
+\contentsline {subsubsection}{Potential Problems}{26}{subsection.77}
+\contentsline {subsection}{\numberline {3.7.6}Factory Reset}{26}{subsection.78}
+\contentsline {subsubsection}{Description}{26}{subsection.78}
+\contentsline {subsubsection}{Program Flow}{27}{subsection.78}
+\contentsline {subsubsection}{Potential Problems}{27}{subsection.78}
+\contentsline {chapter}{\numberline {4}The Server}{28}{chapter.79}
+\contentsline {subsection}{\numberline {4.0.7}Description}{28}{subsection.80}
+\contentsline {subsection}{\numberline {4.0.8}The Hardware}{28}{subsection.81}
+\contentsline {subsubsection}{Mainboard}{28}{subsection.81}
+\contentsline {subsubsection}{Potential Problems}{29}{subsection.81}
+\contentsline {subsubsection}{Storage}{29}{subsection.81}
+\contentsline {subsubsection}{Power Supply}{29}{subsection.81}
+\contentsline {subsection}{\numberline {4.0.9}Software}{29}{subsection.82}
+\contentsline {subsubsection}{Ubuntu Server 12.04}{29}{subsection.82}
+\contentsline {subsubsection}{Apache2}{29}{subsection.82}
+\contentsline {subsubsection}{lighttpd}{30}{subsection.82}
+\contentsline {subsubsection}{MySQL}{30}{subsection.82}
+\contentsline {subsubsection}{Python}{30}{subsection.82}
+\contentsline {subsubsection}{\ac {IP} Tables}{30}{subsection.82}
+\contentsline {chapter}{List of Figures}{31}{chapter*.83}
+\contentsline {section}{\numberline {4.1}Acronyms}{32}{section.84}
