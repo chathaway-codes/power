@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+class Satellite(models.Model):
+	serial_number = models.CharField(max_length=9)
+	device_id = models.ForeignKey(Device)
