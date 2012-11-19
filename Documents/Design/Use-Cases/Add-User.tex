@@ -1,0 +1,43 @@
+\section{Add User}
+
+This use case documents the procedure that a user would use to add a new user.
+
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user is logged in and on the home page\\
+The user has permission to modify user permissions
+
+\subsubsection{Procedure}
+
+The user clicks the "Settings" link from the navigation menu\\
+The display presents the user with the settings panel, which includes a link to the "User Management" page\\
+The user clicks the "User Management" link\\
+The display shows the user the "User Management" page
+\begin{itemize}
+	\item This includes a button to add a user 
+\end{itemize}
+The user clicks "Add user"\\
+The display presents the user with a page that contains the necessary fields to create a new user:
+\begin{itemize}
+	\item First Name
+	\item Last Name
+	\item Username
+	\item Password
+	\item A check-box requiring the user to change their password at login
+	\item A multi-select to put them into groups
+	\item A list of permissions to give the user 
+\end{itemize}
+The user supplies the requested information\\
+The user clicks a "Submit" button \\
+The display informs the user that the user has been added\\
+The display shows the user the "User Management" page
+
+\subsubsection{Expected Outcome}
+
+A new user was added with the requested username, password, and permissions.

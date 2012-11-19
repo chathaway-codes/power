@@ -1,0 +1,35 @@
+\section{View Largest Power Consumer}
+This use case describes the process that a user would employ to display a list of the largest power consumers being recorded by the system.
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user is logged in and on the home page\\
+There are several devices associated with the server 
+
+\subsubsection{Procedure}
+
+The user clicks the "View Data" button from the navigation menu\\
+The display opens a drop-down menu with several more links
+\begin{itemize}
+	\item One of which is "Device Power Consumption" 
+\end{itemize}
+The user selects "Device Power Consumption"\\
+The display shows the user a table containing:
+\begin{itemize}
+	\item The name of each device
+	\item The power consumed by each device
+	\item The device's power consumption per hour
+	\item Sorted alphabetically by name 
+\end{itemize}
+The user clicks on the "Power consumed" column to sort it from greatest to least\\
+The display sorts the list from greatest power consumption to least
+
+\subsubsection{Expected Outcome}
+
+The user sees that the first item in the list is using the most power.\\
+The user sees the next few largest power-consuming devices.

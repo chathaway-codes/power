@@ -1,0 +1,37 @@
+\section{View Monthly Power Consumption}
+In this scenario the user is intending to view the power consumption of the entire house for a series of specified consecutive months.
+
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+	\item System
+\end{itemize}
+
+
+\subsubsection{Assumptions}
+
+The user is logged into the display site\\
+The user is at the home page\\
+The system has logged data from at least one month ago 
+
+\subsubsection{Procedure}
+
+The user clicks the "View Data" button in the navigation menu\\
+The display opens a drop-down menu with several more links
+\begin{itemize}
+	\item One of which is "View Device Power Consumption" 
+\end{itemize}
+The user selects "View Device Power Consumption"\\
+The user specifies the date range that will viewed\\
+The user clicks a "OK" or "Submit" button\\
+The display shows the user a table containing:
+\begin{itemize}
+	\item The name of the month
+	\item The total power consumed by the entire system for that month 
+\end{itemize}
+The site displays the sum of the power consumption for each Satellite on each day of the month 
+
+\subsubsection{Expected Outcome}
+
+The site will display the power consumption from the specified month or a warning if the data does not exist.

@@ -1,0 +1,31 @@
+\section{Adjust Power Cost}
+This use case describes the process that a user would employ to change the cost-per-kilowatt-hour that the system uses to guesstimate the monthly power bill.
+
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user is logged in and on the home page\\
+The user has permission to change the kilowatt\/hr cost 
+
+\subsubsection{Procedure}
+
+The user clicks the "Settings" link from the navigation menu\\
+The display presents the user with the settings panel, which includes a link to the "Adjust Power Cost" page\\
+The user clicks the "Adjust Power Cost" link\\
+The display presents the user with a page consisting of two columns of text boxes. The left column indicates the range for the cost, which is specified in the right column\\
+\begin{itemize}
+	\item The goal is to allow the user to say "My first 500 kW/hrs cost \$0.08, my next 1000 kW/hrs cost \$0.10, and everything after that costs \$0.12 per kW\/hr" 
+\end{itemize}
+The user adjusts the cost by changing the ranges or changing the costs\\
+The user clicks a "Submit" button\\
+The display shows the changed power costs
+
+\subsubsection{Expected Outcome}
+
+The display applies the changed power costs to all new calculations. 
+Previous calculations shall remain unchanged, with assumption that costs just increased.

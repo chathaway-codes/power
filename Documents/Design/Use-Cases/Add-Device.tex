@@ -1,0 +1,45 @@
+\section{Add Device}
+
+This use case documents the procedure that a user would use to add a new device to the system. 
+
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+	\item Device
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user is logged in and on the home page\\
+The user has permission to modify devices
+
+\subsubsection{Procedure}
+
+The user clicks the "Settings" link from the navigation menu\\
+The display presents the user with the settings panel, which includes a link to the "Device Management" page\\
+The user clicks the "Device Management" link\\
+The display shows the user the "Device Management" page
+\begin{itemize}
+	\item This includes an "Add device" button
+\end{itemize}
+The user clicks the "Add device" button\\
+The display prompts the user for information about the device, including:
+\begin{itemize}
+	\item Name
+	\begin{itemize}
+		\item Optional: room, location in room, owner. These will be used to guide the user in coming up with a unique name
+	\end{itemization}
+	\item What Satellite it is plugged into
+	\begin{itemization}
+		\item Optional, may be not be plugged in
+	\end{itemization}
+\end{itemize}
+The user fills in the requested information\\
+The user clicks an "OK" or "Submit" button\\
+The display informs the user that the device has been added\\
+The display shows the user the "Device Management" page
+
+\subsubsection{Expected Outcome}
+
+The display has the device available for history and mapping to Satellites. 

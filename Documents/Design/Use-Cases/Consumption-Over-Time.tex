@@ -1,0 +1,41 @@
+\section{View Power Consumption Over Time}
+This use case describes the process that a user would employ to display graphs indicating the power consumption of devices over a specified time range.
+
+\subsubsection{Actors}
+\begin{itemize}
+	\item User
+	\item Display
+\end{itemize}
+
+\subsubsection{Assumptions}
+
+The user is logged in and on the home page\\
+There are several devices associated with the server\\
+The server has several months worth of data 
+
+\subsubsection{Procedure}
+
+The user selected the "View Data" button from the navigation menu\\
+The display shows the user a list of charts they can view
+\begin{itemize}
+	\item One of which is "View Power Use over Time" 
+\end{itemize}
+The display shows a page that prompts the user to select:
+\begin{itemize}
+	\item What devices or device groups they want to compare
+	\begin{itemize}
+		\item Defaults the group "All devices" 
+	\end{itemize}
+	\item What time period they would like to compare them over
+	\begin{itemize}
+		\item Defaults to the last six months 
+	\end{itemize}
+\end{itemize}
+The user supplies the requested information
+The user clicks "Display"
+The display generates one chart for each device/device group over the specified range
+Displays them in the order the user selected them 
+
+\subsubsection{Expected Outcome}
+
+The user sees the power consumption trends of the selected devices over the selected time period 
