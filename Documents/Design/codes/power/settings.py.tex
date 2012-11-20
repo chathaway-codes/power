@@ -1,0 +1,271 @@
+
+\documentclass{article}
+\usepackage{fancyvrb}
+\usepackage{color}
+\usepackage[ascii]{inputenc}
+
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+\begin{document}
+
+\section*{}
+
+\begin{Verbatim}[commandchars=\\\{\},numbers=left,firstnumber=1,stepnumber=1]
+\PY{c}{\PYZsh{} Django settings for power project.}
+\PY{k+kn}{import} \PY{n+nn}{os}
+
+\PY{n}{DEBUG} \PY{o}{=} \PY{n+nb+bp}{True}
+\PY{n}{TEMPLATE\PYZus{}DEBUG} \PY{o}{=} \PY{n}{DEBUG}
+
+\PY{n}{PROJECT\PYZus{}ROOT} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{/}\PY{l+s}{'}\PY{p}{,} \PY{o}{*}\PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{realpath}\PY{p}{(}\PY{n}{\PYZus{}\PYZus{}file\PYZus{}\PYZus{}}\PY{p}{)}\PY{o}{.}\PY{n}{split}\PY{p}{(}\PY{n}{os}\PY{o}{.}\PY{n}{sep}\PY{p}{)}\PY{p}{[}\PY{p}{:}\PY{o}{-}\PY{l+m+mi}{2}\PY{p}{]}\PY{p}{)}
+
+\PY{n}{ADMINS} \PY{o}{=} \PY{p}{(}
+    \PY{c}{\PYZsh{} ('Your Name', 'your\PYZus{}email@example.com'),}
+\PY{p}{)}
+
+\PY{n}{MANAGERS} \PY{o}{=} \PY{n}{ADMINS}
+
+\PY{n}{DATABASES} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s}{'}\PY{l+s}{default}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+        \PY{l+s}{'}\PY{l+s}{ENGINE}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{django.db.backends.mysql}\PY{l+s}{'}\PY{p}{,} \PY{c}{\PYZsh{} Add 'postgresql\PYZus{}psycopg2', 'mysql', 'sqlite3' or 'oracle'.}
+        \PY{l+s}{'}\PY{l+s}{NAME}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{power}\PY{l+s}{'}\PY{p}{,}                      \PY{c}{\PYZsh{} Or path to database file if using sqlite3.}
+        \PY{l+s}{'}\PY{l+s}{USER}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{root}\PY{l+s}{'}\PY{p}{,}                      \PY{c}{\PYZsh{} Not used with sqlite3.}
+        \PY{l+s}{'}\PY{l+s}{PASSWORD}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{'}\PY{p}{,}                  \PY{c}{\PYZsh{} Not used with sqlite3.}
+        \PY{l+s}{'}\PY{l+s}{HOST}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{127.0.0.1}\PY{l+s}{'}\PY{p}{,}                      \PY{c}{\PYZsh{} Set to empty string for localhost. Not used with sqlite3.}
+        \PY{l+s}{'}\PY{l+s}{PORT}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{'}\PY{p}{,}                      \PY{c}{\PYZsh{} Set to empty string for default. Not used with sqlite3.}
+    \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}
+
+\PY{c}{\PYZsh{} Local time zone for this installation. Choices can be found here:}
+\PY{c}{\PYZsh{} http://en.wikipedia.org/wiki/List\PYZus{}of\PYZus{}tz\PYZus{}zones\PYZus{}by\PYZus{}name}
+\PY{c}{\PYZsh{} although not all choices may be available on all operating systems.}
+\PY{c}{\PYZsh{} In a Windows environment this must be set to your system time zone.}
+\PY{n}{TIME\PYZus{}ZONE} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{America/New\PYZus{}York}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} Language code for this installation. All choices can be found here:}
+\PY{c}{\PYZsh{} http://www.i18nguy.com/unicode/language-identifiers.html}
+\PY{n}{LANGUAGE\PYZus{}CODE} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{en-us}\PY{l+s}{'}
+
+\PY{n}{SITE\PYZus{}ID} \PY{o}{=} \PY{l+m+mi}{1}
+
+\PY{c}{\PYZsh{} If you set this to False, Django will make some optimizations so as not}
+\PY{c}{\PYZsh{} to load the internationalization machinery.}
+\PY{n}{USE\PYZus{}I18N} \PY{o}{=} \PY{n+nb+bp}{True}
+
+\PY{c}{\PYZsh{} If you set this to False, Django will not format dates, numbers and}
+\PY{c}{\PYZsh{} calendars according to the current locale.}
+\PY{n}{USE\PYZus{}L10N} \PY{o}{=} \PY{n+nb+bp}{True}
+
+\PY{c}{\PYZsh{} If you set this to False, Django will not use timezone-aware datetimes.}
+\PY{n}{USE\PYZus{}TZ} \PY{o}{=} \PY{n+nb+bp}{True}
+
+\PY{c}{\PYZsh{} Absolute filesystem path to the directory that will hold user-uploaded files.}
+\PY{c}{\PYZsh{} Example: "/home/media/media.lawrence.com/media/"}
+\PY{n}{MEDIA\PYZus{}ROOT} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} URL that handles the media served from MEDIA\PYZus{}ROOT. Make sure to use a}
+\PY{c}{\PYZsh{} trailing slash.}
+\PY{c}{\PYZsh{} Examples: "http://media.lawrence.com/media/", "http://example.com/media/"}
+\PY{n}{MEDIA\PYZus{}URL} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} Absolute path to the directory static files should be collected to.}
+\PY{c}{\PYZsh{} Don't put anything in this directory yourself; store your static files}
+\PY{c}{\PYZsh{} in apps' "static/" subdirectories and in STATICFILES\PYZus{}DIRS.}
+\PY{c}{\PYZsh{} Example: "/home/media/media.lawrence.com/static/"}
+\PY{n}{STATIC\PYZus{}ROOT} \PY{o}{=} \PY{n}{PROJECT\PYZus{}ROOT} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{/collected\PYZus{}static/}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} URL prefix for static files.}
+\PY{c}{\PYZsh{} Example: "http://media.lawrence.com/static/"}
+\PY{n}{STATIC\PYZus{}URL} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{/static/}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} Additional locations of static files}
+\PY{n}{STATICFILES\PYZus{}DIRS} \PY{o}{=} \PY{p}{(}
+    \PY{c}{\PYZsh{} Put strings here, like "/home/html/static" or "C:/www/django/static".}
+    \PY{c}{\PYZsh{} Always use forward slashes, even on Windows.}
+    \PY{c}{\PYZsh{} Don't forget to use absolute paths, not relative paths.}
+    \PY{n}{PROJECT\PYZus{}ROOT} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{/static/}\PY{l+s}{'}\PY{p}{,}
+\PY{p}{)}
+
+\PY{c}{\PYZsh{} List of finder classes that know how to find static files in}
+\PY{c}{\PYZsh{} various locations.}
+\PY{n}{STATICFILES\PYZus{}FINDERS} \PY{o}{=} \PY{p}{(}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.staticfiles.finders.FileSystemFinder}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.staticfiles.finders.AppDirectoriesFinder}\PY{l+s}{'}\PY{p}{,}
+\PY{c}{\PYZsh{}    'django.contrib.staticfiles.finders.DefaultStorageFinder',}
+\PY{p}{)}
+
+\PY{c}{\PYZsh{} Make this unique, and don't share it with anybody.}
+\PY{n}{SECRET\PYZus{}KEY} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{1p}\PY{l+s+si}{\PYZpc{}e}\PY{l+s}{k\PYZca{}!br\PYZsh{}xqjsgi+tb(\PYZus{}f60\PYZus{}\PYZca{}@z\PYZca{}\PYZdl{}w3\PYZsh{}p)xhjvcx=69u\PYZsh{}piob}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} List of callables that know how to import templates from various sources.}
+\PY{n}{TEMPLATE\PYZus{}LOADERS} \PY{o}{=} \PY{p}{(}
+    \PY{l+s}{'}\PY{l+s}{django.template.loaders.filesystem.Loader}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.template.loaders.app\PYZus{}directories.Loader}\PY{l+s}{'}\PY{p}{,}
+\PY{c}{\PYZsh{}     'django.template.loaders.eggs.Loader',}
+\PY{p}{)}
+
+\PY{n}{MIDDLEWARE\PYZus{}CLASSES} \PY{o}{=} \PY{p}{(}
+    \PY{l+s}{'}\PY{l+s}{django.middleware.common.CommonMiddleware}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.sessions.middleware.SessionMiddleware}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.middleware.csrf.CsrfViewMiddleware}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.auth.middleware.AuthenticationMiddleware}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.messages.middleware.MessageMiddleware}\PY{l+s}{'}\PY{p}{,}
+    \PY{c}{\PYZsh{} Uncomment the next line for simple clickjacking protection:}
+    \PY{c}{\PYZsh{} 'django.middleware.clickjacking.XFrameOptionsMiddleware',}
+\PY{p}{)}
+
+\PY{n}{ROOT\PYZus{}URLCONF} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{power.urls}\PY{l+s}{'}
+
+\PY{c}{\PYZsh{} Python dotted path to the WSGI application used by Django's runserver.}
+\PY{n}{WSGI\PYZus{}APPLICATION} \PY{o}{=} \PY{l+s}{'}\PY{l+s}{power.wsgi.application}\PY{l+s}{'}
+
+\PY{n}{TEMPLATE\PYZus{}DIRS} \PY{o}{=} \PY{p}{(}
+    \PY{c}{\PYZsh{} Put strings here, like "/home/html/django\PYZus{}templates" or "C:/www/django/templates".}
+    \PY{c}{\PYZsh{} Always use forward slashes, even on Windows.}
+    \PY{c}{\PYZsh{} Don't forget to use absolute paths, not relative paths.}
+    \PY{n}{PROJECT\PYZus{}ROOT} \PY{o}{+} \PY{l+s}{'}\PY{l+s}{/templates/}\PY{l+s}{'}
+\PY{p}{)}
+
+\PY{n}{INSTALLED\PYZus{}APPS} \PY{o}{=} \PY{p}{(}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.auth}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.contenttypes}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.sessions}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.sites}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.messages}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.staticfiles}\PY{l+s}{'}\PY{p}{,}
+    \PY{c}{\PYZsh{} Uncomment the next line to enable the admin:}
+    \PY{l+s}{'}\PY{l+s}{django.contrib.admin}\PY{l+s}{'}\PY{p}{,}
+    \PY{c}{\PYZsh{} Uncomment the next line to enable admin documentation:}
+    \PY{c}{\PYZsh{} 'django.contrib.admindocs',}
+    \PY{l+s}{'}\PY{l+s}{device}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{factory\PYZus{}reset}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{power}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{power\PYZus{}bill}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{power\PYZus{}data}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{rest\PYZus{}api}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{satellite}\PY{l+s}{'}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{tastypie}\PY{l+s}{'}\PY{p}{,}
+\PY{p}{)}
+
+\PY{c}{\PYZsh{} A sample logging configuration. The only tangible logging}
+\PY{c}{\PYZsh{} performed by this configuration is to send an email to}
+\PY{c}{\PYZsh{} the site admins on every HTTP 500 error when DEBUG=False.}
+\PY{c}{\PYZsh{} See http://docs.djangoproject.com/en/dev/topics/logging for}
+\PY{c}{\PYZsh{} more details on how to customize your logging configuration.}
+\PY{n}{LOGGING} \PY{o}{=} \PY{p}{\PYZob{}}
+    \PY{l+s}{'}\PY{l+s}{version}\PY{l+s}{'}\PY{p}{:} \PY{l+m+mi}{1}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{disable\PYZus{}existing\PYZus{}loggers}\PY{l+s}{'}\PY{p}{:} \PY{n+nb+bp}{False}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{filters}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+        \PY{l+s}{'}\PY{l+s}{require\PYZus{}debug\PYZus{}false}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+            \PY{l+s}{'}\PY{l+s}{()}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{django.utils.log.RequireDebugFalse}\PY{l+s}{'}
+        \PY{p}{\PYZcb{}}
+    \PY{p}{\PYZcb{}}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{handlers}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+        \PY{l+s}{'}\PY{l+s}{mail\PYZus{}admins}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+            \PY{l+s}{'}\PY{l+s}{level}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{ERROR}\PY{l+s}{'}\PY{p}{,}
+            \PY{l+s}{'}\PY{l+s}{filters}\PY{l+s}{'}\PY{p}{:} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{require\PYZus{}debug\PYZus{}false}\PY{l+s}{'}\PY{p}{]}\PY{p}{,}
+            \PY{l+s}{'}\PY{l+s}{class}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{django.utils.log.AdminEmailHandler}\PY{l+s}{'}
+        \PY{p}{\PYZcb{}}
+    \PY{p}{\PYZcb{}}\PY{p}{,}
+    \PY{l+s}{'}\PY{l+s}{loggers}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+        \PY{l+s}{'}\PY{l+s}{django.request}\PY{l+s}{'}\PY{p}{:} \PY{p}{\PYZob{}}
+            \PY{l+s}{'}\PY{l+s}{handlers}\PY{l+s}{'}\PY{p}{:} \PY{p}{[}\PY{l+s}{'}\PY{l+s}{mail\PYZus{}admins}\PY{l+s}{'}\PY{p}{]}\PY{p}{,}
+            \PY{l+s}{'}\PY{l+s}{level}\PY{l+s}{'}\PY{p}{:} \PY{l+s}{'}\PY{l+s}{ERROR}\PY{l+s}{'}\PY{p}{,}
+            \PY{l+s}{'}\PY{l+s}{propagate}\PY{l+s}{'}\PY{p}{:} \PY{n+nb+bp}{True}\PY{p}{,}
+        \PY{p}{\PYZcb{}}\PY{p}{,}
+    \PY{p}{\PYZcb{}}
+\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+\end{document}
