@@ -14,9 +14,9 @@
 \usepackage{listings}
 \usepackage{standalone}
 %\usepackage{includex}
-\begin{tiny}
-•
-\end{tiny}
+%\begin{tiny}
+%•
+%\end{tiny}
 %% Chapter titles
 \usepackage[T1]{fontenc}
 \usepackage{titlesec, blindtext, color}
@@ -29,7 +29,7 @@
 
 % Formatting options
 \renewcommand{\chaptername}{}
-\newcommand{\theTitle}{System And Software Architecture}
+\newcommand{\theTitle}{System And Software Design}
 \newcommand{\filename}[1]{\texttt{#1}}
 
 % Footnote stuff
@@ -75,6 +75,24 @@
 
 \setcounter{page}{1}
 \pagenumbering{roman}
+
+% Revision/Versioning Table
+
+\begin{table}
+\caption{Revision History}
+    \begin{tabular}{|p{50pt}|p{50pt}|p{200pt}|p{50pt}|}
+	\hline
+	Date & Version & Description & Author\\  \hline
+	11/09/12 & <1.0> & Original version of this document & \\  \hline
+	11/13/12 & <1.1> & Added a bibliography & chathaway\\  \hline
+	11/19/12 & <1.2> & Added and formatted all use cases & gdegeus\\  \hline
+	11/20/12 & <1.3> & Added a script to generate tex from our codes, and found a way to include those in the document. & chathaway\\  \hline
+	11/28/12 & <1.4> & Added a Revision History table. & gdegeus \\ \hline
+	~    & ~       & ~           & ~      \\  \hline
+    \end{tabular}
+
+\end{table}
+\newpage
 
 % Table of contents
 \tableofcontents
@@ -139,7 +157,7 @@
 % Stuff about the server
 \input{Server/overview}
 
-\section{Acronyms}
+\chapter{Acronyms}
 \begin{acronym}
 	\acro{A}{Amps}
 	\acro{AJAX}{Asynchronous JavaScript and XML}
