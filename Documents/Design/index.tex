@@ -88,6 +88,7 @@
 	11/19/12 & <1.2> & Added and formatted all use cases & gdegeus\\  \hline
 	11/20/12 & <1.3> & Added a script to generate tex from our codes, and found a way to include those in the document. & chathaway\\  \hline
 	11/28/12 & <1.4> & Added a Revision History table. & gdegeus \\ \hline
+	11/29/12 & <1.5> & Added Non-functional Requirements section, added glossary section, re-arranged document layout, updated Introduction, index and Acronyms section. & gdegeus \\  \hline
 	~    & ~       & ~           & ~      \\  \hline
     \end{tabular}
 
@@ -113,13 +114,46 @@
 % Introduction and some basic things
 \input{Introduction}
 
-% Hardware design
-\input{Hardware/overview}
+\chapter{Acronyms and Definitions}
 
-% Software design
-\input{Software/overview}
-
+\section{Acronyms}
+\begin{acronym}
+	\acro{A}{Amps}
+	\acro{AJAX}{Asynchronous JavaScript and XML}
+	\acro{API}{Application programming interface}
+	\acro{CSS}{Cascading Style Sheets}
+	\acro{GPIO}{General Purpose Input Output}
+	\acro{HTML}{HyperText Markup Language}
+	\acro{HTTP}{Hypertext Transfer Protocol}
+	\acro{IEEE}{Institute of Electrical and Electronics Engineers}
+	\acro{IP}{Internat Protocol}
+	\acro{JSON}{JavaScript Object Notation}
+	\acro{LCD}{Liquid Crystal Display}
+	\acro{M}{Meters}
+	\acro{NEMA}{National Electrical Manufacturers Association}
+	\acro{PIP}{Python package installer}
+	\acro{POST}{Request Method}
+	\acro{POW-R}{Power Outlet Wireless Reporter}
+	\acro{REST}{REpresentational State Transfer}
+	\acro{SATA}{Serial ATA}
+	\acro{SQL}{Structured Query Language}
+	\acro{SSD}{Solid State Srive}
+	\acro{TLS}{Transport Layer Security}
+	\acro{UI}{User Interface}
+	\acro{URL}{Uniform Resource Locator}
+	\acro{USB}{Universal Serial Bus}
+	\acro{VDC}{Volts DC (Direct Current)}
+	\acro{W}{Watts}
+	\acro{XML}{Extensible Markup Language}
+	\acro{XSS}{Cross-site scripting}
+	\acro{YAML}{YAML Ain't Markup Language}
+\end{acronym}
+\section{Definitions}
 \newpage
+
+%Glossary
+\input{Glossary}
+
 %Use Cases
 \input{Use-Cases/overview}
 \newpage
@@ -154,41 +188,18 @@
 \input{Use-Cases/Remove-Satellite}
 \newpage
 
+
+% Hardware design
+\input{Hardware/overview}
+
+% Software design
+\input{Software/overview}
+
 % Stuff about the server
 \input{Server/overview}
 
-\chapter{Acronyms}
-\begin{acronym}
-	\acro{A}{Amps}
-	\acro{AJAX}{Asynchronous JavaScript and XML}
-	\acro{API}{Application programming interface}
-	\acro{CSS}{Cascading Style Sheets}
-	\acro{GPIO}{General Purpose Input Output}
-	\acro{HTML}{HyperText Markup Language}
-	\acro{HTTP}{Hypertext Transfer Protocol}
-	\acro{IEEE}{Institute of Electrical and Electronics Engineers}
-	\acro{IP}{Internat Protocol}
-	\acro{JSON}{JavaScript Object Notation}
-	\acro{LCD}{Liquid Crystal Display}
-	\acro{M}{Meters}
-	\acro{NEMA}{National Electrical Manufacturers Association}
-	\acro{PIP}{Python package installer}
-	\acro{POST}{Request Method}
-	\acro{POW-R}{Power Outlet Wireless Reporter}
-	\acro{REST}{REpresentational State Transfer}
-	\acro{SATA}{Serial ATA}
-	\acro{SQL}{Structured Query Language}
-	\acro{SSD}{Solid State Srive}
-	\acro{TLS}{Transport Layer Security}
-	\acro{UI}{User Interface}
-	\acro{URL}{Uniform Resource Locator}
-	\acro{USB}{Universal Serial Bus}
-	\acro{VDC}{Volts DC (Direct Current)}
-	\acro{W}{Watts}
-	\acro{XML}{Extensible Markup Language}
-	\acro{XSS}{Cross-site scripting}
-	\acro{YAML}{YAML Ain't Markup Language}
-\end{acronym}
+%Non-functional Requirements
+\input{Non-Functional-Requirements}
 \newpage
 
 % References
