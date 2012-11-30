@@ -41,3 +41,45 @@ The Satellite module consists of the following objects:
   \label{code:satellite/models}
   \input{codes/satellite/models.py}
 \end{table}
+
+\subsubsection{Database Description}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Software/images/Database/Satellite.png}
+\caption{Satellite Module Database Schema}
+\label{img:S_Satellite_Device}
+\end{figure}
+
+Figure \ref{img:S_Satellite_Device} describes the database for the power\_data module. 
+This schema is here because it is so closely related to the Satellite module. 
+The fields are expanded upon below.
+
+\paragraph{satellite}
+
+\begin{itemize}
+ \item id - This is the primary key for this device. It will be indexed, and will be the primary means of updating and deleting objects.
+ \item serial\_number - This, combined the the outlet, form a unique key. This field will be used to identify the outlet to the user.
+ \item outlet - This field represents the outlet on the satellite. 
+ \item device\_id - This field is a foreign key to the device that is associated to this outlet. It will be used to log the data to the appropriate devices when it is inserted into the power\_data module.
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Software/images/Database/Power Data.png}
+\caption{Power Data Module Database Schema}
+\label{img:S_Power_Data_Device}
+\end{figure}
+
+Figure \ref{img:S_Power_Data_Device} describes the database for the Power\_Data module. The fields are expanded upon below.
+
+\paragraph{data}
+
+\begin{itemize}
+ \item id - This is the primary key for this device. It will be indexed, and will be the primary means of updating and deleting objects.
+ \item device\_id - This is a foreign key relating this piece of data to a device. This will be index, and used to aggregate appropriate data.
+ \item timestamp - This field represents the time that this data was put into the database.
+ \item watt - This field represents the total wattage being drawn by the device over interval. It is a product of the voltage and amperage, and amperage can be calculated from it.
+ \item avg\_volt - This is the average voltage pulled by the device over interval.
+ \item interval - This is the length of time that was measured. It will be used to average the voltage and amperage
+\end{itemize}

@@ -46,3 +46,21 @@ The Device module consists of the following objects:
   \label{code:device/models}
   \input{codes/device/models.py}
 \end{table}
+
+\subsubsection{Database Description}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{Software/images/Database/Device.png}
+\caption{Device Module Database Schema}
+\label{img:S_Database_Device}
+\end{figure}
+
+Figure \ref{img:S_Database_Device} describes the database for the Device module. The fields are expanded upon below.
+
+\paragraph{device}
+
+\begin{itemize}
+ \item id - This is the primary key for this device. It will be indexed, and will be the primary means of updating and deleting objects.
+ \item name - This is the "name" of the device. This should be human readable and unique.
+\end{itemize}
