@@ -1,0 +1,52 @@
+
+\section{Definitions}
+
+\paragraph{Amperes (Amps)}
+The SI base unit of electric current, equal to a flow of one coulomb per second.
+
+\paragraph{API}
+An application programming interface (API) is a specification intended to be used as an interface by software components to communicate with each other.
+
+\paragraph{AJAX}
+AJAX is a way of executing asynchronous calls to the server by using Javascript. 
+The benefit of this is that we don't need to refresh the page, or send extra data over the network.
+
+\paragraph{HTTP}
+The Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia information systems. 
+HTTP is the foundation of data communication for the World Wide Web.
+
+\paragraph{JSON}
+Javsascript Object Notation. 
+JSON is a way of representing objects in a hash-table that is easy to use in the Javascript scripting language. 
+This is basically a hashmap, and can be looped through using for-each loops, for loops, and while loops.
+
+\paragraph{REST}
+REpresentational State Transfer is a software architecture that makes use of the existing HTTP protocol to implement a well defined, practical, and efficient means of representing resources on the web.
+REST uses URL's to denote different resources, with the query string being used to filter the resources. 
+Although some believe that using a "clean url" instead of the query string is proper REST, for our purposes there is no reason to have especially "human-readable" URL's that result from using clean URL's.
+In short, this is how we would denote a device in the REST API:
+
+/api/raw/device/5
+
+/api/raw is simple the entry path to the API. 
+The next part, /device, is the table we are accessing. 
+The last part, /5, is the primary key of the object we are looking at.
+
+Another way to represent the same device, using the query string, would be:
+
+/api/raw/device/?id=5
+
+If you simple open these URL's in a web browser, you will be initiating a GET request. A GET request returns data already on the server. The verbs in the HTTP vocabulary are:
+
+\begin{itemize}
+ \item GET - Get's information about the device
+ \item POST - Creates a new entry, if directed at the resource collection
+ \item PUT - Updates the specified resource with the given information
+ \item DELETE - Deletes the specified resource or everything in the specified collection
+\end{itemize}
+
+Combing these verbs with the search query and the URL, we can effectively create an uniform API for accessing the database over the web.
+In addition, we can control access and authorization via standard methods handled by the web.
+
+\paragraph{Volt (Volts)}
+The SI unit of electromotive force, the difference of potential that would carry one ampere of current against one ohm resistance.
