@@ -1,30 +1,73 @@
 \chapter{Non-functional Requirements}
 
 \section{Summary of Requirements}
-The POW-R project aims to produce a low cost, low powered, device that will allow home owners to track their power consumption on a per-device basis. 
-The hope is that by allowing home owners to see where all their power is going, they can take steps to disable or replace the most inefficient offenders.
 
-To accomplish the stated purpose, this project provides the following components:
+
+The system is made up of the following components:
 \begin{itemize}
- \item Satellites
- \item The Server
- \item The Display
+	 \item Satellites
+	 \item The Server
+	 \item The Display
 \end{itemize}
 
 Each of these components have their own requirements. The basic summary of the non-functional requirements of each one would be:
 
 \subsection{Satellite Requirements}
+
 \begin{itemize}
-  \item
+ 	\item Able to work in groups of up to 255 for any one Server within a 500 meter radius
+	\item Conveniently sized and shaped
+	\begin{itemize}
+		\item Unobtrusive
+		\item As small as possible given the hardware
+	\end{itemize}
+	\item A small LED near each socked to indicate power
+	\item A button for turning On or Off
+	\item A button to initiate connection to the Server
+	\item Will be an unobtrusive color other than white
+	\item Data sent from Satellite to Server shall be encrypted
 \end{itemize}
 
 \subsection{Server Requirements}
 \begin{itemize}
-  \item 
+	\item Enough hard drive space to hold 5 years of data
+	\item Supports up to 255 Satellites
+	\item Receives a reading from any Satellite at any time
+	\begin{itemize}
+		\item Losing readings is considered an error
+	\end{itemize}
+	\item Hardware specifications:
+	\begin{itemize}
+		\item 1.2 GHz CPU, i386 architecture
+		\item 512 MB Ram
+		\item 40G SSD Drive
+	\end{itemize}
+	\item Small and unobtrusive case
+	\item Color shall not be white
+	\item User can add Satellites at any time
+	\item Encryption used on all communication to Satellites
+	\item User cannot log in to the Server and get a shell
 \end{itemize}
 
 \subsection{Display Requirements}
 \begin{itemize}
-  \item 
-  \item
+ 	\item Interface is easy to learn
+ 	\item Maximum of 500 milliseconds to load a page
+	\item Data is not lost when a device is moved to a new Satellite
+	\item Not vulnerable to SQL injection
+	\item Not vulnerable to XSS
+	\item No unauthorized access
+	\item Data transmitted to the Display is encrypted
+	\item User has a modern web browser:
+	\begin{itemize}
+		\item Internet Explorer 9
+		\item Chrome 22
+		\item Firefox 15
+	\end{itemize}
+	\item User's PC can render a page in their web browser that contains:
+	\begin{itemize}
+		\item Javascript
+		\item Images
+		\item Extensive mark up
+	\end{itemize}
 \end{itemize}
