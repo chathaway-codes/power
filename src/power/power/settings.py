@@ -4,7 +4,13 @@ import os
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-PROJECT_ROOT = os.path.join('/', *os.path.realpath(__file__).split(os.sep)[:-2])
+PROJECT_ROOT = os.path.join(*os.path.realpath(__file__).split(os.sep)[:-2])
+if os.path.splitdrive(PROJECT_ROOT)[0] != '':
+    PROJECT_ROOT = os.path.splitdrive(PROJECT_ROOT)[0] + os.sep + os.path.splitdrive(PROJECT_ROOT)[1]
+
+print PROJECT_ROOT
+print os.path.realpath(__file__).split(os.sep)[:-2]
+print os.path.splitdrive(PROJECT_ROOT)[0]
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
