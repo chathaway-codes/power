@@ -47,3 +47,32 @@ This will allow all modules to be self-contained, which is ideal in that it will
 Early experiments indicate that the \filename{\_\_init\_\_.py} file is called twice during the loading of the system.
 This could be solved a number of ways, or it might not even be a problem. 
 It's very possible the first time the module is loaded it is just being checked for syntax and compiled, then the program is restarting with the compiled files.
+
+\subsubsection{Data Objects}
+
+The REST API will have each module extend the tastypie.resources.ModelResource class. 
+They will, as needed, override some methods to allow custom resource handling.
+In a later version, we will create a custom pager and implement a way of "expanding" data if we need it.
+
+\begin{table}[H]
+  \centering
+  \caption{device/init.py}
+  \label{code:device/init}
+  \input{codes/device/__init__.py}
+\end{table}
+
+Table \ref{code:device/init} shows the code that is used by the Device module to init itself and register that module with the raw API.
+The raw API will be a direct database mapping, and will be used primarily as a means to test the efficiency of the system in the first prototype.
+Currently, there is no authentication or authorization in effect.
+These features will be added at a later time.
+Please see the tastypie documentation (\url{http://django-tastypie.readthedocs.org/en/latest/}) for information on how this will be done.
+
+\begin{table}[H]
+  \centering
+  \caption{power data/init.py}
+  \label{code:power data/init}
+  \input{codes/power_data/__init__.py}
+\end{table}
+
+Table \ref{code:power data/init} demonstrates what kind of code would be used to restrict access to the API.
+This module does NOT permit POSTing of data to the REST API, since this data will be supplied internally by the power\_data module.

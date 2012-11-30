@@ -30,3 +30,14 @@ This modules serves as an interface and a form listener.
 It will receive \ac{POST}ed commands for dispatch to the ZigBee network via a serial-port connected ZigBee. 
 It will also receive the incoming data from the ZigBee network and store it in the Database. 
 The data will consist of the current and voltage readings from each Satellite on the network. 
+
+\subsubsection{Objects}
+
+The Satellite module consists of the following objects:
+
+\begin{table}[H]
+  \centering
+  \caption{satellite/models.py}
+  \label{code:satellite/models}
+  \input{codes/satellite/models.py}
+\end{table}

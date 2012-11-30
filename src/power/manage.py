@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!../python/bin/python
 import os
 import sys
 
