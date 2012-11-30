@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>
+      AJAX Loading of Chart Data
+    </title>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.jqplot.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.json2.min.js"></script>
+    <link rel="stylesheet" type="text/css" hrf="{{ STATIC_URL }}css/jquery.jqplot.min.css" />
+    <script type="text/javascript">
+
+$(document).ready(function(){
+  // Our ajax data renderer which here retrieves a text file.
+  // it could contact any source and pull data, however.
+  // The options argument isn't used in this renderer.
+  var ajaxDataRenderer = function(url, plot, options) {
+    var ret = null;
+    $.ajax({
+      // have to use synchronous here, else the function
+      // will return before the data is fetched
+      async: false,
+      url: url,
+      dataType:"json",
+      success: function(data) {
+        ret = data;
+      }
+    });
+    // The returned data will need to be formatted to look like:
+    //  [[x, xx, xxx, xxxx]]
+    //  [[y, yy, yyy, yyyy]]
+    var power = [];
+    var dates = [];
+    var data = [];
+    for(o in ret['objects']) {
+        o = ret['objects'][o];
+        data.push([o['timestamp'], parseFloat(o['watt'])]);
+        power.push(parseFloat(o['watt']));
+        dates.push(o['timestamp']);
+    }
+    return [power];
+  };
+ 
+  // The url for our json data
+  var jsonurl = "api/raw/data/?format=json";
+ 
+  // passing in the url string as the jqPlot data argument is a handy
+  // shortcut for our renderer.  You could also have used the
+  // "dataRendererOptions" option to pass in the url.
+  var plot2 = $.jqplot('chart2', jsonurl,{
+    title: "AJAX JSON Data Renderer",
+    dataRenderer: ajaxDataRenderer,
+    dataRendererOptions: {
+      unusedOptionalUrl: jsonurl
+    },
+    axesDefaults: {
+        ticks: [],
+    }
+  });
+});
+
+    </script>
+  </head>
+  <body>
+    <div id="chart2" style="height:300px; width:500px;"></div>
+  </body>
+</html>
