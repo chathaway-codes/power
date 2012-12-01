@@ -2,8 +2,15 @@ DESCRIPTION:
 FILENAME.pdf
 http://www.put.the.link.for.documentation.file.here.so.we.can.list.it.as.a.reference
 
+16x2 LCD:
+ADM1602K-NSW-FBS-3.3v.pdf
+http://www.sparkfun.com/datasheets/LCD/ADM1602K-NSW-FBS-3.3v.pdf
 
-Server Board spec sheet:
+Parallel interface attached to LCD:
+st7066.pdf
+http://www.sparkfun.com/datasheets/LCD/st7066.pdf
+
+Server Board:
 SYS940X-01UserGuide_001301.pdf
 http://www.inforcecomputing.com/proddls/SYS940X-01_UserGuide_001301.pdf
 

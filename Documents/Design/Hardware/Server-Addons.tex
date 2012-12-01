@@ -3,14 +3,25 @@
 \subsection{Server Hardware Additions}
 
 The Server provides for the computational needs of the \ac{POW-R} project; 
-more hardware shall be added before the utility needs of the project are met.
+more hardware shall be added before the utility needs of the project are met. 
+
+Figure \ref{SYS9400} is provided below as a visual guide for this section.
+
+\begin{figure}
+\centering
+\includegraphics[scale=1]{Hardware/images/SYS9400-detail.png}
+\caption{Detail Image of SYS9400 Reference Platform, with labels}
+\label{SYS9400}
+\end{figure}
+
+
 
 \subsubsection{\ac{IP} Display}
 The \ac{IP} of the Server shall be displayed somewhere on it's casing. 
 The user will enter this \ac{IP} into their browser to access the Display.
 
-This will be achieved by connecting an Arduino via \ac{USB} to the Server, and housing it inside the Server's casing. 
-The Arduino will be connected to an \ac{LCD} display which will output the network \ac{IP} of the Server. 
+This will be achieved by connecting an Arduino Uno via \ac{USB} to the Server, and housing it inside the Server's casing. 
+The Arduino will be connected to a 16x2 \ac{LCD} display which will output the network \ac{IP} of the Server. 
 Figure \ref{ArduinoLCD} shows the interaction between Server and Arduino.
 
 \begin{figure}
@@ -23,16 +34,42 @@ Figure \ref{ArduinoLCD} shows the interaction between Server and Arduino.
 The \ac{IP} address of the system can be obtained from the operating system, and sent to the Arduino one byte at a time. 
 This works well, since the Arduino connects over serial and thusly takes a byte at a time.
 
+Code for the Arduino attached to the LCD will be simple
+
+
 \subsubsection{Power Switch}
 A standard rocker switch will be added to the case to provide the user with a way to turn the Server on and off. 
 The style of the switch will clearly signify "On" or "Off".
 
+Pin headers on the motherboard located slightly Label J (reset button) in Figure \ref{SYS9400}, can be used to add a rocker switch to the board.
+This works the same way as connecting a front panel power button to a standard motherboard.
+Wires used to connect the switch to the board will be long enough to reach the casing.
+
+
 \subsubsection{Factory Reset\repeatfootnote{opt}}
 This button should intentionally be placed somewhere inconvenient: 
 Sunken into the case far enough that you need a skinny rod (such as a paperclip) to push it, and in a spot
-that chaotic forces (children, mean people, God's divine will) will not notice it.
+that chaotic forces (children, mean people, God's divine will) will not notice it. 
+
+For the sake of the first prototype, this button can be a debugging switch on an Arduino. 
+The Arduino that the \ac{LCD} is connected to will be equipped with the Protoshield attachment. 
+The Protoshield attachment, shown in Figure \ref{Protoshield}, has an unused debugging switch circled in green. 
+That switch shall be set as an interrupt. 
+When the switch is held down for ten (10) seconds, a signal will be sent to a module on the Server. 
+That module on the Server will hear this signal and initiate a factory reset. 
+
+Later, a switch on wires can be used instead of an on-board debugging switch. 
+That way, the switch can be placed behind a discrete hole on the case.
+
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.6]{Hardware/images/ProtoShield.png}
+\caption{Arduino Equipped with Protoshield}
+\label{Protoshield}
+\end{figure}
 	
-\subsection{Server Hull}
+\subsubsection{Server Hull}
 The Server needs a protective casing for several reasons. 
 On the physical level, a durable casing will protect the hardware. 
 The casing also serves to render unnecessary ports inaccessible to users. 
