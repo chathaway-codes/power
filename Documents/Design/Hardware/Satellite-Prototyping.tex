@@ -32,16 +32,27 @@ then into an Analog to Digital converter.
 \label{MeasuringCircuit}
 \end{figure}
 
+\section{Pinout Diagrams}
+Figure \ref{XBeePinout} shows the pinouts of the XBee modules that
+we will be using. For this project we will be using pins 1, 2, 3, and 10.
+Pin 1 is simply the 3.3V source. Pin 2 is the Data Out and will be 
+responsible for sending data to the interface board. Pin 3 is the 
+Data In. This pin will be responsible for receiving the data from 
+the Analog to Digital converter. Pin 10 is the ground that will be used
+to ground the module.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.0]{Hardware/images/XBeePinout.png}
+\caption{XBee Pinout}
+\label{XBeePinout}
+\end{figure}
+
 \section{Potential Problems}
 
 % A list of potentional programs along with suggestions
 %  on ways to work around them. Elaborate on why the problem
 %  exists
-
-\section{Sub-modules 1}
-
-% This is a second section of modules,
-%  and should consists of this module broken 
-%  down further into components. This would
-%  be where you expand on any component of the circuit
-%  if that needs to be done
+One problem we will have to be careful is that the Satellite does
+not catch fire. We are interfacing with 120VAC electricity and 
+this introduces the possibility of electrical fires.
