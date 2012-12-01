@@ -7,15 +7,30 @@
 
 % Insert a description of the module here. This should include:
 %  * The module's purpose
-The purpose of the Satellite is to measure and transmit the voltage present at
-the mains electricity and the amount of current being drawn on the particular outlet that
-the Satellite is plugged into.
+The purpose of the Satellite is to measure and transmit the voltage,
+and the amount of current being drawn on the particular outlet that 
+the Satellite is plugged into. The module is done this way so that
+the current and voltage can be measured quickly and efficiently.
 %  * Why the module is done this way
 
 \section{Circuit Diagrams}
 
 % This should consist of all the relevant circuit diagrams
+
+Figure \ref{MeasuringCircuit} shows the layout of the Satellite's 
+measuring hardware. Mains electricity will be run through a current
+transformer which will measure only a fraction of the actual current. 
+This will be enough to determine how much is actually being drawn. 
+We then pass the current through a diode to ensure that it cannot 
+reverse direction. The current will go through a resistor and 
+then into an Analog to Digital converter.
+
+\begin{figure}[H]
+\centering
 \includegraphics[scale=0.3]{Hardware/images/MeasureCircuit.png}
+\caption{Measuring Circuit}
+\label{MeasuringCircuit}
+\end{figure}
 
 \section{Potential Problems}
 
