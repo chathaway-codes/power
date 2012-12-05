@@ -1,0 +1,23 @@
+\subsection{Software Architecture}
+\frame{\frametitle{Software Architecture}
+\begin{itemize}
+ \item Django Framework
+ \item MySQL Database
+ \item Two separate applications
+ \item 4-tier Architecture
+ \item TLS/SSL Encryption for end-user security
+\end{itemize}
+}
+
+\frame{\frametitle{Software Architecture}
+\begin{center}
+ \includegraphics[width=0.8\textwidth]{Pictures/4-Tier.png}
+\end{center}
+\begin{itemize}
+ \item<2-> View - what is seen by customer
+ \item<3-> Web Application - Prepares forms, parses input, renders templates
+ \item<4-> REST API - Communicates with application server
+ \item<5-> Data Processor - Processes applications, retrieves information
+ \item<6-> Database - Stores local copy of customer information
+\end{itemize}
+}

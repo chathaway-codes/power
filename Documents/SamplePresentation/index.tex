@@ -1,0 +1,117 @@
+\documentclass[compress]{beamer}
+\mode<presentation>
+
+\usetheme{Warsaw}
+\definecolor{innotek}{RGB}{2,52,173}
+\setbeamercolor*{palette primary}{use=structure,fg=white,bg=innotek}
+%\usecolortheme[RGB={2,52,173}]{structure}
+\defbeamertemplate*{footline}{shadow theme}
+{%
+  \leavevmode%
+  \hbox{\begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm plus1fil,rightskip=.3cm]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\hfill\insertshortauthor%
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.5ex,dp=1.125ex,leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      \usebeamerfont{title in head/foot}\insertshorttitle\hfill\insertframenumber\,/\,\inserttotalframenumber%
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+
+\usepackage{subfigure}
+\usepackage{multicol}
+%\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage[all,knot]{xy}
+\xyoption{arc}
+\usepackage{url}
+\usepackage{multimedia}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+% define your own colours:
+\definecolor{innotek}{RGB}{1,54,160}
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{Green}{rgb}{0,1,0}
+\definecolor{magenta}{rgb}{1,0,.6}
+\definecolor{lightblue}{rgb}{0,.5,1}
+\definecolor{lightpurple}{rgb}{.6,.4,1}
+\definecolor{gold}{rgb}{.6,.5,0}
+\definecolor{orange}{rgb}{1,0.4,0}
+\definecolor{hotpink}{rgb}{1,0,0.5}
+\definecolor{newcolor2}{rgb}{.5,.3,.5}
+\definecolor{newcolor}{rgb}{0,.3,1}
+\definecolor{newcolor3}{rgb}{1,0,.35}
+\definecolor{darkgreen1}{rgb}{0, .35, 0}
+\definecolor{darkgreen}{rgb}{0, .6, 0}
+\definecolor{darkred}{rgb}{.75,0,0}
+
+\xdefinecolor{olive}{cmyk}{0.64,0,0.95,0.4}
+\xdefinecolor{purpleish}{cmyk}{0.75,0.75,0,0}
+
+\useoutertheme[subsection=false]{smoothbars}
+
+\title{Swift Loan Processing}
+\subtitle{Electronic Loan Application\\And Processing}
+\author[Innotek]{Charles Hathaway\\Hoang Phan\\Emily Russell\\Kyle Timins}
+\institute[Innotek]{\includegraphics[width=20mm]{Pictures/Innotek.png}}
+\date{December $3^{rd}$, 2012}
+
+\begin{document}
+
+\frame{
+    \titlepage
+}
+
+\section[Outline]{}
+\frame{\tableofcontents}
+
+\section{Overview}
+
+\input{overview}
+
+\section{Requirements}
+
+\input{requirements}
+
+\section{How is it made?}
+
+\input{softArch}
+
+\input{netTop}
+
+\section{Problems Addressed}
+
+\input{probSoft}
+
+\input{probHard}
+
+\section{Sample Implementation}
+
+\input{sample}
+
+\section{Questions}
+
+\input{questions}
+
+    %% Emily
+    %%  - What is
+    %%  - Who for
+    %%
+    %% Kyle
+    %%  - Network Topology
+    %%  - Problems Addressed (Network Things)
+    %%
+    %% Charles
+    %%  - Sotware Architecture
+    %%  - Problems Addressed (Software Things)
+    %%
+    %% Hoang
+    %%  - Sample implementation details
+    %%  - Implementation
+
+
+\end{document}
+
