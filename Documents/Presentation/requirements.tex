@@ -1,12 +1,15 @@
 
 \subsection{Requirements Summary}
+\frame{
+\frametitle{Functional Requirements}
+}
 
 \frame {
  \frametitle{Satellite Requirements}
 \begin{itemize}
  \item Standard NEMA 5-15 mains electrical outlets
  \item Two outlet sockets on the opposite side of the plugs %if it takes up two outlets, it should provide two outlets
- \item Less than 5\% error on readings 5 %current and voltage 
+ \item Less than 5\% error on readings %current and voltage 
  \item Power draw less than 1W per Satellite
  \item Broadcasts information up to 500M
  \item Transmits every 1.0 seconds
@@ -74,5 +77,90 @@
 	\end{itemize}
 \end{itemize}
 }
+
+\frame{
+
+\frametitle{Non-functional Requirements}
+}
+
+\frame{
+\frametitle{Satellite Requirements}
+\begin{itemize}
+ 	\item Able to work in groups of up to 255 for any one Server within a 500 meter radius
+	\item Conveniently sized and shaped
+	\begin{itemize}
+		\item Unobtrusive
+		\item As small as possible given the hardware
+	\end{itemize}
+	\item A small LED near each socked to indicate power
+	\item A button for turning On or Off
+	\item A button to initiate connection to the Server
+	\item Will be an unobtrusive color other than white
+	\item Data sent from Satellite to Server shall be encrypted
+\end{itemize}
+}
+
+\frame{
+\frametitle{Server Requirements}
+\begin{itemize}
+	\item Enough hard drive space to hold 5 years of data
+	\item Supports up to 255 Satellites
+	\item Receives a reading from any Satellite at any time
+	\begin{itemize}
+		\item Losing readings is considered an error
+	\end{itemize}
+	\item Hardware specifications:
+	\begin{itemize}
+		\item 1.2 GHz CPU, i386 architecture
+		\item 512 MB Ram
+		\item 40G SSD Drive
+	\end{itemize}
+\end{itemize}
+}
+
+\frame{
+\frametitle{Server Requirements Cont.}
+\begin{itemize}
+	\item Small and unobtrusive case
+	\item Color shall not be white
+	\item User can add Satellites at any time
+	\item Encryption used on all communication to Satellites
+	\item User cannot log in to the Server and get a shell
+\end{itemize}
+}
+
+
+\frame{
+\frametitle{Display Requirements}
+\begin{itemize}
+ 	\item Interface is easy to learn
+ 	\item Maximum of 500 milliseconds to load a page
+	\item Data is not lost when a device is moved to a new Satellite
+	\item Not vulnerable to SQL injection
+	\item Not vulnerable to XSS
+	\item No unauthorized access
+	\item Data transmitted to the Display is encrypted
+\end{itemize}
+}
+
+\frame{
+\frametitle{Display Requirements Cont.}
+\begin{itemize}
+	\item User has a modern web browser:
+	\begin{itemize}
+		\item Internet Explorer 9
+		\item Chrome 22
+		\item Firefox 15
+	\end{itemize}
+	\item User's PC can render a page in their web browser that contains:
+	\begin{itemize}
+		\item Javascript
+		\item Images
+		\item Extensive mark up
+	\end{itemize}
+\end{itemize}
+}
+
+
 
 
