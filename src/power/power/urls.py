@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'power.views.home', name='home'),
+    url(r'^$', TemplateView.as_view(template_name="home.html"), {}, 'home'),
     # url(r'^power/', include('power.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

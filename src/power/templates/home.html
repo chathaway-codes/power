@@ -1,0 +1,20 @@
+{% extends 'admin/base.html' %}
+{% load admin_urls %}
+{% block title %}
+      POW-R Resource Monitor
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content_title %}
+    <h1>Home</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>Quick Links</h2>
+    <ul>
+        <li><a href="{% url admin:device_device_add %}">Add Device</a></li>
+        <li><a href="{% url admin:satellite_satellite_add %}">Add Satellite</a></li>
+    </ul>
+{% endblock %}
