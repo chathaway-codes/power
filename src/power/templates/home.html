@@ -1,5 +1,12 @@
 {% extends 'admin/base.html' %}
+{% load i18n admin_static admin_modify %}
 {% load admin_urls %}
+
+{% block extrahead %}{{ block.super }}
+<!-- This is a dirty, static hack to enable the "popup" add feature thing -->
+<script type="text/javascript" src="{{ STATIC_URL }}js/RelatedObjectLookups.js"></script>
+{% endblock %}
+
 {% block title %}
       POW-R Resource Monitor
 {% endblock %}
@@ -15,6 +22,6 @@
     <h2>Quick Links</h2>
     <ul>
         <li><a href="{% url admin:device_device_add %}">Add Device</a></li>
-        <li><a href="{% url admin:satellite_satellite_add %}">Add Satellite</a></li>
+        <li><a href="{% url admin:satellite_satellite_add %}" onclick="return showAddAnotherPopup(this);">Add Satellite</a></li>
     </ul>
 {% endblock %}
