@@ -4,6 +4,25 @@
     POW-R: Add Satellite
 {% endblock %}
 
+{% block extrahead %}
+    <script data-main="/static/js/add_satellite" src="/static/js/require-jquery.js"></script>
+    <script id="instructions" type="text/html">
+        <p>These are instructions!</p>
+    </script>
+    <script id="searching" type="text/html">
+        <p>Searching!</p>
+    </script>
+    <script id="verify" type="text/html">
+        <p>This this right?</p>
+    </script>
+    <script id="add" type="text/html">
+        <p>Adding</p>
+    </script>
+    <script id="cancel" type="text/html">
+        <p>Cancelling</p>
+    </script>
+{% endblock %}
+
 {% block breadcrumbs %}
 {% endblock %}
 
@@ -12,5 +31,11 @@
 {% endblock %}
 
 {% block content %}
+    <div id="main">
+        <div id="inner-el"></div>
+        <input type="button" id="prev" value="Previous"></input>
+        <input type="button" id="cancel" value="Cancel"></input>
+        <input type="button" id="next" value="Next"></input>
+    </div>
 {% endblock %}
 
