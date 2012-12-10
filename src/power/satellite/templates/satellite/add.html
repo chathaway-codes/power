@@ -6,18 +6,28 @@
 
 {% block extrahead %}
     <script data-main="/static/js/add_satellite" src="/static/js/require-jquery.js"></script>
+
     <script id="instructions" type="text/html">
-        <p>These are instructions!</p>
+        <img src="{{ STATIC_URL }}img/outlet-face.png" style="width: 150px; height: 200px;" />
+        <p>Please push the red connect button on the Satellite you wish to connect.</p>
+        <p>Make sure the Satellite is plugged in, and within 500m of another Satellite</p>
     </script>
+
     <script id="searching" type="text/html">
-        <p>Searching!</p>
+        <div style="width: 150px; height: 200px; text-align: center; vertical-align: middle;">
+	    <img src="{{ STATIC_URL }}img/ajax-loader.gif" />
+        </div>
+        <p>Searching for Satellite..</p>
     </script>
+
     <script id="verify" type="text/html">
         <p>This this right?</p>
     </script>
+
     <script id="add" type="text/html">
         <p>Adding</p>
     </script>
+
     <script id="cancel" type="text/html">
         <p>Cancelling</p>
     </script>

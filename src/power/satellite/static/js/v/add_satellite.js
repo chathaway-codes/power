@@ -125,7 +125,7 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
                 $("#next").attr('disabled', '');
 
                 // Save the model, if it exists
-                this.model.save({wait: true});
+                this.model.save({}, {wait: true});
                 // Then move to the next state
                 this.nextState();
                 break;

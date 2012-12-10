@@ -6,7 +6,11 @@ define(["jquery", "backbone", "v/add_satellite", "backbone-tastypie"], function(
     // The function for searching
     var searching = function() {
         console.log("Searching done now");
-        App.nextState();
+        setTimeout(function() {
+            App.model.set('serial_number', 'AAA-AAA-AAA');
+            App.nextState();
+            clearTimeout(this);
+        }, 4000);
     }
 
     // Load the first view
