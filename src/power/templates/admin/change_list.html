@@ -98,3 +98,16 @@
     </div>
   </div>
 {% endblock %}
+
+{% block footer %}
+{{ block.super }}
+      {% if has_add_permission %}
+        <ul class="object-tools" style="float: left; margin-left: 10px;">
+            <li>
+              <a href="{% url cl.opts|admin_urlname:'add' %}{% if is_popup %}?_popup=1{% endif %}" class="addlink">
+                {% blocktrans with cl.opts.verbose_name as name %}Add {{ name }}{% endblocktrans %}
+              </a>
+            </li>
+        </ul>
+      {% endif %}
+{% endblock %}
