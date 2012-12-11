@@ -9,11 +9,20 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
         CANCEL: 4
     };
 
+    var possibleDirections = {
+        BACKWARD: 0,
+        CANCEL: 1,
+        FORWARD: 2,
+        UNKNOWN: 3
+    };
+
     var AppView = Backbone.View.extend({
         el: $("#main"),
         innerEl: $("#main"),
 
         currentState: possibleStates.INSTRUCTIONS,
+        previousState: possibleStates.INSTRUCTIONS,
+        direction: possibleDirections.UNKNOWN,
 
         model: new satellite(),
 
@@ -28,10 +37,19 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
             this.innerEl = $("#inner-el");
             this.currentState = possibleStates.INSTRUCTIONS;
             this.setState();
+            var klass = $("body").attr("class");
+            if(klass == "popup ") {
+                resizeTo(225, 510);
+                $("#content").css("width", "200px");
+                //$("#container").css("width", "150px");
+                $("#container").css("min-width", "200px");
+                //$("body").css("width", "150px");
+            }
         },
 
         nextState: function() {
-            console.log("Switching to next state");
+            this.previousState = this.currentState;
+            this.direction = possibleDirections.FORWARD;
             switch(this.currentState) {
             case possibleStates.INSTRUCTIONS:
                 this.currentState = possibleStates.SEARCHING;
@@ -54,6 +72,8 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
         },
 
         prevState: function() {
+            this.previousState = this.currentState;
+            this.direction = possibleDirections.BACKWARD;
             switch(this.currentState) {
             case possibleStates.INSTRUCTIONS:
                 this.currentState = possibleStates.CANCEL;
@@ -104,7 +124,7 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
                 }
                 break;
             case possibleStates.VERIFY:
-                var i = ich.verify();
+                var i = ich.verify(this.model.toJSON());
                 this.innerEl.html(i);
 
                 // All buttons should be enabled
@@ -130,7 +150,23 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
                 this.nextState();
                 break;
             case possibleStates.CANCEL:
-                var i = ich.cancel();
+                var message;
+                console.log(this.previousState);
+                console.log(possibleStates.ADD);
+                console.log(this.previousState == possibleStates.ADD);
+                if(this.previousState == possibleStates.ADD) {
+                    message = "Satellite added!";
+                 } else {
+                    message = "Sattelite search cancelled.";
+                }
+
+                var klass = $("body").attr("class");
+                if(klass == "popup ") {
+                    message = message + " Click <a href=\"javascript: self.close()\">here</a> to close the window.";
+                }
+                else
+                    message = message + " Please return to the home page.";
+                var i = ich.cancel({message: message});
                 this.innerEl.html(i);
 
                 // All buttons should be disabled
@@ -144,6 +180,8 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
         },
 
         cancel: function() {
+            this.previousState = this.currentState;
+            this.direction = possibleDirections.CANCEL;
             this.currentState = possibleStates.CANCEL;
             this.setState();
         }

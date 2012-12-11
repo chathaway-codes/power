@@ -14,22 +14,24 @@
     </script>
 
     <script id="searching" type="text/html">
-        <div style="width: 150px; height: 200px; text-align: center; vertical-align: middle;">
+        <div style="text-align: center; vertical-align: middle;">
 	    <img src="{{ STATIC_URL }}img/ajax-loader.gif" />
         </div>
         <p>Searching for Satellite..</p>
     </script>
 
     <script id="verify" type="text/html">
-        <p>This this right?</p>
+        <p>I found the following Satellite:</p>
+        <span>{% templatetag openvariable %}serial_number{% templatetag closevariable %}</span>
+        <p>Hit back to search again, or continue to add this Satellite</p>
     </script>
 
     <script id="add" type="text/html">
-        <p>Adding</p>
+        <p>Adding Satellite...</p>
     </script>
 
     <script id="cancel" type="text/html">
-        <p>Cancelling</p>
+        <p>{% templatetag openvariable %}{message}{% templatetag closevariable %}</p>
     </script>
 {% endblock %}
 
@@ -42,10 +44,10 @@
 
 {% block content %}
     <div id="main">
-        <div id="inner-el"></div>
-        <input type="button" id="prev" value="Previous"></input>
-        <input type="button" id="cancel" value="Cancel"></input>
-        <input type="button" id="next" value="Next"></input>
+        <div id="inner-el" style="width: 200px; height: 350px;"></div>
+        <input type="button" id="prev" value="Previous" />
+        <input type="button" id="cancel" value="Cancel" />
+        <input type="button" id="next" value="Next" />
     </div>
 {% endblock %}
 
