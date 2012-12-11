@@ -1,4 +1,7 @@
 from django.contrib import admin
 from device.models import Device
 
-admin.site.register(Device)
+class DeviceAdmin(admin.ModelAdmin):
+    add_form_template = 'device/add.html'
+
+admin.site.register(Device, DeviceAdmin)

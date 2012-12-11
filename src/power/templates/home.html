@@ -21,7 +21,7 @@
 {% block content %}
     <h2>Quick Links</h2>
     <ul>
-        <li><a href="{% url admin:device_device_add %}">Add Device</a></li>
+        <li><a href="{% url admin:device_device_add %}" onclick="return showAddAnotherPopup(this);">Add Device</a></li>
         <li><a href="{% url admin:satellite_satellite_add %}" onclick="return showAddAnotherPopup(this);">Add Satellite</a></li>
     </ul>
 {% endblock %}
