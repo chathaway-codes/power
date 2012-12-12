@@ -3,43 +3,22 @@
     <head>
         <title>View Monthly Power Consumption</title>
 		
-		<LINK href="test.css" rel="stylesheet" type="text/css">
+		<link href="test.css" rel="stylesheet" type="text/css">
         <link class="include" rel="stylesheet" type="text/css" href="../jquery.jqplot.min.css" />
         <link rel="stylesheet" type="text/css" href="examples.min.css" />
         <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
         <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" />
-	  
+
 	  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
         <script class="include" type="text/javascript" src="../jquery.min.js"></script>
-        
-    </head>
-    
-    <body>
-        <h2> View Monthly Power Consumption</h3>
-		
-		<div align="left">
-			<form>
-				Start Date: <input type="text" name="start_month"> &nbsp <input type="text" name="start_yr"><br>
-				End Date: &nbsp <input type="text" name="end_month"> &nbsp <input type="text" name="end_yr">
-			</form>
-		</div>
-		
-		<div align="right">
-			<select name="device_groups" multiple size=5>
-				<option value="all_devices">All Devices
-				<option value="computer1">Dad's Computer
-				<option value="light1">Livingroom Light
-				<option value="refrigerator">Refrigerator
-			</select>
-		</div>	
-			<form>
-				<input type="button" onClick="parent.location='test.html;" value="Go!">
-			</form>	
-        
-        <hr/>
-        
-        <div id="chart1" style="height:300px; width:650px;"></div>
-        
+		<script class="include" type="text/javascript" src="../jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+		<script class="include" language="javascript" type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.canvasTextRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.enhancedLegendRenderer.min.js"></script>
         <script class="code" type="text/javascript">
             $(document).ready(function(){
                 var line1=[['2008-06-30 8:00AM',4000], ['2008-7-14 8:00AM',650], ['2008-7-28 8:00AM',2000], ['2008-8-11 8:00AM',900], ['2008-8-25 8:00AM',3000]];
@@ -49,7 +28,7 @@
                     legend:{
                         renderer: $.jqplot.EnhancedLegendRenderer,
                         show: true,
-                        labels: ['All Devices'],
+                        labels: ['All Devices'], 
                         placement: 'outside'
                     },
                     axes:{
@@ -72,19 +51,129 @@
                     series:[{lineWidth:4, markerOptions:{style:'none'}}]
                 });
             });
-        </script>                    
-                            
-                            
-<!-- Don't touch this! -->
-    <script class="include" type="text/javascript" src="../jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
-<!-- End Don't touch this! -->                          
-<!-- Additional plugins go here -->
+        </script>
+		
+		
+    </head>
+    
+    <body>
+        <h2> View Monthly Power Consumption</h3>
+		
+		<div id="dates">
+			<form>
+				<label>Start Date: </label>
+				<select>
+					<option>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select> 
+				&nbsp 
+				<select>
+					<option>2012</option>
+					<option>2013</option>
+					<option>2014</option>
+					<option>2015</option>
+					<option>2016</option>
+					<option>2017</option>
+					<option>2018</option>
+					<option>2019</option>
+					<option>2020</option>
+					<option>2021</option>
+					<option>2022</option>
+					<option>2023</option>
+					<option>2024</option>
+					<option>2025</option>
+					<option>2026</option>
+					<option>2027</option>
+					<option>2028</option>
+					<option>2029</option>
+					<option>2030</option>
+					<option>2031</option>
+					<option>2032</option>
+				</select>	
+				<br>
+				<label>End Date: </label>
+				<select>
+					<option>January</option>
+					<option>February</option>
+					<option>March</option>
+					<option>April</option>
+					<option>May</option>
+					<option>June</option>
+					<option>July</option>
+					<option>August</option>
+					<option>September</option>
+					<option>October</option>
+					<option>November</option>
+					<option>December</option>
+				</select>				
+				&nbsp 
+				<select>
+					<option>2012</option>
+					<option>2013</option>
+					<option>2014</option>
+					<option>2015</option>
+					<option>2016</option>
+					<option>2017</option>
+					<option>2018</option>
+					<option>2019</option>
+					<option>2020</option>
+					<option>2021</option>
+					<option>2022</option>
+					<option>2023</option>
+					<option>2024</option>
+					<option>2025</option>
+					<option>2026</option>
+					<option>2027</option>
+					<option>2028</option>
+					<option>2029</option>
+					<option>2030</option>
+					<option>2031</option>
+					<option>2032</option>
+				</select>	
+			</form>
+				<br>	
+		<form>
+			<input type="button" onClick="parent.location='test.html'" value="Go!">
+		</form>	
+		</div>
+		
+		<div id="devices">
+			<label>All Devices:</label> 
+			<select name="devices">
+				<option>Not Displayed</option>
+				<option id="red"> Red</option>
+				<option id="orange"> Orange</option>
+				<option id="yellow"> Yellow</option>
+				<option id="green"> Green</option>
+				<option id="blue"> Blue</option>
+				<option id="purple"> Purple</option>
+			</select><br>
+			<label>Refrigerator: </label>
+			<select name="devices">
+				<option>Not Displayed</option>
+				<option id="red"> Red</option>
+				<option id="orange"> Orange</option>
+				<option id="yellow"> Yellow</option>
+				<option id="green"> Green</option>
+				<option id="blue"> Blue</option>
+				<option id="purple"> Purple</option>
+			</select><br>
+			
+		</div>	
+		
+		<br>
 
-    <script class="include" language="javascript" type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.canvasTextRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.enhancedLegendRenderer.min.js"></script>
-<!-- End additional plugins -->                            
+        <div id="chart1"></div>
+		
+	</body>
+</html>
