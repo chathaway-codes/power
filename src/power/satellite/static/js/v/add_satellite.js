@@ -144,8 +144,12 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
                 $("#cancel").attr('disabled', '');
                 $("#next").attr('disabled', '');
 
+                // Remove dashes from name
+                this.model.set("serial_number", this.model.get("serial_number").replace(/\-/g, ""));
+
                 // Save the model, if it exists
-                this.model.save({}, {wait: true});
+                this.model.save({outlet: "A"}, {wait: true});
+                this.model.save({outlet: "B"}, {wait: true});
                 // Then move to the next state
                 this.nextState();
                 break;
