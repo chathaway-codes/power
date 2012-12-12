@@ -19,8 +19,6 @@
         <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.canvasTextRenderer.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
         <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.enhancedLegendRenderer.min.js"></script>
-		
-		
 		 <script class="code" type="text/javascript">
             $(document).ready(function(){
                 var line1=[['2012-01-05',65], ['2012-01-10',64], ['2012-01-15',66], ['2012-01-20',67], ['2012-01-25',65], ['2012-01-30',64], 
@@ -35,12 +33,14 @@
 						['2012-10-05',56], ['2012-10-10',57], ['2012-10-15',57], ['2012-10-20',56], ['2012-10-25',58], ['2012-10-30',60], 
 						['2012-11-05',60], ['2012-11-10',61], ['2012-11-15',62], ['2012-11-20',63], ['2012-11-25',64], ['2012-11-30',65], 
 						['2012-12-05',65], ['2012-12-10',67], ['2012-12-15',66], ['2012-12-20',65], ['2012-12-25',65], ['2012-12-30',66]];
-                var plot2 = $.jqplot('chart1', [line1], {
-                    seriesColors:["#1B56E0"],
+                var line2=[['2012-05-05',40]];
+				var line3=[['2012-05-19',24], ['2012-06-25',23]];
+				var plot2 = $.jqplot('chart1', [line1, line2, line3], {
+                    seriesColors:["red","green","blue"],
                     legend:{
                         renderer: $.jqplot.EnhancedLegendRenderer,
                         show: true,
-                        labels: ['All Devices'], 
+                        labels: ['All Devices','Refrigerator','Fish Tank'], 
                         placement: 'outside'
                     },
                     axes:{
@@ -49,7 +49,8 @@
                             labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
                             renderer: $.jqplot.DateAxisRenderer,
                             tickOptions:{formatString:'%b \'%y'},
-                            min: 'January 1, 2012',
+                            min: 'May 1, 2012',
+							max: 'August 1, 2012'
                         },
                         yaxis:{
                             label: 'Kilowatts per Hour',
@@ -59,7 +60,18 @@
                             labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                         }
                     },
-                    series:[{lineWidth:4, markerOptions:{show:false}}]
+                    series:[
+						{showLine:false, 
+						markerOptions: { size: 7, style:"x" }
+						},
+						{lineWidth:4, 
+						markerOptions:{show:false}
+						},
+						{lineWidth:4, 
+						markerOptions:{show:false}
+						}
+					]
+					
                 });
             });
         </script>
@@ -158,7 +170,8 @@
 						<option>2032</option>
 					</select>	
 				</form>
-					<br>	
+					<br>
+<br>					
 			<form>
 				<input type="button" onClick="parent.location='{% url view_data %}'" value="Go!">
 			</form>	
@@ -205,7 +218,7 @@
 					<option id="blue"> Blue</option>
 					<option id="purple"> Purple</option>
 				</select><br>
-				<label>Family Computer: </label>
+				<label>Desktop: </label>
 				<select name="devices">
 					<option>Not Displayed</option>
 					<option id="red"> Red</option>
