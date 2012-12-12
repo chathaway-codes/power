@@ -4,7 +4,7 @@ from device.models import Device, DeviceGroup
 class DeviceAdmin(admin.ModelAdmin):
     add_form_template = 'device/add.html'
 
-    list_display = ('name', 'enabled', )
+    list_display = ('name', 'satellite', 'enabled',)
     list_filter = ('enabled',)
 
     def changelist_view(self, request, extra_context=None):

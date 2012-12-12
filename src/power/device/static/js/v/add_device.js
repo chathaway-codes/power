@@ -88,9 +88,20 @@ define(["jquery", "backbone", "icanhaz", "m/device", "backbone-tastypie"], funct
 
         save: function() {
             var model = new device();
-            model.save({name: this.model.get("name")}, {wait: true});
+            model.save({name: this.model.get("name")}, {success: this.redirect});
+            this.model = model;
             var template = ich.saved(model.toJSON());
             $("#main").html(template);
+        },
+
+        redirect: function(d) {
+            var klass = $("body").attr("class");
+            if(klass != "popup ") {
+                window.location = "/admin/device/device/" + d.get("id") + "/";
+            } else {
+                window.opener.location = "/admin/device/device/" + d.get("id") + "/";
+                window.close();
+            }
         }
     });
 
