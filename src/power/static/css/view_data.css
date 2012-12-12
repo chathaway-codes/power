@@ -8,7 +8,7 @@ background:orange;
 background:yellow;
 }
 #green{
-background:green;
+background:#1A5528;
 }
 #blue{
 background:blue;
@@ -39,12 +39,12 @@ height:300px;
 width:650px;
 }
 label{
-    display: inline-block;
-    float: left;
-    clear: left;
-	width:100px;
+display: inline-block;
+float: left;
+clear: left;
+width:100px;
 }
 select {
-  display: inline-block;
-  float: left;
+display: inline-block;
+float: left;
 }
