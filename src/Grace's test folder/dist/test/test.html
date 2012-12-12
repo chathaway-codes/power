@@ -1,80 +1,267 @@
 <!DOCTYPE html>
 <html>
-<head>
-	
-	<title>Date Axes</title>
+    <head>
+        <title>View Monthly Power Consumption</title>
+		
+		<link href="test.css" rel="stylesheet" type="text/css">
+        <link class="include" rel="stylesheet" type="text/css" href="../jquery.jqplot.min.css" />
+        <link rel="stylesheet" type="text/css" href="examples.min.css" />
+        <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
+        <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" />
 
-	<LINK href="test.css" rel="stylesheet" type="text/css">
-    <link class="include" rel="stylesheet" type="text/css" href="../jquery.jqplot.min.css" />
-    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
-    <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" />
-  
-  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
-    <script class="include" type="text/javascript" src="../jquery.min.js"></script>
-    <script class="include" type="text/javascript" src="../jquery.jqplot.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
-    <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
-    <script class="include" language="javascript" type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.canvasTextRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
-	<script type="text/javascript" src="../plugins/jqplot.enhancedLegendRenderer.min.js"></script>
-   
-   <script class="code" type="text/javascript">
-$(document).ready(function(){
-  var line1=[['2008-06-30 8:00AM',4000], ['2008-7-14 8:00AM',650], ['2008-7-28 8:00AM',2000], ['2008-8-11 8:00AM',900], ['2008-8-25 8:00AM',3000]];
-  var plot2 = $.jqplot('chart1', [line1], {
-		seriesColors:[ "#ffffff" ],
-      title:'Customized Date Axis', 
-
-	  legend:{
-			renderer: $.jqplot.EnhancedLegendRenderer,
-			show: true,
-			labels: ['All Devices'],
-			placement: 'outside'
-		},
-      axes:{
-        xaxis:{
-			label: 'x-axis',
-			labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
-			renderer:$.jqplot.DateAxisRenderer, 
-			tickOptions:{formatString:'%b %#d, %#I %p'},
-			min:'June 16, 2008 8:00AM', 
-			tickInterval:'2 weeks'
-        },
-		yaxis:{
-			label: 'y-axis',
-			min: 0,
-			max: 4000,
-			tickInterval: 500,
-			labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-		}
-      },
-      series:[{lineWidth:4, markerOptions:{style:'none'}}]
-  });
-});
-</script>
-
-   
-   
-   
-   
-   
-   
-</head>
-<body>
-   <h3>View Monthly Power Consumption</h3>
-   
-   <FORM>
-<INPUT TYPE="button" onClick="parent.location='test2.html'" value="Go!">
-</FORM>
-   
-   <hr/>
-	<div id="chart1" style="height:300px; width:650px;"></div>
-
-
-
-</body>
-
-
+	  <!--[if lt IE 9]><script language="javascript" type="text/javascript" src="../excanvas.js"></script><![endif]-->
+        <script class="include" type="text/javascript" src="../jquery.min.js"></script>
+		<script class="include" type="text/javascript" src="../jquery.jqplot.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+		<script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+		<script class="include" language="javascript" type="text/javascript" src="../plugins/jqplot.dateAxisRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.canvasTextRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+		<script type="text/javascript" src="../plugins/jqplot.enhancedLegendRenderer.min.js"></script>
+        <script class="code" type="text/javascript">
+            $(document).ready(function(){
+                var line1=[['2012-01-05',65], ['2012-01-10',64], ['2012-01-15',66], ['2012-01-20',67], ['2012-01-25',65], ['2012-01-30',64], 
+						['2012-02-05',65], ['2012-02-10',66], ['2012-02-15',63], ['2012-02-20',65], ['2012-02-25',66], ['2012-02-28',67], 
+						['2012-03-05',65], ['2012-03-10',64], ['2012-03-15',64], ['2012-03-20',63], ['2012-03-25',62], ['2012-03-30',63], 
+						['2012-04-05',63], ['2012-04-10',62], ['2012-04-15',62], ['2012-04-20',61], ['2012-04-25',59], ['2012-04-30',59], 
+						['2012-05-05',57], ['2012-05-10',55], ['2012-05-15',54], ['2012-05-20',53], ['2012-05-25',53], ['2012-05-30',51], 
+						['2012-06-05',56], ['2012-06-10',57], ['2012-06-15',55], ['2012-06-20',54], ['2012-06-25',54], ['2012-06-30',53], 
+						['2012-07-05',54], ['2012-07-10',54], ['2012-07-15',55], ['2012-07-20',56], ['2012-07-25',57], ['2012-07-30',56], 
+						['2012-08-05',55], ['2012-08-10',56], ['2012-08-15',57], ['2012-08-20',56], ['2012-08-25',56], ['2012-08-30',55], 
+						['2012-09-05',54], ['2012-09-10',53], ['2012-09-15',54], ['2012-09-20',55], ['2012-09-25',56], ['2012-09-30',56], 
+						['2012-10-05',56], ['2012-10-10',57], ['2012-10-15',57], ['2012-10-20',56], ['2012-10-25',58], ['2012-10-30',60], 
+						['2012-11-05',60], ['2012-11-10',61], ['2012-11-15',62], ['2012-11-20',63], ['2012-11-25',64], ['2012-11-30',65], 
+						['2012-12-05',65], ['2012-12-10',67], ['2012-12-15',66], ['2012-12-20',65], ['2012-12-25',65], ['2012-12-30',66]];
+                var plot2 = $.jqplot('chart1', [line1], {
+                    seriesColors:["#1B56E0"],
+                    legend:{
+                        renderer: $.jqplot.EnhancedLegendRenderer,
+                        show: true,
+                        labels: ['All Devices'], 
+                        placement: 'outside'
+                    },
+                    axes:{
+                        xaxis:{
+                            label: 'Time in Months',
+                            labelRenderer: $.jqplot.CanvasAxisLabelRenderer,
+                            renderer: $.jqplot.DateAxisRenderer,
+                            tickOptions:{formatString:'%b \'%y'},
+                            min: 'January 1, 2012',
+                        },
+                        yaxis:{
+                            label: 'Kilowatts per Hour',
+                            min: 20,
+                            max: 100,
+                            tickInterval: 10,
+                            labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+                        }
+                    },
+                    series:[{lineWidth:4, markerOptions:{show:false}}]
+                });
+            });
+        </script>
+		
+		
+    </head>
+    
+    <body>
+        <h2> View Monthly Power Consumption</h3>
+		<div id="top">
+			<div id="dates">
+				<form>
+					<label>Start Date: </label>
+					<select>
+						<option>January</option>
+						<option>February</option>
+						<option>March</option>
+						<option>April</option>
+						<option>May</option>
+						<option>June</option>
+						<option>July</option>
+						<option>August</option>
+						<option>September</option>
+						<option>October</option>
+						<option>November</option>
+						<option>December</option>
+					</select> 
+					&nbsp 
+					<select>
+						<option>2012</option>
+						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
+						<option>2018</option>
+						<option>2019</option>
+						<option>2020</option>
+						<option>2021</option>
+						<option>2022</option>
+						<option>2023</option>
+						<option>2024</option>
+						<option>2025</option>
+						<option>2026</option>
+						<option>2027</option>
+						<option>2028</option>
+						<option>2029</option>
+						<option>2030</option>
+						<option>2031</option>
+						<option>2032</option>
+					</select>	
+					<br>
+					<label>End Date: </label>
+					<select>
+						<option>January</option>
+						<option>February</option>
+						<option>March</option>
+						<option>April</option>
+						<option>May</option>
+						<option>June</option>
+						<option>July</option>
+						<option>August</option>
+						<option>September</option>
+						<option>October</option>
+						<option>November</option>
+						<option>December</option>
+					</select>				
+					&nbsp 
+					<select>
+						<option>2012</option>
+						<option>2013</option>
+						<option>2014</option>
+						<option>2015</option>
+						<option>2016</option>
+						<option>2017</option>
+						<option>2018</option>
+						<option>2019</option>
+						<option>2020</option>
+						<option>2021</option>
+						<option>2022</option>
+						<option>2023</option>
+						<option>2024</option>
+						<option>2025</option>
+						<option>2026</option>
+						<option>2027</option>
+						<option>2028</option>
+						<option>2029</option>
+						<option>2030</option>
+						<option>2031</option>
+						<option>2032</option>
+					</select>	
+				</form>
+					<br>	
+			<form>
+				<input type="button" onClick="parent.location='test2.html'" value="Go!">
+			</form>	
+			</div>
+			
+			<div id="devices">
+				<label>All Devices:</label> 
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Air Conditioner: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Clothes Dryer: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Dad's Laptop: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Family Computer: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Fish Tank: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Kitchen Light: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Mom's Laptop: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Refrigerator: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+				<label>Television: </label>
+				<select name="devices">
+					<option>Not Displayed</option>
+					<option id="red"> Red</option>
+					<option id="orange"> Orange</option>
+					<option id="yellow"> Yellow</option>
+					<option id="green"> Green</option>
+					<option id="blue"> Blue</option>
+					<option id="purple"> Purple</option>
+				</select><br>
+			</div>	
+		</div>
+		<br>
+<hr>
+        <div id="chart1"></div>
+		
+	</body>
 </html>
