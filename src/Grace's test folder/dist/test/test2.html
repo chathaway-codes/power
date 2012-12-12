@@ -3,6 +3,7 @@
     <head>
         <title>View Monthly Power Consumption</title>
 		
+		<LINK href="test.css" rel="stylesheet" type="text/css">
         <link class="include" rel="stylesheet" type="text/css" href="../jquery.jqplot.min.css" />
         <link rel="stylesheet" type="text/css" href="examples.min.css" />
         <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
@@ -15,10 +16,25 @@
     
     <body>
         <h2> View Monthly Power Consumption</h3>
-        
-        <form>
-        <input type="button" onClick="parent.location='test.html;" value="Go!">
-        </form>
+		
+		<div align="left">
+			<form>
+				Start Date: <input type="text" name="start_month"> &nbsp <input type="text" name="start_yr"><br>
+				End Date: &nbsp <input type="text" name="end_month"> &nbsp <input type="text" name="end_yr">
+			</form>
+		</div>
+		
+		<div align="right">
+			<select name="device_groups" multiple size=5>
+				<option value="all_devices">All Devices
+				<option value="computer1">Dad's Computer
+				<option value="light1">Livingroom Light
+				<option value="refrigerator">Refrigerator
+			</select>
+		</div>	
+			<form>
+				<input type="button" onClick="parent.location='test.html;" value="Go!">
+			</form>	
         
         <hr/>
         
@@ -28,7 +44,7 @@
             $(document).ready(function(){
                 var line1=[['2008-06-30 8:00AM',4000], ['2008-7-14 8:00AM',650], ['2008-7-28 8:00AM',2000], ['2008-8-11 8:00AM',900], ['2008-8-25 8:00AM',3000]];
                 var plot2 = $.jqplot('chart1', [line1], {
-                    seriesColors:["#000000"],
+                    seriesColors:["#1B56E0"],
                     title:'Monthly Power Consumption',
                     legend:{
                         renderer: $.jqplot.EnhancedLegendRenderer,
@@ -53,7 +69,7 @@
                             labelRenderer: $.jqplot.CanvasAxisLabelRenderer
                         }
                     },
-                    series:[{lineWidth:4, markerOptions:{style:'diamond'}}]
+                    series:[{lineWidth:4, markerOptions:{style:'none'}}]
                 });
             });
         </script>                    
