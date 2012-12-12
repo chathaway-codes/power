@@ -1,12 +1,28 @@
 {% load admin_static %}{% load url from future %}<!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}>
-<head>
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}" {% if LANGUAGE_BIDI %}dir="rtl"{% endif %}><head>
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" type="text/css" href="{% block stylesheet %}{% static "admin/css/base.css" %}{% endblock %}" />
 {% block extrastyle %}{% endblock %}
 <!--[if lte IE 7]><link rel="stylesheet" type="text/css" href="{% block stylesheet_ie %}{% static "admin/css/ie.css" %}{% endblock %}" /><![endif]-->
-{% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
+{% if LANGUAGE_BIDI %}
+<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 <script type="text/javascript">window.__admin_media_prefix__ = "{% filter escapejs %}{% static "admin/" %}{% endfilter %}";</script>
+
+	<link rel="stylesheet" href="static/css/dropdown/style.css">
+	<!--[if lte IE 7]>
+        <link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" />
+    <!--[endif]-->
+			
+	<script src="static/js/plugins/dropdown/jquery-1.3.1.min.js"></script>	
+	<script src="static/js/plugins/dropdown/jquery.dropdownPlain.js"></script>
+<style>
+.sub_menu{
+	z-index:10000;
+}
+.hover{
+	z-index:10000;
+}
+</style>
 {% block extrahead %}{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
@@ -21,15 +37,25 @@
     <!-- Header -->
     <div id="header">
         {% if user.is_active and user.is_staff %}
-        <ul>
+        <ul class="dropdown">
             <li>
                 <a href="{% url 'home' %}">Home</a>
             </li>
             <li>
                 <a href="{% url 'view_data' %}">View Data</a>
+                <ul class="sub_menu">
+                	<li class="dropdownwidth"><a href="{% url 'view_data' %}">Device Power Consumption</a></li>
+                    <li class="dropdownwidth"><a href="{% url 'view_data' %}">Monthly Power Consumption</a></li>
+                    <li class="dropdownwidth"><a href="{% url 'view_data' %}">Power Consumption Over Time</a></li>
+                </ul>
             </li>
             <li>
                 <a href="{% url 'admin:index' %}">Settings</a>
+                <ul class="sub_menu">
+                	<li class="dropdownwidth"><a href="{% url 'admin:index' %}">User Managment</a></li>
+                    <li class="dropdownwidth"><a href="{% url 'admin:index' %}">Device Managment</a></li>
+                    <li class="dropdownwidth"><a href="{% url 'admin:index' %}">Satellite Managment</a></li>
+                </ul>
             </li>
         </ul>
         <div id="user-tools">

@@ -779,13 +779,13 @@ table#change-history tbody th {
 /* HEADER */
 
 #header {
-    background: #417690;
-    color: #ffc;
-    overflow: hidden;
+    background:#1A5528;
+    color: #eee;
+	height:50px;
 }
 
 #header a:link, #header a:visited {
-    color: #f4f379;
+    color: #f4fff4;
 }
 
 #header a:hover {
@@ -801,8 +801,8 @@ table#change-history tbody th {
 
 #header ul li {
     float: left;
-    margin: 10px;
-    
+    padding: 10px;
+    padding-bottom:4px;
     font-size: 18px;
     list-style-type: none;
 }
