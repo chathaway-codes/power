@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^satellite/', include(satellite.urls, 'satellite')),
     url(r'^sample/rest_charts/$', TemplateView.as_view(template_name="charts.html")),
+    url(r'^view_data/$', TemplateView.as_view(template_name="view_data.html"), {}, 'view_data'),
 
     url(r'^api/', include(raw.api.urls)),
 )
