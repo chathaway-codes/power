@@ -1,0 +1,50 @@
+#red{
+background:red;
+}
+#orange{
+background:orange;
+}
+#yellow{
+background:yellow;
+}
+#green{
+background:green;
+}
+#blue{
+background:blue;
+}
+#purple{
+background:purple;
+}#top{
+float:top;
+height:250px;
+padding-bottom:10px;
+}
+#dates{
+padding-left:30px;
+width:400px;
+margin:10px;
+float:left;
+height:100px;
+}
+#devices{
+margin:auto;
+float:right;
+padding-right:30px;
+}
+#chart1{
+margin:100px;
+float:bottom;
+height:300px; 
+width:650px;
+}
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+	width:100px;
+}
+select {
+  display: inline-block;
+  float: left;
+}

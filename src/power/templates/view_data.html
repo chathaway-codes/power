@@ -5,10 +5,20 @@
 
 {% block extrastyle %}
     <!-- Your extra CSS goes here -->
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/view_data.css" />
 {% endblock %}
 
 {% block extrahead %}
     <!-- Your extra Javascript goes here -->
+        <script class="include" type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+        <script class="include" type="text/javascript" src="{{ STATIC_URL }}js/jquery.jqplot.js"></script>
+        <script type="text/javascript" src="syntaxhighlighter/scripts/shCore.min.js"></script>
+        <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushJScript.min.js"></script>
+        <script type="text/javascript" src="syntaxhighlighter/scripts/shBrushXml.min.js"></script>
+        <script class="include" language="javascript" type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.dateAxisRenderer.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+        <script type="text/javascript" src="{{ STATIC_URL }}js/plugins/jqplot.enhancedLegendRenderer.min.js"></script>
 {% endblock %}
 
 {% block breadcrumbs %}
