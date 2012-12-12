@@ -167,6 +167,10 @@ define(["jquery", "backbone", "icanhaz", "m/satellite", "backbone-tastypie"], fu
                 var klass = $("body").attr("class");
                 if(klass == "popup ") {
                     message = message + " Click <a href=\"javascript: self.close()\">here</a> to close the window.";
+                    setTimeout(function () {
+                        window.opener.location.reload();
+                        window.close();
+                    }, 2000);
                 }
                 else
                     message = message + " Please return to the home page.";
