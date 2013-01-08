@@ -3,7 +3,7 @@ from time import sleep
 
 from power_data.models import Data
 from satellite.models import Satellite
-from device import Device
+from device.models import Device
 
 class Command(BaseCommand):
     args = "<satellite_serial>:<outlet> <wattage> <avg_volt> <interval>"

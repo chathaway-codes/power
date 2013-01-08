@@ -1,0 +1,16 @@
+{% extends 'admin/base.html' %}
+{% load i18n admin_static admin_modify %}
+{% load admin_urls %}
+
+{% block extrahead %}{{ block.super }}
+    <script type="text/javascript">
+        window.API_RAW = "{% url api_raw_top_level api_name="raw" %}"
+    </script>
+{% endblock %}
+
+{% block title %}
+      POW-R Resource Monitor
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
