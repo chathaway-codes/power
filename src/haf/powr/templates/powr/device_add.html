@@ -2,14 +2,15 @@
 {% load i18n admin_static admin_modify %}
 {% load url from future %}
 {% load admin_urls %}
+{% load compress %}
 
 {% block title %}
     POW-R: Add Device
 {% endblock %}
 
 {% block extrahead %}
-    <script src="{{ STATIC_URL }}js/require.config.js"></script>
-    <script data-main="add_device" src="{{ STATIC_URL }}js/require.js"></script>
+    <!--<script src="{{ STATIC_URL }}js/require.config.js"></script>
+    <script data-main="add_device" src="{{ STATIC_URL }}js/require.js"></script>-->
 
     <script type="text/html" id="main">
         <p>Please tell us a little bit about your device, so that we can help you pick a unique name for it.</p>
@@ -51,6 +52,10 @@
             <p>Click <a href="javascript: self.close()">here</a> to close this window</p>
         {% endif %}
     </script>
+
+    {% compress js %}
+        <script type="text/coffee">console.log 'Hello world!'</script>
+    {% endcompress %}
 
 {% endblock %}
 

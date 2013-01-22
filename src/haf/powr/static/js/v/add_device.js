@@ -1,4 +1,4 @@
-define(["jquery", "backbone", "icanhaz", "m/device", "backbone-tastypie"], function($, Backbone, ich, device) {
+define(["jquery", "backbone", "ejs/ejs", "m/device"], function($, Backbone, EJS, device) {
     "use strict";
 
     var AppView = Backbone.View.extend({
@@ -13,7 +13,7 @@ define(["jquery", "backbone", "icanhaz", "m/device", "backbone-tastypie"], funct
         },
 
         initialize: function() {
-            var template = ich.main();
+            var template = new EJS({ url: window.STATIC_URL + "ejs/powr/device_add.ejs"}).render()
             this.$el.html(template);
 
             var template = ich.preview(this.model.toJSON());

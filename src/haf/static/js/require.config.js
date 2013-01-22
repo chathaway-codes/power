@@ -3,6 +3,18 @@ var require = {
     paths: {
         "jquery": "components/jquery/jquery",
         "backbone": "components/backbone/backbone",
+        "underscore": "components/underscore/underscore",
+        "ejs": "components/ejs.js/"
+    },
+
+    shim: {
+        underscore: {
+            exports: "_"
+        },
+        backbone: {
+            deps: ["underscore", "jquery"],
+            exports: "Backbone"
+        },
     }
 }
 

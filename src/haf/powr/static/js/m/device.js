@@ -1,7 +1,7 @@
-define(["jquery", "backbone", "backbone-tastypie"], function($, Backbone) {
+define(["jquery", "m/model"], function($, Model) {
     "use strict";
 
-    var data = Backbone.Model.extend({
+    var data = Model.extend({
         url: function() {
             if(this.get("resource_uri"))
                 return this.get("resource_uri");

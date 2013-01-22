@@ -1,4 +1,4 @@
-require(['backbone'], function(Backbone) {
+define(['backbone'], function(Backbone) {
     "use strict";
     var TastypieModel = Backbone.Model.extend({
         base_url: function() {
@@ -10,6 +10,6 @@ require(['backbone'], function(Backbone) {
           return this.base_url();
         }
     });
-    
+
     return TastypieModel;
 });
