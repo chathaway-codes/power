@@ -6,3 +6,4 @@ var require = {
     }
 }
 
+console.log(require);

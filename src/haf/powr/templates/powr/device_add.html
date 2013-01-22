@@ -8,7 +8,8 @@
 {% endblock %}
 
 {% block extrahead %}
-    <script data-main="/static/js/add_device" src="/static/js/require-jquery.js"></script>
+    <script src="{{ STATIC_URL }}js/require.config.js"></script>
+    <script data-main="add_device" src="{{ STATIC_URL }}js/require.js"></script>
 
     <script type="text/html" id="main">
         <p>Please tell us a little bit about your device, so that we can help you pick a unique name for it.</p>
