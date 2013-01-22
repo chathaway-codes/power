@@ -1,0 +1,77 @@
+{% extends 'admin/base.html' %}
+{% load i18n admin_static admin_modify %}
+{% load url from future %}
+{% load admin_urls %}
+
+{% block title %}
+    POW-R: Add Device
+{% endblock %}
+
+{% block extrahead %}
+    <script data-main="/static/js/add_device" src="/static/js/require-jquery.js"></script>
+
+    <script type="text/html" id="main">
+        <p>Please tell us a little bit about your device, so that we can help you pick a unique name for it.</p>
+        <table style="vertical-align: middle;">
+            <tr>
+                <td><label for="object">What is it?</label></td>
+                <td><input type="text" id="object" name="object" class="wiz" /></td>
+            </tr>
+            <tr>
+                <td><label for="location">Where is it?</label></td>
+                <td><input type="text" id="location" name="location" class="wiz" /></td>
+            </tr>
+            <tr>
+                <td><label for="owner">Who does it belong too?</label></td>
+                <td><input type="text" id="owner" name="owner" class="wiz" /></td>
+            </tr>
+            <tr>
+                <td><label for="unique">Is it unique in any way?</label></td>
+                <td><input type="text" id="unique" name="unique" class="wiz" /></td>
+            </tr>
+        </table>
+        <div id="preview">
+        </div>
+        <input type="button" value="Add Device" id="submit" />
+    </script>
+
+    <script type="text/html" id="preview">
+        <label for="recommended">Recommended name:</label> <span name="recommended" id="recommended">{% templatetag openvariable %}name{% templatetag closevariable %}</span>
+        <p>To override, click <a id="override" href="#">Here</a></p>
+    </script>
+
+    <script type="text/html" id="override">
+        <label for="name">Name: </label><input type="text" id="name" name="name" value="{% templatetag openvariable %}name{% templatetag closevariable %}" />
+    </script>
+
+    <script type="text/html" id="saved">
+        <p>The device "{% templatetag openvariable %}name{% templatetag closevariable %}" has been added!</p>
+        {% if is_popup %}
+            <p>Click <a href="javascript: self.close()">here</a> to close this window</p>
+        {% endif %}
+    </script>
+
+{% endblock %}
+
+{% block breadcrumbs %}
+{% if not is_popup %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Settings' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ app_label|capfirst|escape }}</a>
+&rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+</div>
+{% else %}
+{% endif %}
+{% endblock %}
+
+{% block content_title %}
+    <h1>Add Device</h1>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div id="inner-el" style="width: 200px; height: 350px;"></div>
+    </div>
+{% endblock %}
+

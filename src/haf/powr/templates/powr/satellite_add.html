@@ -1,0 +1,65 @@
+{% extends 'admin/base.html' %}
+{% load i18n admin_static admin_modify %}
+{% load url from future %}
+{% load admin_urls %}
+
+{% block title %}
+    POW-R: Add Satellite
+{% endblock %}
+
+{% block extrahead %}
+    <script data-main="/static/js/add_satellite" src="/static/js/require-jquery.js"></script>
+
+    <script id="instructions" type="text/html">
+        <img src="{{ STATIC_URL }}img/outlet-face.png" style="width: 150px; height: 200px;" />
+        <p>Please push the red connect button on the Satellite you wish to connect.</p>
+        <p>Make sure the Satellite is plugged in, and within 500m of another Satellite</p>
+    </script>
+
+    <script id="searching" type="text/html">
+        <div style="text-align: center; vertical-align: middle;">
+	    <img src="{{ STATIC_URL }}img/ajax-loader.gif" />
+        </div>
+        <p>Searching for Satellite..</p>
+    </script>
+
+    <script id="verify" type="text/html">
+        <p>I found the following Satellite:</p>
+        <span>{% templatetag openvariable %}serial_number{% templatetag closevariable %}</span>
+        <p>Hit back to search again, or continue to add this Satellite</p>
+    </script>
+
+    <script id="add" type="text/html">
+        <p>Adding Satellite...</p>
+    </script>
+
+    <script id="cancel" type="text/html">
+        <p>{% templatetag openvariable %}{message}{% templatetag closevariable %}</p>
+    </script>
+{% endblock %}
+
+{% block breadcrumbs %}
+{% if not is_popup %}
+<div class="breadcrumbs">
+<a href="{% url 'admin:index' %}">{% trans 'Settings' %}</a>
+&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ app_label|capfirst|escape }}</a>
+&rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
+&rsaquo; {% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}
+</div>
+{% else %}
+{% endif %}
+{% endblock %}
+
+{% block content_title %}
+    <h1>Add Satellite</h1>
+{% endblock %}
+
+{% block content %}
+    <div id="main">
+        <div id="inner-el" style="width: 200px; height: 350px;"></div>
+        <input type="button" id="prev" value="Previous" />
+        <input type="button" id="cancel" value="Cancel" />
+        <input type="button" id="next" value="Next" />
+    </div>
+{% endblock %}
+
