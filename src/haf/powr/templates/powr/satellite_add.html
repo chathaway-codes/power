@@ -2,40 +2,30 @@
 {% load i18n admin_static admin_modify %}
 {% load url from future %}
 {% load admin_urls %}
+{% load compress %}
 
 {% block title %}
     POW-R: Add Satellite
 {% endblock %}
 
 {% block extrahead %}
-    <script data-main="/static/js/add_satellite" src="/static/js/require-jquery.js"></script>
+    {% compress js %}
+    <script type="text/javascript" src="{{ STATIC_URL }}components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/underscore/underscore.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/backbone/backbone.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/mustache/mustache.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/ICanHaz.js/ICanHaz.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/m/satellite.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/v/add_satellite.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/add_satellite.js"></script>
+    {% endcompress %}
 
-    <script id="instructions" type="text/html">
-        <img src="{{ STATIC_URL }}img/outlet-face.png" style="width: 150px; height: 200px;" />
-        <p>Please push the red connect button on the Satellite you wish to connect.</p>
-        <p>Make sure the Satellite is plugged in, and within 500m of another Satellite</p>
-    </script>
+    {% include 'powr/templates/satellite_add_instructions.html' %}
+    {% include 'powr/templates/satellite_add_searching.html' %}
+    {% include 'powr/templates/satellite_add_verify.html' %}
+    {% include 'powr/templates/satellite_add_add.html' %}
+    {% include 'powr/templates/satellite_add_cancel.html' %} 
 
-    <script id="searching" type="text/html">
-        <div style="text-align: center; vertical-align: middle;">
-	    <img src="{{ STATIC_URL }}img/ajax-loader.gif" />
-        </div>
-        <p>Searching for Satellite..</p>
-    </script>
-
-    <script id="verify" type="text/html">
-        <p>I found the following Satellite:</p>
-        <span>{% templatetag openvariable %}serial_number{% templatetag closevariable %}</span>
-        <p>Hit back to search again, or continue to add this Satellite</p>
-    </script>
-
-    <script id="add" type="text/html">
-        <p>Adding Satellite...</p>
-    </script>
-
-    <script id="cancel" type="text/html">
-        <p>{% templatetag openvariable %}{message}{% templatetag closevariable %}</p>
-    </script>
 {% endblock %}
 
 {% block breadcrumbs %}
