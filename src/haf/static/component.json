@@ -5,6 +5,7 @@
     "jquery": "~1.9.0",
     "backbone": "~0.9.10",
     "mustache": "~0.7.2",
-    "underscore": "~1.4.3"
+    "underscore": "~1.4.3",
+    "ICanHaz.js": "https://github.com/chuck211991/ICanHaz.js.git#~0.9.0"
   }
 }

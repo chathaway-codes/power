@@ -1,0 +1,6 @@
+    <script type="text/html" id="saved">
+        <p>The device "{% templatetag openvariable %}name{% templatetag closevariable %}" has been added!</p>
+        {% if is_popup %}
+            <p>Click <a href="javascript: self.close()">here</a> to close this window</p>
+        {% endif %}
+    </script>

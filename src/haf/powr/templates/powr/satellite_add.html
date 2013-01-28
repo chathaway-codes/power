@@ -10,11 +10,14 @@
 
 {% block extrahead %}
     {% compress js %}
+    <!-- Libraries -->
     <script type="text/javascript" src="{{ STATIC_URL }}components/jquery/jquery.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}components/underscore/underscore.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}components/backbone/backbone.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}components/mustache/mustache.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}components/ICanHaz.js/ICanHaz.js"></script>
+    
+    <!-- Main application -->
     <script type="text/javascript" src="{{ STATIC_URL }}powr/js/m/satellite.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}powr/js/v/add_satellite.js"></script>
     <script type="text/javascript" src="{{ STATIC_URL }}powr/js/add_satellite.js"></script>

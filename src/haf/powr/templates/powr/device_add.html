@@ -12,50 +12,24 @@
     <!--<script src="{{ STATIC_URL }}js/require.config.js"></script>
     <script data-main="add_device" src="{{ STATIC_URL }}js/require.js"></script>-->
 
-    <script type="text/html" id="main">
-        <p>Please tell us a little bit about your device, so that we can help you pick a unique name for it.</p>
-        <table style="vertical-align: middle;">
-            <tr>
-                <td><label for="object">What is it?</label></td>
-                <td><input type="text" id="object" name="object" class="wiz" /></td>
-            </tr>
-            <tr>
-                <td><label for="location">Where is it?</label></td>
-                <td><input type="text" id="location" name="location" class="wiz" /></td>
-            </tr>
-            <tr>
-                <td><label for="owner">Who does it belong too?</label></td>
-                <td><input type="text" id="owner" name="owner" class="wiz" /></td>
-            </tr>
-            <tr>
-                <td><label for="unique">Is it unique in any way?</label></td>
-                <td><input type="text" id="unique" name="unique" class="wiz" /></td>
-            </tr>
-        </table>
-        <div id="preview">
-        </div>
-        <input type="button" value="Add Device" id="submit" />
-    </script>
-
-    <script type="text/html" id="preview">
-        <label for="recommended">Recommended name:</label> <span name="recommended" id="recommended">{% templatetag openvariable %}name{% templatetag closevariable %}</span>
-        <p>To override, click <a id="override" href="#">Here</a></p>
-    </script>
-
-    <script type="text/html" id="override">
-        <label for="name">Name: </label><input type="text" id="name" name="name" value="{% templatetag openvariable %}name{% templatetag closevariable %}" />
-    </script>
-
-    <script type="text/html" id="saved">
-        <p>The device "{% templatetag openvariable %}name{% templatetag closevariable %}" has been added!</p>
-        {% if is_popup %}
-            <p>Click <a href="javascript: self.close()">here</a> to close this window</p>
-        {% endif %}
-    </script>
-
     {% compress js %}
-        <script type="text/coffee">console.log 'Hello world!'</script>
+    <!-- Libraries -->
+    <script type="text/javascript" src="{{ STATIC_URL }}components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/underscore/underscore.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/backbone/backbone.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/mustache/mustache.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}components/ICanHaz.js/ICanHaz.js"></script>
+    
+    <!-- Main application -->
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/m/device.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/v/add_device.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}powr/js/add_device.js"></script>
     {% endcompress %}
+    
+    {% include 'powr/templates/device_main.html' %}
+    {% include 'powr/templates/device_override.html' %}
+    {% include 'powr/templates/device_preview.html' %}
+    {% include 'powr/templates/device_saved.html' %}
 
 {% endblock %}
 

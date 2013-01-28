@@ -1,7 +1,6 @@
-define(["jquery", "backbone", "v/add_device", "backbone-tastypie"], function($, Backbone, add_device) {
-    "use strict";
+"use strict";
 
-    // Load the first view
-    var App = new add_device;
+$(function() {
+	// Load the first view
+	var App = new AddDeviceView({el: $("#main")});
 });
-
