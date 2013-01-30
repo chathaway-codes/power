@@ -158,7 +158,7 @@
                 console.log(possibleStates.ADD);
                 console.log(this.previousState == possibleStates.ADD);
                 if(this.previousState == possibleStates.ADD) {
-                    message = "Satellite added!";
+                    message = "<p class=\"instructions\">Satellite added!</p>";
                  } else {
                     message = "Sattelite search cancelled.";
                 }
