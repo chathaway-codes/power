@@ -24,10 +24,12 @@ First priority:
 		- Support ZigBee mesh networking
 		- Status lights
 		- Designed to be compact
+		- 5% error factor on readings (be reasonably accurate)
 		
 	Display:
 		- Provides users with many ways to view data
 		- Provides interface to manage Satellites
+		- Provides a way to associate Satellites with devices
 		- Designed intuitively
 		
 Second priority:
@@ -42,17 +44,21 @@ Second priority:
 	Satellites:
 		- Have On and Off modes
 		- Consume < 1W each
+		- Have a button to connect to server
+		- Compact size
 		
 	Display:
 		- Provides user management
 		- Supports cost calculation for devices
 		- Designed for security
+		- Controlled access
 		
 Third priority:
 	Overall:
 		- Costs not lots
 	Server:
 		- Encrypts database
+		- Operating modes of Satellites controllable from server
 	Satellites:
 		- Have relay inside to cut device power
 	Display:
@@ -63,4 +69,15 @@ Third priority:
 		- Provides a way to change reporting frequency of Satellites
 		- Supports software upgrades
 		- Designed for efficient use
-		
+		- Provides group management
+
+Fourth Priority: We decided wasn't necessary
+	Overall:
+		-
+	Server:
+		-
+	Satellites:
+		- Up to 255 in a group
+		- 500 M radius
+	Display:
+		- <500 ms responsiveness
