@@ -130,12 +130,19 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
+    'django_bootstrap',
     'compressor',
     'registration',
     'tastypie',
     'rest_api',
+    'haf',
+)
+
+HAF_APPS = (
     'powr',
 )
+
+INSTALLED_APPS = tuple(INSTALLED_APPS + HAF_APPS)
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'

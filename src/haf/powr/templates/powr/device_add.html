@@ -1,7 +1,4 @@
-{% extends 'admin/base.html' %}
-{% load i18n admin_static admin_modify %}
-{% load url from future %}
-{% load admin_urls %}
+{% extends 'base.html' %}
 {% load compress %}
 
 {% block title %}
@@ -31,18 +28,6 @@
     {% include 'powr/templates/device_add_preview.html' %}
     {% include 'powr/templates/device_add_saved.html' %}
 
-{% endblock %}
-
-{% block breadcrumbs %}
-{% if not is_popup %}
-<div class="breadcrumbs">
-<a href="{% url 'admin:index' %}">{% trans 'Settings' %}</a>
-&rsaquo; <a href="{% url 'admin:app_list' app_label=opts.app_label %}">{{ app_label|capfirst|escape }}</a>
-&rsaquo; {% if has_change_permission %}<a href="{% url opts|admin_urlname:'changelist' %}">{{ opts.verbose_name_plural|capfirst }}</a>{% else %}{{ opts.verbose_name_plural|capfirst }}{% endif %}
-&rsaquo; {% if add %}{% trans 'Add' %} {{ opts.verbose_name }}{% else %}{{ original|truncatewords:"18" }}{% endif %}
-</div>
-{% else %}
-{% endif %}
 {% endblock %}
 
 {% block content_title %}

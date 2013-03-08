@@ -93,11 +93,11 @@ var AddDeviceView = Backbone.View.extend({
 
     redirect: function(d) {
         var klass = $("body").attr("class");
-        if(klass != "popup ") {
+        /*if(klass != "popup ") {
             window.location = "/admin/powr/device/" + d.get("id") + "/";
         } else {
             window.opener.location = "/admin/powr/device/" + d.get("id") + "/";
             window.close();
-        }
+        }*/
     }
 });
