@@ -1,0 +1,64 @@
+## These are all run-once steps.. You do not need to repeat them
+# They include steps to setup a "server" for deployment. Anything apache related is server stuff
+# First, install everything
+apt-get install apache2 mysql-server libapache2-mod-wsgi python-virtualenv subversion build-essential git
+# Download and install nodejs
+wget http://nodejs.org/dist/v0.10.1/node-v0.10.1.tar.gz
+tar -xvzf node-v0.10.1.tar.gz
+cd node-v0.10.1/
+make && make install
+# Update it
+npm -g update
+# And install bower
+npm -g install bower
+# Configure the default site for apache
+cat - > /etc/apache2/sites-available/default
+#### This is the /etc/apache2/sites-available/default file. Just copy and paste.
+<VirtualHost *:80>
+        DocumentRoot /var/www/src/haf                                                                                                                                                 
+    ErrorLog  /var/www/error.log
+        ServerName dk.logrit.com                                                                                                                                                                           
+        ServerAlias www.dk.logrit.com                                                                                                                                                                      
+        SetEnv APPLICATION_ENV "development"                                                                                                                                                               
+                                                                                                                                                                                                           
+        # Use the WSGI file given to us by Django                                                                                                                                                          
+        WSGIScriptAlias / /var/www/src/haf/haf/wsgi.py                                                                                                                         
+        WSGIDaemonProcess dk python-path=/var/www/src/haf:/var/www/src/python/lib/python2.6/site-packages                                                    
+        WSGIProcessGroup dk                                                                                                                                                                     
+#   WSGIPythonPath /var/www/src/python/bin/python
+                                                                                                                                                                                                           
+        Alias /static/ /var/www/src/haf/collected_static/                                                                                                                             
+    Alias /media/ /var/www/src/haf/media/
+</VirtualHost> 
+## <ctrl+d> ##
+# Get the source codes
+cd /var/www/
+svn checkout svn://dunari.cis.vtc.edu/POWER .
+
+## Repeat these steps for development
+cd /var/www/src/
+# Activates the python environment
+. ./activate
+# Makes sure you have the proper libraries installed to the same version I do
+pip install -r ./libraries.txt
+cd haf
+# Remakes the database, in case I changed anything
+rm database.sqlite3
+python ./manage.py syncdb
+# You will be prompted to create a super user. Just do it.
+
+## Optional, but probably a good idea
+cd static/
+# Makes sure the javascript libraries are the same versions as the ones I'm using
+bower install
+cd ..
+
+# Runs the server, so you can connect and see it. 
+python ./manage.py runserver 0.0.0.0 8000
+
+### Bare minimum to run development server!
+cd /var/www/src/haf
+. ./activate
+python ./manage.py runserver
+
+# After you restart apache, the site should be in an almost-complete deployment. You will need to configure the database to use MySQL instead of SQLite, but...
