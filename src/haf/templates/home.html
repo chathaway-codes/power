@@ -75,7 +75,7 @@
               <ul class="nav" ng-controller="NavCtrl">
                 <li><a href="#">Quick Start</a></li>
                 <li ng-class="navClass('dashboard')"><a href="#/dashboard">Dashboard</a></li>
-                <li ng-class="navClass('devices')"><a href="#" class="dropdown-toggle" data-hover="dropdown">Devices <span class="caret"></span></a>
+                <li ng-class="navClass('devices')"><a href="#/devices" class="dropdown-toggle" data-hover="dropdown">Devices <span class="caret"></span></a>
                   <ul class="dropdown-menu" style=" margin-left:150px; margin-right:150px;">
                     <li><a href="#/devices">View Current Devices</a></li>
                     <li><a href="#/devices/new">Add a New Device</a></li>
@@ -88,13 +88,20 @@
                     <li><a href="#">Export Graphs</a></li>
                   </ul>
                 </li>
-                <li><a href="#">System</a></li>
+                <li ng-class="navClass('system')"><a href="#/system" class="dropdown-toggle" data-hover="dropdown">System <span class="caret"></span></a>
+                  <ul class="dropdown-menu" style=" margin-left:150px; margin-right:150px;">
+                    <li><a href="#/system/users">Users</a></li>
+                    <li><a href="#/satellites">Satellites</a></li>
+                  </ul>
+                </li>
               </ul> <!-- /.nav --> 
             </div><!-- /.nav-collapse.collapse -->
           </div> <!-- /.container --> 
         </div> <!-- /.navbar-inner --> 
       </div> <!-- /.navbar --> 
     </div> <!-- /.masthead --> 
+    
+    <br />
 
     <div class="container" ng-view></div>
 

@@ -13,7 +13,6 @@
     "jquery-timepicker-addon": "~1.1.1",
     "twitter-bootstrap-hover-dropdown": "https://github.com/CWSpear/twitter-bootstrap-hover-dropdown.git",
     "bower-angular-resource": "https://github.com/angular/bower-angular-resource.git#~1.0.6",
-    "cookie": "latest",
     "jquery-cookie": "https://github.com/carhartl/jquery-cookie.git#~1.3.1"
   }
 }

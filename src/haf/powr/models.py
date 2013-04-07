@@ -52,7 +52,9 @@ class Satellite(models.Model):
         s = Satellite.objects.filter(serial_number=serial, outlet=outlet)
         
         if len(s) == 0:
-            raise Exception("Couldn't find outlet: %s" % id)
+            s = Satellite(serial_number=serial,outlet=outlet)
+            s.save()
+            s = [s]
         return s[0]
 
     def __unicode__(self):

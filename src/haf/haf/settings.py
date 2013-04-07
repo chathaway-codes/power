@@ -141,6 +141,7 @@ INSTALLED_APPS = (
 
 HAF_APPS = (
     'powr',
+    'system',
 )
 
 INSTALLED_APPS = tuple(INSTALLED_APPS + HAF_APPS)
@@ -149,6 +150,9 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 TASTYPIE_ALLOW_MISSING_SLASH = True
 APPEND_SLASH = False
+
+from django.contrib.auth.models import User
+AUTH_USER_MODEL = User
 
 COMPRESS_PRECOMPILERS = (
     ('text/coffee', 'coffee --compile --stdio'),

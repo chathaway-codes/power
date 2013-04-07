@@ -2,7 +2,7 @@
 
 var navList = angular.module('navList', []);
 
-var haf = angular.module('haf', ['powrDeviceServices', 'powrSatelliteServices']);
+var haf = angular.module('haf', ['powrDeviceServices', 'powrSatelliteServices', 'systemUserServices']);
 
 haf.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider.
@@ -16,6 +16,10 @@ haf.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
         when('/devices/update', {templateUrl: window.STATIC_URL+'powr/partials/devices/update.html', controller: DevicesUpdateCtrl}).
         // Delete is ommitted as per requirement FD_101
         when('/devices/:id', {templateUrl: window.STATIC_URL+'powr/partials/devices/detail.html', controller: DevicesDetailCtrl}).
+        
+        when('/system/users', {templateUrl: window.STATIC_URL+'system/partials/users.html', controller: UsersListCtrl}).
+        when('/system/users/new', {templateUrl: window.STATIC_URL+'system/partials/users/update.html', controller: UsersUpdateCtrl}).
+        when('/system/users/:id', {templateUrl: window.STATIC_URL+'system/partials/users/detail.html', controller: UsersDetailCtrl}).
 
         otherwise({redirectTo: '/dashboard'});
     // Build something to deal with authorization

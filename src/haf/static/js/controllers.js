@@ -128,3 +128,31 @@ function DevicesDetailCtrl($scope, $routeParams, Device, Satellite) {
 }
 DevicesDetailCtrl.$inject = ['$scope', '$routeParams', 'Device', 'Satellite'];
 
+/*
+ * User controllers
+ */
+function UsersListCtrl($scope, User) {
+    $scope.objects = User.query();
+}
+UsersListCtrl.$inject = ['$scope', 'User'];
+
+function UsersUpdateCtrl($scope) {
+}
+UsersUpdateCtrl.$inject = ['$scope'];
+
+function UsersDetailCtrl($scope, $routeParams, User) {
+    $scope.object = User.get({id: $routeParams.id});
+    var original = $scope.object;
+    
+    $scope.editUserName = false;
+    $scope.editFirstName = false;
+    $scope.editLastName = false;
+    $scope.save = function() {
+        $scope.object.$save();
+        original = $scope.device;
+    }
+    $scope.cancel = function() {
+        $scope.object = original;
+    }
+}
+UsersDetailCtrl.$inject = ['$scope', '$routeParams', 'User'];

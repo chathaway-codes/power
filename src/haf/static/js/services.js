@@ -10,12 +10,8 @@ angular.module('powrSatelliteServices', ['ngResource']).
         });
 });
 
-// Create services for all resources in the REST API
-angular.module('rest', ['$http']).
-    config(function($http) {
-      console.log("Here!");
-      $http({method: "GET", url: window.API_RAW}).
-          success(function(data) {
-              console.log(data);
-      });
+angular.module('systemUserServices', ['ngResource']).
+    factory('User', function($resource) {
+        return $resource(window.API_RAW+'/user/:id', {}, {
+        });
 });
