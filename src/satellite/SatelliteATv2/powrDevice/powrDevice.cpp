@@ -6,7 +6,7 @@ powrDevice.cpp
 #include "powrDevice.h"
 
 
-powrDevice::powrDevice(int cPin, int vPin, int outletID)
+powrDevice::powrDevice(int vPin, int cPin, int outletID)
 {
 	pinMode(cPin, INPUT);
 	pinMode(vPin, INPUT);

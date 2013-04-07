@@ -21,7 +21,7 @@ class powrDevice
   public:
     int current;
     int voltage;
-    powrDevice(int cPin, int vPin, int outletID);
+    powrDevice(int vPin, int cPin, int outletID);
     String buildPayLoad(String radioID);
    };
  
