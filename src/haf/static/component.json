@@ -10,7 +10,6 @@
     "jqplot": "https://bitbucket.org/cleonello/jqplot/downloads/jquery.jqplot.1.0.8r1250.zip",
     "bower-angular": "https://github.com/angular/bower-angular.git#~1.0.6",
     "jquery-ui": "~1.10.2",
-    "jquery-timepicker-addonn": "latest",
     "jquery-timepicker-addon": "~1.1.1",
     "twitter-bootstrap-hover-dropdown": "https://github.com/CWSpear/twitter-bootstrap-hover-dropdown.git"
   }
