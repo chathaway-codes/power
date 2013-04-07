@@ -12,9 +12,7 @@ def process(satellite, rest):
     power_cost = PowerCost.find_power_cost()
     
     # Get the device
-    print("Here2")
     device = satellite.device_set.all()[0]
-    print("Here2.2")
     
     # Create and save the power data
     Data(device_id=device, watt=voltage*current, avg_volt=voltage, interval=5, cost=power_cost).save()
