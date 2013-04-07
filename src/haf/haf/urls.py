@@ -10,9 +10,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', login_required(TemplateView.as_view(template_name="home.html")), {}, 'home'),
+    url(r'^$', TemplateView.as_view(template_name="home.html"), {}, 'home'),
 
-    url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
+    #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
     #url(r'^accounts/', include('registration.backends.simple.urls')),
     #url(r'^powr/', include('powr.urls', namespace='powr')),
 

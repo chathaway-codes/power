@@ -6,6 +6,12 @@
     "backbone": "~0.9.10",
     "mustache": "~0.7.2",
     "underscore": "~1.4.3",
-    "ICanHaz.js": "https://github.com/chuck211991/ICanHaz.js.git#~0.9.0"
+    "ICanHaz.js": "https://github.com/chuck211991/ICanHaz.js.git#~0.9.0",
+    "jqplot": "https://bitbucket.org/cleonello/jqplot/downloads/jquery.jqplot.1.0.8r1250.zip",
+    "bower-angular": "https://github.com/angular/bower-angular.git#~1.0.6",
+    "jquery-ui": "~1.10.2",
+    "jquery-timepicker-addonn": "latest",
+    "jquery-timepicker-addon": "~1.1.1",
+    "twitter-bootstrap-hover-dropdown": "https://github.com/CWSpear/twitter-bootstrap-hover-dropdown.git"
   }
 }

@@ -1,0 +1,173 @@
+<h1>Make a new Graph</h1>
+  <div id="graph_wizard">
+    <form action="">
+      <div class="step" id="devices">
+        <fieldset>
+          <legend><strong>Step 1: </strong>Select the Devices to Graph</legend>
+          <div class="row">
+            <div class="span4 offset1">
+              <h5>Available Devices</h5>
+            </div>
+            <div class="span4 offset1">
+              <h5>Selected Devices</h5>
+            </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span4 offset1">
+              <select multiple="multiple" name="devices_available" id="devices_available">
+                <option value="Device A">Device A</option>
+                <option value="Device B">Device B</option>
+                <option value="Device C">Device C</option>
+                <option value="Device D">Device D</option>
+                <option value="Device E">Device E</option>
+              </select>
+            </div>
+            <div class="span4 offset1">
+              <select multiple="multiple" name="devices_selected" id="devices_selected">
+                <option value="Device A">Device A</option>
+                <option value="Device B">Device B</option>
+                <option value="Device C">Device C</option>
+                <option value="Device D">Device D</option>
+                <option value="Device E">Device E</option>
+              </select>
+            </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span4 offset1">
+              <button type="button" class="btn btn btn-success" name="devices_add_selected" id="devices_add_selected">Add Selected</button>
+            </div>
+            <div class="span4 offset1">
+              <button type="button" class="btn btn btn-danger" name="devices_remove_selected" id="devices_remove_selected">Remove Selected</button>
+            </div>
+          </div>
+        </fieldset>
+      </div> <!-- /.step /#devices -->
+      <div class="step" id="type">
+        <fieldset>
+          <legend><strong>Step 2: </strong>Select the Graph Type</legend>
+          <div class="row">
+            <div class="span4 offset1">
+              <label class="radio">
+                <img src="{{ STATIC_URL }}powr/img/Chart_Line_Plot.png" />
+                <input type="radio" name="type_graphtype" value="line" checked="checked">
+                Line 
+              </label>
+              <span class="help-block">Shows power usage of the device(s) over a specific time</span>
+            </div>
+            <div class="span4 offset1">
+              <label class="radio">
+                <img src="{{ STATIC_URL }}powr/img/Chart_Stacked_Area_Plot.png" />
+                <input type="radio" name="type_graphtype" value="area">
+                Stacked Area 
+              </label>
+              <span class="help-block">Shows power usage of the device(s) over a specific time stacked one on top of each other to show total usage for the selected devices</span> </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span4 offset1">
+              <label class="radio">
+                <img src="{{ STATIC_URL }}powr/img/Chart_Column_Plot.png" />
+                <input type="radio" name="type_graphtype" value="bar">
+                Bar 
+              </label>
+              <span class="help-block">Shows power usage of a device for specific intervals</span>
+            </div>
+            <div class="span4 offset1">
+              <label class="radio">
+                <img src="{{ STATIC_URL }}powr/img/Chart_Pie_Plot.png" />
+                <input type="radio" name="type_graphtype" value="pie">
+                Pie 
+              </label>
+              <span class="help-block">Compares multiple devices power usage</span>
+            </div>
+          </div> <!-- /.row -->
+        </fieldset>
+      </div> <!-- /.step /#type -->
+      <div class="step" id="timespan">
+        <fieldset>
+          <legend><strong>Step 3: </strong>Choose the timeframe</legend>
+          <div class="row">
+            <div class="span4 offset1">
+              <h5>Absolute Dates</h5>
+            </div>
+            <div class="span1">
+              <center>
+                <h4>Or</h4>
+              </center>
+            </div>
+            <div class="span3">
+              <h5>Realative Dates</h5>
+            </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span3 offset1">
+              <div class="input-prepend">
+                <span class="add-on" style="width:70px;">Start Time</span>
+                <input class="span3" id="startabsolutetime" type="text" placeholder="Click to select" name="timespan_absolute_start" id="timespan_absolute_start">
+              </div>
+            </div>
+            <div class="span4 offset2">
+              <div class="input-prepend input-append">
+                <span class="add-on" style="width:90px;">Timespan of</span>
+                <input class="span2" id="realativetimespan" type="text" placeholder="" name="timespan_realative_span_val" id="timespan_realative_span_val">
+                <select class="add-on timespan" style="height:30px;" name="timespan_realative_span_unit" id="timespan_realative_span_unit">
+                  <option value="year">Year(s)</option>
+                  <option value="month">Month(s)</option>
+                  <option value="week">Week(s)</option>
+                  <option value="day">Days(s)</option>
+                </select>
+              </div>
+            </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span3 offset1">
+              <div class="input-prepend">
+                <span class="add-on" style="width:70px;">End Time</span>
+                <input class="span3" id="endabsolutetime" type="text" placeholder="Click to select" name="timespan_absolute_end" id="timespan_absolute_end">
+              </div>
+            </div>
+            <div class="span4 offset2">
+              <div class="input-prepend input-append">
+                <span class="add-on" style="width:90px;">Starting</span>
+                <input class="span1"  style="width:86px;" id="realativestarting" type="text" placeholder="">
+                <select class="add-on timespan" style="height:30px;" name="timespan_realative_start_unit" id="timespan_realative_start_unit">
+                  <option value="year">Year(s)</option>
+                  <option value="month">Month(s)</option>
+                  <option value="week">Week(s)</option>
+                  <option value="day">Days(s)</option>
+                </select>
+                <span class="add-on" style="width:30px;">Ago</span> 
+              </div>
+            </div>
+          </div> <!-- /.row -->
+          <div class="row">
+            <div class="span4 offset1">
+              <label>
+                <center>
+                  <input type="radio" name="timespan_type" value="absolute">
+                  Use selected absolute dates 
+                </center>
+              </label>
+            </div>
+            <div class="span4 offset1">
+              <label>
+                <center>
+                  <input type="radio" name="timespan_type" value="realative">
+                  Use relative dates 
+                </center>
+              </label>
+            </div>
+          </div> <!-- /.row -->
+        </fieldset>
+      </div> <!-- /.step /#timespan -->
+      <div id="button_bar" align="center">
+        <fieldset>
+          <legend></legend>
+          <button type="reset" class="btn btn btn-danger" id="reset_button">Start Over</button>
+          <button type="button" class="btn btn btn-success" id="preview_button">Preview</button>
+          <button type="submit" class="btn btn-primary" id="save_button">Save Graph</button>
+        </fieldset>
+      </div> <!-- /#button_bar -->
+      <div id="preview" style="height:300px; width:500px; margin:auto;" align="center">
+      </div> <!-- /#preview -->
+    </form>
+  </div><!-- /#graph_wizard --> 
