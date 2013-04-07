@@ -4,24 +4,23 @@
     <table class="table table-striped table-bordered">
         <tr>
             <td>Name</td>
-            <td ng-show="!editName" ng-click="editName=true">{{ device.name }}</td>
-            <td ng-show="editName">
-                <form class="form-inline">
-                  <input type="text" ng-model="device.name">
-                  <button class="btn" ng-click="save(); editName=false;">Save</button>
-                  <button class="btn btn-warn" ng-click="cancel(); editName=false;">Cancel</button>
+            <td style="width: 40%; height: 30px">
+                <div ng-show="!editName" ng-click="editName = true">{{ device.name }}</div>
+                <form class="form-inline" ng-show="editName">
+                  <input type="text" ng-model="device.name" class="input-small">
+                  <button class="btn" ng-click="save(); editName=false;" class="input-small">Save</button>
+                  <button class="btn btn-warn" ng-click="cancel(); editName=false;" class="input-small">Cancel</button>
                 </form>
             </td>
         </tr>
         <tr>
             <td>Enabled</td>
-            <td ng-show="device.enabled && !editEnabled" ng-click="editEnabled=true">Yes</td>
-            <td ng-show="!device.enabled && !editEnabled" ng-click="editEnabled=true">No</td>
-            <td ng-show="editEnabled">
-                <form class="form-inline">
-                    <input type="checkbox" ng-model="device.enabled">
-                    <button class="btn" ng-click="save(); editEnabled=false;">Save</button>
-                    <button class="btn btn-warn" ng-click="cancel(); editEnabled=false;">Cancel</button>
+            <td style="height: 30px">
+                <div ng-click="editEnabled = true" ng-show="!editEnabled">{{ device.enabled }}</div>
+                <form class="form-inline" ng-show="editEnabled">
+                    <input type="checkbox" ng-model="device.enabled" class="input-small">
+                    <button class="btn" ng-click="save(); editEnabled=false;" class="input-small">Save</button>
+                    <button class="btn btn-warn" ng-click="cancel(); editEnabled=false;" class="input-small">Cancel</button>
                 </form>
             </td>
 

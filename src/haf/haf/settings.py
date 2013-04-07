@@ -131,6 +131,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'django_bootstrap',
+    'django_verbatim',
     'compressor',
     'registration',
     'tastypie',
@@ -147,6 +148,7 @@ INSTALLED_APPS = tuple(INSTALLED_APPS + HAF_APPS)
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 TASTYPIE_ALLOW_MISSING_SLASH = True
+APPEND_SLASH = False
 
 COMPRESS_PRECOMPILERS = (
     ('text/coffee', 'coffee --compile --stdio'),

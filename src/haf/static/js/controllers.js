@@ -7,6 +7,51 @@ function NavCtrl($scope, $location) {
     }
 }
 
+function LoginCtrl($rootScope, $scope, $http) {
+    $scope.form = {username: '', password: ''};
+
+    $scope.login = function() {
+        var payload = $.param($scope.form);
+        var config = {
+            headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8', 'X-CSRFToken': $.cookie('csrftoken')}
+        };
+
+        var failure = function(data) {
+            $scope.error = "Incorrect username or password.";
+            $scope.form = {username: '', password: ''};
+            console.log($scope);
+        }
+
+        $http.post(window.LOGIN_URL, payload, config).then(function(data) {
+            console.log(data);
+            if(data.data == "success") {
+                $rootScope.$broadcast('event:loginConfirmed');
+                window.LOGGED_IN = true;
+            }
+            else
+                failure(data);
+        }, failure);
+    }
+}
+LoginCtrl.$inject = ['$rootScope', '$scope', '$http'];
+
+function LogoutCtrl($rootScope, $scope, $http) {
+    $scope.logout = function() {
+        $http.get(window.LOGOUT_URL).then(function(data) {
+            $scope.loggedIn = false;
+            $rootScope.$broadcast('event:logoutConfirmed');
+        }, function(data) {
+        });
+    }
+
+    $rootScope.$on("event:loginConfirmed", function() {
+        $scope.loggedIn = true;
+    });
+
+    $scope.loggedIn = window.LOGGED_IN;
+}
+LogoutCtrl.$inject = ['$rootScope', '$scope', '$http'];
+
 
 function DashboardCtrl($scope) {
 }
@@ -28,9 +73,8 @@ function GraphsNewCtrl($scope) {
 }
 
 function DevicesListCtrl($scope, $location, Device) {
-    $scope.page_title = "Devices";
-
     $scope.objects = Device.query();
+    $scope.filter = {enabled: true};
 
     $scope.go = function(object) {
         $location.path("/devices/" + object.id);
@@ -38,6 +82,11 @@ function DevicesListCtrl($scope, $location, Device) {
 
     $scope.goNewDevice = function() {
         $location.path("/devices/new");
+    }
+
+    $scope.disable = function(object) {
+        object.enabled = !object.enabled;
+        Device.save(object);
     }
 }
 DevicesListCtrl.$inject = ['$scope', '$location', 'Device'];

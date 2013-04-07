@@ -2,6 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 from haf.views import HomePageView
 
@@ -14,7 +15,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', HomePageView.as_view(), name='home'),
 
-    #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
+    url(r'^login/$', 'haf.views.login', name='login'),
+    url(r'^logout/$', 'haf.views.logout', name='logout'),
     #url(r'^accounts/', include('registration.backends.simple.urls')),
     #url(r'^powr/', include('powr.urls', namespace='powr')),
 
@@ -32,5 +34,3 @@ for app in settings.HAF_APPS:
     urlpatterns += patterns('',
         url('^'+app+'/', include(app + '.urls', namespace=app)),
     )
-
-print urlpatterns

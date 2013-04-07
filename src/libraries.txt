@@ -4,6 +4,7 @@ django-appconf>=0.5
 django-compressor>=1.2
 django-registration>=0.8
 django-tastypie>=0.9.11
+django-verbatim==0.1
 docutils>=0.10
 mimeparse>=0.1.3
 pyserial==2.6
