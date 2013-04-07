@@ -3,6 +3,8 @@ from django.views.generic import TemplateView
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 
+from haf.views import HomePageView
+
 from rest_api.apis import raw
 
 # Uncomment the next two lines to enable the admin:
@@ -10,7 +12,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', TemplateView.as_view(template_name="home.html"), {}, 'home'),
+    url(r'^$', HomePageView.as_view(), name='home'),
 
     #url(r'^login/$', 'django.contrib.auth.views.login', {'template_name': 'login.html'}, 'login'),
     #url(r'^accounts/', include('registration.backends.simple.urls')),

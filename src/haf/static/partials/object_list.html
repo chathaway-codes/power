@@ -1,0 +1,16 @@
+<h2>{{ page_title }}</h2>
+
+<table ng-hide="objects.length == 0">
+  <tr>
+    <th ng-repeat="header in headers">
+      {{ header }}
+    </th>
+  </tr>
+  <tr ng-repeat="object in objects" ng-click="go(object)">
+    <td ng-repeat="column in columns">
+        {{ object[column] }}
+    </td>
+  </tr>
+</table>
+
+<p ng-hide="objects.length != 0">There are no devices! Click <a href="#/devices/new">here</a> to create one!</p>

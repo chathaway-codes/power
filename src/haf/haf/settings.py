@@ -146,6 +146,7 @@ INSTALLED_APPS = tuple(INSTALLED_APPS + HAF_APPS)
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
+TASTYPIE_ALLOW_MISSING_SLASH = True
 
 COMPRESS_PRECOMPILERS = (
     ('text/coffee', 'coffee --compile --stdio'),

@@ -11,6 +11,7 @@
     "bower-angular": "https://github.com/angular/bower-angular.git#~1.0.6",
     "jquery-ui": "~1.10.2",
     "jquery-timepicker-addon": "~1.1.1",
-    "twitter-bootstrap-hover-dropdown": "https://github.com/CWSpear/twitter-bootstrap-hover-dropdown.git"
+    "twitter-bootstrap-hover-dropdown": "https://github.com/CWSpear/twitter-bootstrap-hover-dropdown.git",
+    "bower-angular-resource": "https://github.com/angular/bower-angular-resource.git#~1.0.6"
   }
 }

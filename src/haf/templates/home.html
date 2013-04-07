@@ -27,9 +27,20 @@
   <!-- Include the AngularJS stuff right away, because it is needed for everything... -->
   {% compress js %}
   <script src="{{ STATIC_URL }}components/bower-angular/angular.js"></script>
+  <script src="{{ STATIC_URL }}components/bower-angular-resource/angular-resource.js"></script>
   <script src="{{ STATIC_URL }}js/app.js"></script>
   <script src="{{ STATIC_URL }}js/controllers.js"></script>
+  <script src="{{ STATIC_URL }}js/services.js"></script>
   {% endcompress %}
+
+  <!-- For each app, include the bootstrap.js file -->
+  {% comment %}
+  {% for app in apps %}
+    {% with app|add:"/bootstrap.html" as template %}
+    {% include template %}
+    {% endwith %}
+  {% endfor %}
+  {% endcomment %}
 </head>
 
 <body>
@@ -50,11 +61,10 @@
               <ul class="nav" ng-controller="NavCtrl">
                 <li><a href="#">Quick Start</a></li>
                 <li ng-class="navClass('dashboard')"><a href="#/dashboard">Dashboard</a></li>
-                <li><a href="#" class="dropdown-toggle" data-hover="dropdown">Devices <span class="caret"></span></a>
+                <li ng-class="navClass('devices')"><a href="#" class="dropdown-toggle" data-hover="dropdown">Devices <span class="caret"></span></a>
                   <ul class="dropdown-menu" style=" margin-left:150px; margin-right:150px;">
-                    <li><a href="#">View Current Devices</a></li>
-                    <li><a href="#">Add a New Device</a></li>
-                    <li><a href="#">Export Graphs</a></li>
+                    <li><a href="#/devices">View Current Devices</a></li>
+                    <li><a href="#/devices/new">Add a New Device</a></li>
                   </ul>
                 </li>
                 <li ng-class="navClass('graphs')"><a href="#/graphs" class="dropdown-toggle" data-hover="dropdown">Graphs <span class="caret"></span></a>
@@ -72,7 +82,7 @@
       </div> <!-- /.navbar --> 
     </div> <!-- /.masthead --> 
 
-    <div ng-view></div>
+    <div class="container" ng-view></div>
 
     <hr>
 
@@ -98,8 +108,9 @@
   <!-- JQuery UI and Date Picker -->
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.core.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.datepicker.js"></script>
-  <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.slider.js"></script>
+  <!-- <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.slider.js"></script> -->
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-timepicker-addon/jquery-ui-timepicker-addon.js"></script>
   {% endcompress %}
+
 </body>
 </html>

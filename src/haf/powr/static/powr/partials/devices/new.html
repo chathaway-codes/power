@@ -1,0 +1,30 @@
+  <h2>Add a new device</h2>
+
+  <form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="name">Name</label>
+        <div class="controls">
+            <input type="text" id="name" placeholder="Device name" ng-model="device.name">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="enabled">Enabled?</label>
+        <div class="controls">
+            <input type="checkbox" id="enabled" ng-model="device.enabled">
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label" for="satellite">Associated Satellite</label>
+        <div class="controls">
+            <select ng-model="device.satellite">
+                <option ng-repeat="satellite in satellites" value="{{ satellite }}">{{ satellite.serial_number }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="control-group">
+        <button type="submit" class="btn" ng-click="save(device)">Save</button>
+        <button type="submit" class="btn btn-warning" ng-click="reset()">Reset</button>
+    </div>
+  </form>
