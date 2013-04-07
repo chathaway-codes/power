@@ -1,0 +1,38 @@
+
+    <h2>Details of {{ object.name }}</h2>
+
+    <table class="table table-striped table-bordered">
+        <tr>
+            <td>Username</td>
+            <td style="width: 40%; height: 30px">
+                <div ng-show="!editUserName" ng-click="editUserName = true">{{ object.username }}</div>
+                <form class="form-inline" ng-show="editUserName">
+                  <input type="text" ng-model="object.username" class="input-small">
+                  <button class="btn" ng-click="save(); editUserName=false;" class="input-small">Save</button>
+                  <button class="btn btn-warn" ng-click="cancel(); editUserName=false;" class="input-small">Cancel</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>First Name</td>
+            <td style="height: 30px">
+                <div ng-click="editFirstName = true" ng-show="!editFirstName">{{ object.first_name }}.</div>
+                <form class="form-inline" ng-show="editFirstName">
+                    <input type="text" ng-model="object.first_name" class="input-small">
+                    <button class="btn" ng-click="save(); editFirstName=false;" class="input-small">Save</button>
+                    <button class="btn btn-warn" ng-click="cancel(); editFirstName=false;" class="input-small">Cancel</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td style="height: 30px">
+                <div ng-click="editLastName = true" ng-show="!editLastName">{{ object.last_name }}.</div>
+                <form class="form-inline" ng-show="editLastName">
+                    <input type="text" ng-model="object.last_name" class="input-small">
+                    <button class="btn" ng-click="save(); editLastName=false;" class="input-small">Save</button>
+                    <button class="btn btn-warn" ng-click="cancel(); editLastName=false;" class="input-small">Cancel</button>
+                </form>
+            </td>
+        </tr>
+    </table>

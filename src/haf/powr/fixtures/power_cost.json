@@ -1,0 +1,1 @@
+[{"pk": 1, "model": "powr.powercost", "fields": {"start_time": "00:00:00", "range_bottom": 0, "effective_end": null, "cost": "0.05", "end_time": "23:59:59", "range_top": 50000, "effective_start": "2013-04-06T02:59:02.010Z"}}]
