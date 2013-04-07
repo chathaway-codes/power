@@ -37,7 +37,10 @@ class Satellite(models.Model):
         Returns the satellite represented by id
         >>> s = Satellite(serial_number="aaabbbccc", outlet="a")
         >>> s.save()
-        >>> p = Satellite.get_satellite_by_id(s.__unicode__())
+        >>> p = Satellite.get_satellite_by_id('aaa-bbb-ccc:a')
+        >>> p == s
+        True
+        >>> p = Satellite.get_satellite_by_id('aaabbbccc:a')
         >>> p == s
         True
         """
@@ -58,8 +61,11 @@ class Satellite(models.Model):
         >>> s = Satellite(serial_number="aaabbbccc", outlet="a")
         >>> print s
         aaa-bbb-ccc:a
+        >>> s = Satellite(serial_number="aaabbbcc", outlet="a")
+        >>> print s
+        aaa-bbb-cc:a
         """
-        return re.sub("(.{3})", "\\1-", self.serial_number, re.DOTALL)[:-1] + ":" + self.outlet
+        return re.sub("(.{1,3})", "\\1-", self.serial_number, re.DOTALL)[:-1] + ":" + self.outlet
 
 class PowerCost(models.Model):
     """
