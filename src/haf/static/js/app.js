@@ -18,7 +18,7 @@ haf.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
         when('/devices/:id', {templateUrl: window.STATIC_URL+'powr/partials/devices/detail.html', controller: DevicesDetailCtrl}).
         
         when('/system/users', {templateUrl: window.STATIC_URL+'system/partials/users.html', controller: UsersListCtrl}).
-        when('/system/users/new', {templateUrl: window.STATIC_URL+'system/partials/users/update.html', controller: UsersUpdateCtrl}).
+        when('/system/users/new', {templateUrl: window.STATIC_URL+'system/partials/users/new.html', controller: UsersNewCtrl}).
         when('/system/users/:id', {templateUrl: window.STATIC_URL+'system/partials/users/detail.html', controller: UsersDetailCtrl}).
 
         otherwise({redirectTo: '/dashboard'});

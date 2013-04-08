@@ -119,7 +119,7 @@ function DevicesDetailCtrl($scope, $routeParams, Device, Satellite) {
     $scope.editName = false;
     $scope.editEnabled = false;
     $scope.save = function() {
-        $scope.device.$save();
+        $scope.device.$save({id: $scope.device.id});
         original = $scope.device;
     }
     $scope.cancel = function() {
@@ -133,12 +133,40 @@ DevicesDetailCtrl.$inject = ['$scope', '$routeParams', 'Device', 'Satellite'];
  */
 function UsersListCtrl($scope, User) {
     $scope.objects = User.query();
+    
+    $scope.delete = function(object) {
+        $scope.objects.splice(object, 1);
+        object.$delete({id: object.id})
+    }
+    
+    $scope.sort = {
+        column: 'username',
+        descending: false
+    };
+    
+    $scope.changeSorting = function(column) {
+        var sort = $scope.sort;
+        if($scope.sort.column == column) {
+            $scope.sort.descending = !sort.descending;
+        } else {
+            $scope.sort.column = column;
+            $scope.sort.descending = false;
+        }
+    };
 }
 UsersListCtrl.$inject = ['$scope', 'User'];
 
-function UsersUpdateCtrl($scope) {
+function UsersNewCtrl($scope, $location, User) {
+    $scope.save = function() {
+        if($scope.object.password == $scope.confirm_password) {
+            User.create($scope.object);
+            $location.path('/system/users');
+        } else {
+            $scope.message = "Password's don't match!";
+        }
+    }
 }
-UsersUpdateCtrl.$inject = ['$scope'];
+UsersNewCtrl.$inject = ['$scope', '$location', 'User'];
 
 function UsersDetailCtrl($scope, $routeParams, User) {
     $scope.object = User.get({id: $routeParams.id});
@@ -148,11 +176,22 @@ function UsersDetailCtrl($scope, $routeParams, User) {
     $scope.editFirstName = false;
     $scope.editLastName = false;
     $scope.save = function() {
-        $scope.object.$save();
-        original = $scope.device;
+        $scope.object.$save({id: $scope.object.id});
+        original = $scope.object;
     }
     $scope.cancel = function() {
         $scope.object = original;
+    }
+    
+    $scope.savePassword = function() {
+        if($scope.password == $scope.confirm_password) {
+            $scope.object.password = $scope.password;
+            $scope.save();
+            $('#passwordModal').modal('hide');
+            $scope.message = "Password updated!";
+        } else {
+            $scope.password_error = "Password's don't match!";
+        }
     }
 }
 UsersDetailCtrl.$inject = ['$scope', '$routeParams', 'User'];

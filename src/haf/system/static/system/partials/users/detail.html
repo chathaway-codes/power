@@ -1,5 +1,6 @@
 
-    <h2>Details of {{ object.name }}</h2>
+    <h2>Details of {{ object.username }}</h2>
+    <h3 ng-show="message != ''">{{ message }}</h3>
 
     <table class="table table-striped table-bordered">
         <tr>
@@ -36,3 +37,34 @@
             </td>
         </tr>
     </table>
+    
+    <a role="button" class="btn" onclick="$('#passwordModal').modal('show');">Change password</a>
+    
+    <div class="modal hide fade" id="passwordModal">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h3>Change password</h3>
+        </div>
+        <div class="modal-body">
+            <h2 style="color: red" ng-show="password_error != ''">{{ password_error }}</h2>
+            <form class="form-horizontal">
+                <div class="control-group">
+                    <label class="control-label" for="password">Password</label>
+                    <div class="controls">
+                        <input type="password" id="password" ng-model="password">
+                    </div><!-- /.controls -->
+                </div><!-- /.control-group -->
+                
+                <div class="control-group">
+                    <label class="control-label" for="confirm">Confirm</label>
+                    <div class="controls">
+                        <input type="password" id="confirm" ng-model="confirm_password">
+                    </div><!-- /.controls -->
+                </div><!-- /.control-group -->
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button class="btn">Close</button>
+            <button class="btn btn-primary" ng-click="savePassword()">Save changes</button>
+        </div>
+    </div><!-- /.modal.hide.fade -->

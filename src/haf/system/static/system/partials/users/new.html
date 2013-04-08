@@ -1,0 +1,26 @@
+  <h2>Add a new user</h2>
+
+  <form class="form-horizontal">
+    <div class="control-group">
+        <label class="control-label" for="username">Username</label>
+        <div class="controls">
+            <input type="text" id="username" placeholder="Username" ng-model="object.username">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+            <input type="password" id="password" ng-model="object.password">
+        </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    
+    <div class="control-group">
+        <label class="control-label" for="confirm">Confirm</label>
+        <div class="controls">
+            <input type="password" id="confirm" ng-model="confirm_password">
+        </div><!-- /.controls -->
+    </div><!-- /.control-group -->
+    <div class="control-group">
+        <button type="submit" class="btn" ng-click="save(object)">Save</button>
+    </div>
+  </form>
