@@ -73,7 +73,7 @@
             </a>
             <div class="nav-collapse collapse">
               <ul class="nav" ng-controller="NavCtrl">
-                <li><a href="#">Quick Start</a></li>
+                <li><a href="#">Help</a></li>
                 <li ng-class="navClass('dashboard')"><a href="#/dashboard">Dashboard</a></li>
                 <li ng-class="navClass('devices')"><a href="#/devices" class="dropdown-toggle" data-hover="dropdown">Devices <span class="caret"></span></a>
                   <ul class="dropdown-menu" style=" margin-left:150px; margin-right:150px;">
@@ -91,7 +91,6 @@
                 <li ng-class="navClass('system')"><a href="#/system" class="dropdown-toggle" data-hover="dropdown">System <span class="caret"></span></a>
                   <ul class="dropdown-menu" style=" margin-left:150px; margin-right:150px;">
                     <li><a href="#/system/users">Users</a></li>
-                    <li><a href="#/satellites">Satellites</a></li>
                   </ul>
                 </li>
               </ul> <!-- /.nav --> 
@@ -102,6 +101,8 @@
     </div> <!-- /.masthead --> 
     
     <br />
+    
+    <div id="alerts"></div>
 
     <div class="container" ng-view></div>
 
@@ -113,7 +114,7 @@
   </div><!-- /container -->
 
   <!-- Login modal -->
-  <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby='loginModal' aria-hidden='true' ng-controller="LoginCtrl">
+  <div id="loginModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby='loginModal' aria-hidden='true' ng-controller="LoginCtrl">
       <div class='modal-header'>
           <h3 id="modalLoginLabel">Login</h3>
       </div>
@@ -124,7 +125,7 @@
               {% verbatim %}
               <h3 style="color: red">{{ error }}</h3>
               {% endverbatim %}
-              <input type="text" class="input-block-level" placeholder="Username" ng-model="form.username">
+              <input id="login-username" type="text" class="input-block-level" placeholder="Username" ng-model="form.username">
               <input type="password" class="input-block-level" placeholder="Password" ng-model="form.password">
               <button class="btn btn-large btn-primary" type="submit" ng-click="login()">Sign in</button>
             </form>
@@ -149,25 +150,8 @@
   <!-- JQuery UI and Date Picker -->
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.core.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.datepicker.js"></script>
-  <!-- <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.slider.js"></script> -->
+  <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-ui/ui/jquery.ui.slider.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}components/jquery-timepicker-addon/jquery-ui-timepicker-addon.js"></script>
-
-  <!-- Some logic to help with Django CSRF -->
-  <script>
-var csrftoken = $.cookie('csrftoken');
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    crossDomain: false, // obviates need for sameOrigin test
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type)) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    }
-});
-  </script>
   {% endcompress %}
 
 </body>

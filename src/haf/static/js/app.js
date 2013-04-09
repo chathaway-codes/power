@@ -72,13 +72,16 @@ haf.run(['$rootScope', '$http', '$location', function(scope, $http, $location) {
         }
     });
 
-    scope.$on('event:loginRequired', function() {
-        $('#loginModal').modal('show');
-    });
+
+    scope.$on('event:loginRequired', showLogin);
 
     scope.$on('event:logoutRequest', function() {
         $http.get(window.LOGOUT_URL);
     });
+
+    // If the user isn't logged in, prompt them
+    if(!window.LOGGED_IN)
+        showLogin();
 
     /*scope.$on('event:loginRequest', function(event, username, password) {
         var payload = $.param({username: username, password: password});
@@ -94,3 +97,15 @@ haf.run(['$rootScope', '$http', '$location', function(scope, $http, $location) {
     });*/
 
 }]);
+
+
+function showLogin() {
+    $('#loginModal').modal('show');
+    $("#login-username").focus();
+}
+
+function alert(message) {
+    var alert = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'
+        + message +'</div>';
+    $('#alerts').append(message);
+}
