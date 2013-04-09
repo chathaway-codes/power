@@ -95,7 +95,7 @@ function DevicesNewCtrl($scope, $location, Satellite, Device) {
     $scope.device = {"enabled": true};
 
     $scope.save = function(device) {
-        Device.save($scope.device);
+        Device.create($scope.device);
         $location.path('/devices');
     };
 

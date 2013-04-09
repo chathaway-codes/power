@@ -1,7 +1,8 @@
 angular.module('powrDeviceServices', ['ngResource']).
     factory('Device', function($resource) {
         return $resource(window.API_RAW+'/device/:id', {}, {
-            save: {method: "PUT"}
+            save: {method: "PUT"},
+            create: {method: "POST"}
         });
 });
 

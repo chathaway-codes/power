@@ -136,7 +136,7 @@ INSTALLED_APPS = (
     'registration',
     'tastypie',
     'rest_api',
-    'haf',
+#    'haf',
 )
 
 HAF_APPS = (
@@ -150,9 +150,6 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 TASTYPIE_ALLOW_MISSING_SLASH = True
 APPEND_SLASH = False
-
-from django.contrib.auth.models import User
-AUTH_USER_MODEL = User
 
 COMPRESS_PRECOMPILERS = (
     ('text/coffee', 'coffee --compile --stdio'),
@@ -188,7 +185,10 @@ LOGGING = {
 }
 
 try:
-    from local_settings import *
+  from local_settings import *
 except:
-    pass
+  pass
+
+from django.contrib.auth.models import User
+AUTH_USER_MODEL = User
 
