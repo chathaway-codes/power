@@ -54,9 +54,11 @@ LogoutCtrl.$inject = ['$rootScope', '$scope', '$http'];
 
 
 function DashboardCtrl($scope) {
+    introJs().start();
 }
 
 function GraphsCtrl($scope) {
+    console.log("Here");
 }
 
 function GraphsNewCtrl($scope) {

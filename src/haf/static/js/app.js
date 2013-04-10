@@ -82,20 +82,6 @@ haf.run(['$rootScope', '$http', '$location', function(scope, $http, $location) {
     // If the user isn't logged in, prompt them
     if(!window.LOGGED_IN)
         showLogin();
-
-    /*scope.$on('event:loginRequest', function(event, username, password) {
-        var payload = $.param({username: username, password: password});
-        var config = {
-            header: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-        };
-        $http.post(window.LOGIN_URL, payload, config).success(function(data) {
-            scope.$broadcast('event:loginConfirmed');
-        });
-    });
-
-    scope.$on('event:logoutRequest', function() {
-    });*/
-
 }]);
 
 
