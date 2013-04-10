@@ -62,15 +62,16 @@ function GraphsCtrl($scope) {
 function GraphsNewCtrl($scope) {
     $scope.STATIC_URL = window.STATIC_URL;
 
-    $('#startabsolutetime').datetimepicker({
+    /*$('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
     });
 
 
     $('#endabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
-    });
+    });*/
 }
+GraphsNewCtrl.$inject = ['$scope'];
 
 function DevicesListCtrl($scope, $location, Device) {
     $scope.objects = Device.query();

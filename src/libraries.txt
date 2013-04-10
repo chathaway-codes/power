@@ -1,4 +1,4 @@
-Django>=1.4.3
+Django==1.4.3
 distribute>=0.6.30
 django-appconf>=0.5
 django-compressor>=1.2
