@@ -58,11 +58,45 @@ function DashboardCtrl($scope) {
 }
 
 function GraphsCtrl($scope) {
-    console.log("Here");
 }
+GraphsCtrl.$inject = ['$scope'];
 
-function GraphsNewCtrl($scope) {
+function GraphsNewCtrl($scope, Device, Graph) {
     $scope.STATIC_URL = window.STATIC_URL;
+    $scope.device_list = Device.query();
+    $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
+    $scope.selected_devices = [];
+    $scope.selected_devices_rm = [];
+    
+    $scope.addDevice = function() {
+        var items = $scope.selected_devices;
+        
+        // Remove the item from the devices_available box
+        // And append them to the devices_selected box
+        for(var i=0; i < items.length; i++) {
+            $scope.chart.devices.push(items[i]);
+            $scope.device_list.splice($scope.device_list.indexOf(items[i]), 1);
+        }
+        $scope.selected_devices = [];
+    }
+    $scope.remDevice = function() {
+        var items = $scope.selected_devices_rm;
+        
+        // Remove the item from the devices_available box
+        // And append them to the devices_selected box
+        for(var i=0; i < items.length; i++) {
+            $scope.device_list.push(items[i]);
+            $scope.chart.devices.splice($scope.chart.devices.indexOf(items[i]), 1);
+        }
+        $scope.selected_devices = [];
+    }
+    
+    $scope.save = function() {
+        // Add in the 
+        console.log($scope.chart);
+        Graph.create($scope.chart);
+        $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
+    }
 
     /*$('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
@@ -73,7 +107,7 @@ function GraphsNewCtrl($scope) {
         timeFormat: "hh:mm tt"
     });*/
 }
-GraphsNewCtrl.$inject = ['$scope'];
+GraphsNewCtrl.$inject = ['$scope', 'Device', 'Graph'];
 
 function DevicesListCtrl($scope, $location, Device) {
     $scope.objects = Device.query();

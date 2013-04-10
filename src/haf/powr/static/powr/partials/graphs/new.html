@@ -10,16 +10,12 @@
                   <h5>Available Devices</h5>
                 </div><!-- /.row -->
                 <div class="row">
-                  <select multiple="multiple" name="devices_available" id="devices_available">
-                      <option value="Device A">Device A</option>
-                      <option value="Device B">Device B</option>
-                      <option value="Device C">Device C</option>
-                      <option value="Device D">Device D</option>
-                      <option value="Device E">Device E</option>
+                  <select multiple="multiple" ng-model="selected_devices" ng-options="i.name for i in device_list | orderBy:'name'">
+                    <!-- <option ng-repeat="device in device_list" value="{{ device.resource_uri }}">{{ device.name }}</option> -->
                   </select>
                 </div><!-- /.row -->
                 <div class="row">
-                  <button type="button" class="btn btn btn-success" name="devices_add_selected" id="devices_add_selected">Add Selected</button>
+                  <button type="button" class="btn btn btn-success" ng-click="addDevice()">Add Selected</button>
                 </div><!-- /.row -->
             </div><!-- /.span4.offset1 -->
             
@@ -28,16 +24,11 @@
                   <h5>Selected Devices</h5>
                 </div><!-- /.row -->
                 <div class="row">
-                  <select multiple="multiple" name="devices_selected" id="devices_selected">
-                    <option value="Device A">Device A</option>
-                    <option value="Device B">Device B</option>
-                    <option value="Device C">Device C</option>
-                    <option value="Device D">Device D</option>
-                    <option value="Device E">Device E</option>
+                  <select multiple="multiple" ng-model="selected_devices_rm" ng-options="i.name for i in chart.devices | orderBy:'name'">
                   </select>
                 </div><!-- /.row -->
                 <div class="row">
-                  <button type="button" class="btn btn btn-danger" name="devices_remove_selected" id="devices_remove_selected">Remove Selected</button>
+                  <button type="button" class="btn btn btn-danger"  ng-click="remDevice()">Remove Selected</button>
                 </div><!-- /.row -->
             </div><!-- /.span4.offset1 -->
           </div><!-- /.row -->
@@ -50,7 +41,7 @@
             <div class="span4 offset1">
               <label class="radio">
                 <img src="{{ STATIC_URL }}powr/img/Chart_Line_Plot.png" />
-                <input type="radio" name="type_graphtype" value="line" checked="checked">
+                <input type="radio" name="type_graphtype" value="LINE" checked="checked" ng-model="chart.graph_type">
                 Line 
               </label>
               <span class="help-block">Shows power usage of the device(s) over a specific time</span>
@@ -58,7 +49,7 @@
             <div class="span4 offset1">
               <label class="radio">
                 <img src="{{ STATIC_URL }}powr/img/Chart_Stacked_Area_Plot.png" />
-                <input type="radio" name="type_graphtype" value="area">
+                <input type="radio" name="type_graphtype" value="STAC" ng-model="chart.graph_type">
                 Stacked Area 
               </label>
               <span class="help-block">Shows power usage of the device(s) over a specific time stacked one on top of each other to show total usage for the selected devices</span> </div>
@@ -67,7 +58,7 @@
             <div class="span4 offset1">
               <label class="radio">
                 <img src="{{ STATIC_URL }}powr/img/Chart_Column_Plot.png" />
-                <input type="radio" name="type_graphtype" value="bar">
+                <input type="radio" name="type_graphtype" value="BAR" ng-model="chart.graph_type">
                 Bar 
               </label>
               <span class="help-block">Shows power usage of a device for specific intervals</span>
@@ -75,7 +66,7 @@
             <div class="span4 offset1">
               <label class="radio">
                 <img src="{{ STATIC_URL }}powr/img/Chart_Pie_Plot.png" />
-                <input type="radio" name="type_graphtype" value="pie">
+                <input type="radio" name="type_graphtype" value="PIE" ng-model="chart.graph_type">
                 Pie 
               </label>
               <span class="help-block">Compares multiple devices power usage</span>
@@ -95,19 +86,19 @@
               <div class="row">
                 <div class="input-prepend">
                   <span class="add-on" style="width:70px;">Start Time</span>
-                  <input class="span3" id="startabsolutetime" type="text" placeholder="Click to select" name="timespan_absolute_start" id="timespan_absolute_start">
+                  <input class="span3" type="text" placeholder="Click to select" ng-model="chart.start_date">
                 </div>
               </div><!-- /.row -->
               <div class="row">
                 <div class="input-prepend">
                   <span class="add-on" style="width:70px;">End Time</span>
-                  <input class="span3" id="endabsolutetime" type="text" placeholder="Click to select" name="timespan_absolute_end" id="timespan_absolute_end">
+                  <input class="span3" type="text" placeholder="Click to select" ng-model="chart.stop_date">
                 </div>
               </div><!-- /.row -->
               <div class="row">
                 <label>
                   <center>
-                    <input type="radio" name="timespan_type" value="absolute">
+                    <input type="radio" name="timespan_type" value="ABS" ng-model="chart.timeframe_method">
                     Use selected absolute dates 
                   </center>
                 </label>
@@ -127,24 +118,24 @@
               <div class="row">
                 <div class="input-prepend input-append">
                   <span class="add-on" style="width:90px;">Timespan of</span>
-                  <input class="span2" id="realativetimespan" type="text" placeholder="" name="timespan_realative_span_val" id="timespan_realative_span_val">
-                  <select class="add-on timespan" style="height:30px;" name="timespan_realative_span_unit" id="timespan_realative_span_unit">
-                    <option value="year">Year(s)</option>
-                    <option value="month">Month(s)</option>
-                    <option value="week">Week(s)</option>
-                    <option value="day">Days(s)</option>
+                  <input class="span2" type="text" placeholder="Timespan" ng-model="chart.timespan">
+                  <select class="add-on timespan" style="height:30px;" ng-model="chart.timespan_unit">
+                    <option value="Y">Year(s)</option>
+                    <option value="M">Month(s)</option>
+                    <option value="E">Week(s)</option>
+                    <option value="D">Days(s)</option>
                   </select>
                 </div>
               </div><!-- /.row -->
               <div class="row">
                 <div class="input-prepend input-append">
                   <span class="add-on" style="width:90px;">Starting</span>
-                  <input class="span1"  style="width:86px;" id="realativestarting" type="text" placeholder="">
-                  <select class="add-on timespan" style="height:30px;" name="timespan_realative_start_unit" id="timespan_realative_start_unit">
-                    <option value="year">Year(s)</option>
-                    <option value="month">Month(s)</option>
-                    <option value="week">Week(s)</option>
-                    <option value="day">Days(s)</option>
+                  <input class="span1"  style="width:86px;" type="text" placeholder="Starting" ng-model="chart.starting">
+                  <select class="add-on timespan" style="height:30px;" ng-model="chart.starting_unit">
+                    <option value="Y">Year(s)</option>
+                    <option value="M">Month(s)</option>
+                    <option value="W">Week(s)</option>
+                    <option value="D">Days(s)</option>
                   </select>
                   <span class="add-on" style="width:30px;">Ago</span> 
                 </div>
@@ -152,7 +143,7 @@
               <div class="row">
                 <label>
                   <center>
-                    <input type="radio" name="timespan_type" value="realative">
+                    <input type="radio" name="timespan_type" value="REL" ng-model="chart.timeframe_method">
                     Use relative dates 
                   </center>
                 </label>
@@ -169,7 +160,7 @@
           <legend></legend>
           <button type="reset" class="btn btn btn-danger" id="reset_button">Start Over</button>
           <button type="button" class="btn btn btn-success" id="preview_button">Preview</button>
-          <button type="submit" class="btn btn-primary" id="save_button">Save Graph</button>
+          <button type="submit" class="btn btn-primary" id="save_button" ng-click="save()">Save Graph</button>
         </fieldset>
       </div> <!-- /#button_bar -->
       <div id="preview" style="height:300px; width:500px; margin:auto;" align="center">

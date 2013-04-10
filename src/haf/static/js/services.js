@@ -4,7 +4,13 @@ angular.module('powrDeviceServices', ['ngResource']).
             save: {method: "PUT"},
             create: {method: "POST"}
         });
-});
+    }). 
+    factory('Graph', function($resource) {
+        return $resource(window.API_RAW+'/graph/:id', {}, {
+            save: {method: "PUT"},
+            create: {method: "POST"}
+        });
+    });
 
 angular.module('powrSatelliteServices', ['ngResource']).
     factory('Satellite', function($resource) {

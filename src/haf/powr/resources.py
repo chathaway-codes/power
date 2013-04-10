@@ -2,7 +2,7 @@ from tastypie import fields
 from rest_api.resources import ModelResource, ModelMeta
 from tastypie.constants import ALL
 
-from powr.models import Satellite, Device
+from powr.models import Satellite, Device, Graph
 
 class SatelliteResource(ModelResource):
     class Meta(ModelMeta):
@@ -15,3 +15,8 @@ class DeviceResource(ModelResource):
         filtering = {
             'id': ALL,
         }
+
+class GraphResource(ModelResource):
+    devices = fields.ManyToManyField(DeviceResource, 'devices')
+    class Meta(ModelMeta):
+        queryset = Graph.objects.all()

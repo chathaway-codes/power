@@ -123,3 +123,41 @@ class Data(models.Model):
 
     def __unicode__(self):
         return self.device_id.__unicode__() + " consumed " + repr(self.watt) + " watts over " + repr(self.interval) + " seconds"
+
+class Graph(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    
+    devices = models.ManyToManyField(Device)
+    
+    GRAPH_TYPE_CHOICES = (
+        ('LINE', 'Line Graph'),
+        ('BAR', 'Bar Graph'),
+        ('PIE', 'Pie Chart'),
+        ('STAC', 'Stacked Area'),
+    )
+    graph_type = models.CharField(max_length=4, choices=GRAPH_TYPE_CHOICES)
+    
+    TIMEFRAME_METHOD_CHOICES = (
+        ('ABS', 'Absolute Dates'),
+        ('REL', 'Relative Dates'),
+    )
+    timeframe_method = models.CharField(max_length=3, choices=TIMEFRAME_METHOD_CHOICES)
+    
+    start_date = models.DateTimeField(null=True)
+    stop_date = models.DateTimeField(null=True)
+    
+    timespan = models.IntegerField(null=True)
+    
+    TIMESPAN_UNIT_OPTIONS = (
+        ('Y', 'Years'),
+        ('M', 'Months'),
+        ('W', 'Weeks'),
+        ('D', 'Days'),
+    )
+    timespan_unit = models.CharField(max_length=1, choices=TIMESPAN_UNIT_OPTIONS)
+    
+    starting = models.IntegerField(null=True)
+    
+    STARTING_UNIT_OPTIONS = TIMESPAN_UNIT_OPTIONS
+    starting_unit = models.CharField(max_length=1, choices=STARTING_UNIT_OPTIONS)
