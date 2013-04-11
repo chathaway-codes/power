@@ -57,6 +57,10 @@ function DashboardCtrl($scope) {
     introJs().start();
 }
 
+/*
+ * Graphing controllers
+ */
+
 function GraphsCtrl($scope, Graph) {
     $scope.objects = Graph.query();
     
@@ -167,6 +171,10 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
             $scope.chart.devices.splice($scope.chart.devices.indexOf(items[i]), 1);
         }
         $scope.selected_devices = [];
+    }
+    
+    $scope.showGraph = function() {
+        renderGraph($scope.chart, $('#graph'));
     }
     
     $scope.save = function() {

@@ -180,11 +180,11 @@
         <fieldset>
           <legend></legend>
           <button type="reset" class="btn btn btn-danger" id="reset_button">Start Over</button>
-          <button type="button" class="btn btn btn-success" id="preview_button">Preview</button>
+          <button type="button" class="btn btn btn-success" ng-click="showGraph()">Preview</button>
           <button type="submit" class="btn btn-primary" id="save_button" ng-click="save()">Save Graph</button>
         </fieldset>
       </div> <!-- /#button_bar -->
-      <div id="preview" style="height:300px; width:500px; margin:auto;" align="center">
+      <div id="graph" style="height:300px; width:500px; margin:auto;" align="center">
       </div> <!-- /#preview -->
     </form>
   </div><!-- /#graph_wizard --> 

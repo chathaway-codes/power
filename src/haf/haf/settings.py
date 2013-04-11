@@ -136,6 +136,7 @@ INSTALLED_APPS = (
     'registration',
     'tastypie',
     'rest_api',
+    'jqplot_backbone',
 #    'haf',
 )
 
