@@ -14,9 +14,10 @@ class DeviceResource(ModelResource):
         queryset = Device.objects.all()
         filtering = {
             'id': ALL,
+            "enabled": ALL,
         }
 
 class GraphResource(ModelResource):
-    devices = fields.ManyToManyField(DeviceResource, 'devices')
+    devices = fields.ManyToManyField(DeviceResource, 'devices', full=True)
     class Meta(ModelMeta):
         queryset = Graph.objects.all()

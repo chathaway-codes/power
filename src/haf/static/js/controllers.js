@@ -57,13 +57,34 @@ function DashboardCtrl($scope) {
     introJs().start();
 }
 
-function GraphsCtrl($scope) {
+function GraphsCtrl($scope, Graph) {
+    $scope.objects = Graph.query();
+    
+    $scope.delete = function(object) {
+        $scope.objects.splice(object, 1);
+        object.$delete({id: object.id})
+    }
+    
+    $scope.sort = {
+        column: 'name',
+        descending: false
+    };
+    
+    $scope.changeSorting = function(column) {
+        var sort = $scope.sort;
+        if($scope.sort.column == column) {
+            $scope.sort.descending = !sort.descending;
+        } else {
+            $scope.sort.column = column;
+            $scope.sort.descending = false;
+        }
+    };
 }
-GraphsCtrl.$inject = ['$scope'];
+GraphsCtrl.$inject = ['$scope', 'Graph'];
 
-function GraphsNewCtrl($scope, Device, Graph) {
+function GraphsNewCtrl($scope, $location, Device, Graph) {
     $scope.STATIC_URL = window.STATIC_URL;
-    $scope.device_list = Device.query();
+    $scope.device_list = Device.query({"enabled": "true"});
     $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
     $scope.selected_devices = [];
     $scope.selected_devices_rm = [];
@@ -94,7 +115,10 @@ function GraphsNewCtrl($scope, Device, Graph) {
     $scope.save = function() {
         // Add in the 
         console.log($scope.chart);
-        Graph.create($scope.chart);
+        Graph.create($scope.chart, function() {
+            $location.path('/graphs');
+            alert('Graph created');
+        });
         $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
     }
 
@@ -107,7 +131,67 @@ function GraphsNewCtrl($scope, Device, Graph) {
         timeFormat: "hh:mm tt"
     });*/
 }
-GraphsNewCtrl.$inject = ['$scope', 'Device', 'Graph'];
+GraphsNewCtrl.$inject = ['$scope', '$location', 'Device', 'Graph'];
+
+function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
+    $scope.STATIC_URL = window.STATIC_URL;
+    $scope.device_list = Device.query({"enabled": "true"});
+    $scope.chart = Graph.get({id: $routeParams.id}, function() {
+        // Remove all registered devices from this list
+        for(var i=0; i < $scope.chart.devices.length; i++) {
+            var dev = $scope.chart.devices[i];
+            $scope.device_list.splice($scope.device_list.indexOf(dev), 1);
+        }
+    });
+    $scope.selected_devices = [];
+    $scope.selected_devices_rm = [];
+    
+    $scope.addDevice = function() {
+        var items = $scope.selected_devices;
+        
+        // Remove the item from the devices_available box
+        // And append them to the devices_selected box
+        for(var i=0; i < items.length; i++) {
+            $scope.chart.devices.push(items[i]);
+            $scope.device_list.splice($scope.device_list.indexOf(items[i]), 1);
+        }
+        $scope.selected_devices = [];
+    }
+    $scope.remDevice = function() {
+        var items = $scope.selected_devices_rm;
+        
+        // Remove the item from the devices_available box
+        // And append them to the devices_selected box
+        for(var i=0; i < items.length; i++) {
+            $scope.device_list.push(items[i]);
+            $scope.chart.devices.splice($scope.chart.devices.indexOf(items[i]), 1);
+        }
+        $scope.selected_devices = [];
+    }
+    
+    $scope.save = function() {
+        // Add in the 
+        console.log($scope.chart);
+        Graph.create($scope.chart, function() {
+            $location.path('/graphs');
+            alert('Graph updated');
+        });
+    }
+    
+    /*$('#startabsolutetime').datetimepicker({
+        t *imeFormat: "hh:mm tt"
+    });
+
+
+    $('#endabsolutetime').datetimepicker({
+        timeFormat: "hh:mm tt"
+    });*/
+}
+GraphsUpdateCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph'];
+
+/*
+ * Device Controllers
+ */
 
 function DevicesListCtrl($scope, $location, Device) {
     $scope.objects = Device.query();
@@ -123,7 +207,7 @@ function DevicesListCtrl($scope, $location, Device) {
 
     $scope.disable = function(object) {
         object.enabled = !object.enabled;
-        Device.save(object);
+        object.$save({id: object['id']});
     }
 }
 DevicesListCtrl.$inject = ['$scope', '$location', 'Device'];

@@ -2,7 +2,8 @@
 
 var navList = angular.module('navList', []);
 
-var haf = angular.module('haf', ['powrDeviceServices', 'powrSatelliteServices', 'systemUserServices']);
+var haf = angular.module('haf', ['powrDeviceServices', 'powrSatelliteServices', 'powrGraphFilters',
+                                 'systemUserServices']);
 
 haf.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider.
@@ -10,6 +11,7 @@ haf.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpPro
 
         when('/graphs', {templateUrl: window.STATIC_URL+'powr/partials/graphs.html', controller: GraphsCtrl}).
         when('/graphs/new', {templateUrl: window.STATIC_URL+'powr/partials/graphs/new.html', controller: GraphsNewCtrl}).
+        when('/graphs/:id', {templateUrl: window.STATIC_URL+'powr/partials/graphs/new.html', controller: GraphsUpdateCtrl}).
 
         when('/devices', {templateUrl: window.STATIC_URL+'powr/partials/devices.html', controller: DevicesListCtrl}).
         when('/devices/new', {templateUrl: window.STATIC_URL+'powr/partials/devices/new.html', controller: DevicesNewCtrl}).
@@ -93,5 +95,5 @@ function showLogin() {
 function alert(message) {
     var alert = '<div class="alert"><button type="button" class="close" data-dismiss="alert">&times;</button>'
         + message +'</div>';
-    $('#alerts').append(message);
+    $('#alerts').append(alert);
 }

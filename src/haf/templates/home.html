@@ -38,6 +38,7 @@
   <script src="{{ STATIC_URL }}components/jquery/jquery.js" type="text/javascript"></script>
   <script src="{{ STATIC_URL }}js/app.js"></script>
   <script src="{{ STATIC_URL }}js/controllers.js"></script>
+  <script src="{{ STATIC_URL }}js/filters.js"></script>
   <script src="{{ STATIC_URL }}js/services.js"></script>
   <script type="text/javascript" src="{{ STATIC_URL }}components/intro.js/intro.js"></script>
   {% endcompress %}
@@ -87,7 +88,7 @@
                 <li ng-class="navClass('graphs')" class="dropdown nav-item">
                   <a class="dropdown-toggle" data-toggle="dropdown" >Graphs <b class="caret"></b></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">View Current Graphs</a></li>
+                    <li><a href="#/graphs/">View Current Graphs</a></li>
                     <li><a href="#/graphs/new">Make a New Graph</a></li>
                     <li><a href="#">Export Graphs</a></li>
                   </ul>
