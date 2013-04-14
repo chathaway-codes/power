@@ -26,11 +26,14 @@ String powrDevice::buildPayLoad(String radioID)
   _vVal = analogRead(_vPin);
   
   //Figure out real numbers
-  voltage = map(_vVal, 0, 650, 0, 140);
-  //voltage = _vVal;
-  current = _cVal;
+  voltage = map(_vVal, 0, 575, 0, 140);
   
-  payLoad = payLoad + String(voltage, HEX) + ":" + String(current, HEX);
+  //7.4 is the ratio of 1000/135.
+  //Basically scaling the current reading
+  //into milliamps (mA)
+  current = _cVal*7;
+  
+  payLoad = payLoad + voltage + ":" + current;
   return payLoad;
 }
 

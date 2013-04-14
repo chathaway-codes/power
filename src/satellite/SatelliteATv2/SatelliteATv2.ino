@@ -47,7 +47,7 @@ void loop(){
 //  Serial.println(package2);
 //  XBS.println(package2);
 
-  delay(1000);
+  delay(5000);
 }
 
 
