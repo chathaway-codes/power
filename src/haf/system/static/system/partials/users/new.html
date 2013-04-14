@@ -1,20 +1,21 @@
-  <h2>Add a new user</h2>
+  <h2 data-step="1" data-intro="This page is the User adding wizard and can also be accessed through the
+View Current Users page.">Add a new user</h2>
 
   <form class="form-horizontal">
-    <div class="control-group">
+    <div class="control-group" data-step="2" data-intro="This field holds the username of the new User.">
         <label class="control-label" for="username">Username</label>
         <div class="controls">
             <input type="text" id="username" placeholder="Username" ng-model="object.username">
         </div>
     </div>
-    <div class="control-group">
+    <div class="control-group" data-step="3" data-intro="This field holds the password for the new User.">
         <label class="control-label" for="password">Password</label>
         <div class="controls">
             <input type="password" id="password" ng-model="object.password">
         </div><!-- /.controls -->
     </div><!-- /.control-group -->
     
-    <div class="control-group">
+    <div class="control-group" data-step="4" data-intro="This field must be completed to confirm the new password.">
         <label class="control-label" for="confirm">Confirm</label>
         <div class="controls">
             <input type="password" id="confirm" ng-model="confirm_password">

@@ -1,22 +1,28 @@
-  <h2>Add a new device</h2>
+  <h2 data-step="1" data-intro="This page is the Device adding wizard and can also be accessed through the
+View Current Devices page.">Add a new device</h2>
 
   <form class="form-horizontal">
     <div class="control-group">
-        <label class="control-label" for="name">Name</label>
+        <label class="control-label" for="name" data-step="2" data-intro="This field denotes what the new Device will be referenced as once it is created.
+This can be edited later from the View Current Devices page.">Name</label>
         <div class="controls">
             <input type="text" id="name" placeholder="Device name" ng-model="device.name">
         </div>
     </div>
 
     <div class="control-group">
-        <label class="control-label" for="enabled">Enabled?</label>
+        <label class="control-label" for="enabled" data-step="3" data-intro="When this box is checked, the system will record power data regarding this Device.
+Unchecking the box will disable the Device, and the system will no longer record data on this
+Device. This can be edited later from the View Current Devices page.">Enabled?</label>
         <div class="controls">
             <input type="checkbox" id="enabled" ng-model="device.enabled">
         </div>
     </div>
 
     <div class="control-group">
-        <label class="control-label" for="satellite">Associated Satellite</label>
+        <label class="control-label" for="satellite" data-step="4" data-intro="This drop-down list displays all Satellites registered with the system; this
+includes Satellites associated with other Devices. Selecting this will inform the system which
+outlet the new Device is plugged into.">Associated Satellite</label>
         <div class="controls">
             <select ng-model="device.satellite">
                 <option ng-repeat="satellite in satellites" value="{{ satellite }}">{{ satellite.serial_number }}</option>
@@ -24,6 +30,7 @@
         </div>
     </div>
     <div class="control-group">
-        <button type="submit" class="btn" ng-click="save(device)">Save</button>
+        <button type="submit" class="btn" ng-click="save(device)" data-step="5" data-intro="This button saves the new Device. The Device will then be available on the View Current
+Devices page.">Save</button>
     </div>
   </form>

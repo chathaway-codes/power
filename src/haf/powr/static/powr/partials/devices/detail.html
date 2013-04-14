@@ -1,9 +1,9 @@
 
-    <h2>Details of {{ device.name }}</h2>
+    <h2 data-step="1" data-intro="This page specifies the details of a specific Device.">Details of {{ device.name }}</h2>
 
     <table class="table table-striped table-bordered">
         <tr>
-            <td>Name</td>
+            <td data-step="2" data-intro="This is the name that the Device is known by in the system, this can be edited.">Name</td>
             <td style="width: 40%; height: 30px">
                 <div ng-show="!editName" ng-click="editName = true">{{ device.name }}</div>
                 <form class="form-inline" ng-show="editName">
@@ -14,7 +14,8 @@
             </td>
         </tr>
         <tr>
-            <td>Enabled</td>
+            <td data-step="3" data-intro="This field determines whether the system records information on this specific
+Device. This can be edited.">Enabled</td>
             <td style="height: 30px">
                 <div ng-click="editEnabled = true" ng-show="!editEnabled">{{ device.enabled }}</div>
                 <form class="form-inline" ng-show="editEnabled">
@@ -26,7 +27,8 @@
 
         </tr>
         <tr>
-            <td>Associated Satellite</td>
+            <td data-step="4" data-intro="This field shows the Satellite associated with the Device. This can be
+edited, though the drop-down list displays all Satellites, not just available ones.">Associated Satellite</td>
             <td ng-show="device.satellite == '' && !editSatellite" ng-click="editSatellite=true">Not associated with a satellite</td>
             <td ng-show="device.satellite != '' && !editSatellite" ng-click="editSatellite=true">{{ device.satellite.serial_number }}</td>
             <td ng-show="editSatellite">

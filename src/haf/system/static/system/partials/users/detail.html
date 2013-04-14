@@ -1,9 +1,9 @@
 
-    <h2>Details of {{ object.username }}</h2>
+    <h2 data-step="1" data-intro="This page specifies all the details related to a specific User.">Details of {{ object.username }}</h2>
     <h3 ng-show="message != ''">{{ message }}</h3>
 
     <table class="table table-striped table-bordered">
-        <tr>
+        <tr data-step="2" data-intro="This field is the name that the User is known by in the system, this can be edited.">
             <td>Username</td>
             <td style="width: 40%; height: 30px">
                 <div ng-show="!editUserName" ng-click="editUserName = true">{{ object.username }}</div>
@@ -14,7 +14,7 @@
                 </form>
             </td>
         </tr>
-        <tr>
+        <tr data-step="3" data-intro="These fields are designated to identify the User on the specific User page.">
             <td>First Name</td>
             <td style="height: 30px">
                 <div ng-click="editFirstName = true" ng-show="!editFirstName">{{ object.first_name }}.</div>
@@ -25,7 +25,7 @@
                 </form>
             </td>
         </tr>
-        <tr>
+        <tr data-step="4" data-intro="These fields are designated to identify the User on the specific User page.">
             <td>Last Name</td>
             <td style="height: 30px">
                 <div ng-click="editLastName = true" ng-show="!editLastName">{{ object.last_name }}.</div>
@@ -38,7 +38,7 @@
         </tr>
     </table>
     
-    <a role="button" class="btn" onclick="$('#passwordModal').modal('show');">Change password</a>
+    <a role="button" class="btn" onclick="$('#passwordModal').modal('show');" data-step="5" data-intro="This button brings up a wizard where the User can change their password.">Change password</a>
     
     <div class="modal hide fade" id="passwordModal">
         <div class="modal-header">

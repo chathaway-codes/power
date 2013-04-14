@@ -2,27 +2,31 @@
     <div class="span8">
         <h2>Devices</h2>
     </div><!-- /.span8 -->
-    <div class="span3">
+    <div class="span3" data-step="2" data-intro="This button will take you to a wizard where you can add a Device to be monitored.">
         <button class="btn btn-primary" type="button" ng-click="goNewDevice()">New Device</button>
     </div><!-- /.span3 -->
   </div><!-- /.row-fluid -->
   <div class="row-fluid">
-    <div class="span8">
+    <div class="span8" data-step="4" data-intro="This allows you to search the list of displayed Devices for a word, or specific set of
+characters.">
         <input ng-model="filter.name" class="input-medium search-query" placeholder="Filter..">
     </div>
-    <div class="span4">
+    <div class="span4" data-step="3" data-intro="This button allows you to view all Devices that have been disabled.">
         <button class="btn" ng-click="filter.enabled = !filter.enabled" ng-show="filter.enabled">Show Disabled Devices</button>
         <button class="btn" ng-click="filter.enabled = !filter.enabled" ng-show="!filter.enabled">Show Enabled Devices</button>
     </div><!-- /.span4 -->
   </div><!-- /.row-fluid -->
-  <div class="row-fluid" style="margin-top: 20px;">
+  <div class="row-fluid" style="margin-top: 20px;" data-step="1" data-intro="This is a comprehensive list of enabled Devices. These fields can be sorted in ascending or
+descending order. By clicking on the name of a Device you can view the specific information
+pertaining to that Device.">
     <table class="table table-striped table-bordered">
       <tr>
           <th>Name</th>
       </tr>
       <tr ng-repeat="object in objects | filter:filter" ng-model="object">
-          <td><a href="#/devices/{{ object.id }}">{{ object.name }}</a></td>
-          <td style="width: 10%">
+          <td ><a href="#/devices/{{ object.id }}">{{ object.name }}</a></td>
+          <td style="width: 10%" data-step="4" data-intro="This button allows you to disable an active Device. When disabled, the system
+will not record power data on that Device.">
               <button class="btn btn-danger" ng-click="disable(object)" ng-show="object.enabled">Disable</button>
               <button class="btn btn-success" ng-click="disable(object)" ng-show="!object.enabled">Enable</button>
           </td>
