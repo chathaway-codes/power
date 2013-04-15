@@ -5,6 +5,10 @@ function NavCtrl($scope, $location) {
         var currentRoute = $location.path().substring(1).split("/")[0] || 'dashboard';
         return page === currentRoute ? 'active' : '';
     }
+
+    $scope.help = function() {
+        introJs().start();
+    }
 }
 
 function LoginCtrl($rootScope, $scope, $http) {
@@ -133,14 +137,14 @@ function GraphsNewCtrl($scope, $location, Device, Graph) {
         $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
     }
 
-    /*$('#startabsolutetime').datetimepicker({
+    $('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
     });
 
 
     $('#endabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
-    });*/
+    });
 }
 GraphsNewCtrl.$inject = ['$scope', '$location', 'Device', 'Graph'];
 
@@ -193,14 +197,14 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
         });
     }
     
-    /*$('#startabsolutetime').datetimepicker({
-        t *imeFormat: "hh:mm tt"
+    $('#startabsolutetime').datetimepicker({
+        timeFormat: "hh:mm tt"
     });
 
 
     $('#endabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
-    });*/
+    });
 }
 GraphsUpdateCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph'];
 
