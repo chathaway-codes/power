@@ -1,0 +1,12 @@
+<VirtualHost *:80>
+        DocumentRoot /var/www/src/haf
+	ErrorLog /var/www/error.log
+
+        # Use the WSGI file given to us by Django
+        WSGIScriptAlias / /var/www/src/haf/haf/wsgi.py
+        WSGIDaemonProcess power-beta.logrit.com python-path=/var/www/src/haf:/var/www/src/python/lib/python2.7/site-packages
+        WSGIProcessGroup power-beta.logrit.com
+
+        Alias /static/ /var/www/src/haf/collected_static/
+        Alias /media/ /var/www/src/haf/media/
+</VirtualHost>
