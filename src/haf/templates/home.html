@@ -4,7 +4,7 @@
 <!doctype html>
 <html lang="en" ng-app="haf">
 <head>
-  <title>POW-R :: New Graph</title>
+  <title>POW-R</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   {% compress css %}
@@ -86,13 +86,12 @@
 
     <!-- <div class="masthead"> -->
       <div class="row-fluid">
-        <div class="span8">
-            <h3>POW-R</h3>
+        <div class="span6">
+            <img src="{{ STATIC_URL }}img/pow-r_logo.png" />
         </div><!-- /.span8 -->
-        <div class="span4" ng-controller="LogoutCtrl">
-            <a  ng-click="logout()" ng-show="loggedIn">Log out</a>
-        </div><!-- /.span4 -->
-        <h4 class="muted">Power Outlet Wireless Monitoring</h4>
+        <div class="span6">
+        <h4 class="muted" align="right">Power Outlet Wireless Reporting</h4>
+        </div>
       </div><!-- /.row-fluid -->
       <div class="navbar" ng-app="navList">
         <div class="navbar-inner">
@@ -104,7 +103,6 @@
             </button>
             <div class="nav-collapse collapse">
               <ul class="nav" ng-controller="NavCtrl">
-                <li class="nav-item"><a href="#">Help</a></li>
                 <li class="nav-item" ng-class="navClass('dashboard')"><a href="#/dashboard">Dashboard</a></li>
                 <li ng-class="navClass('devices')" class="dropdown nav-item">
                   <a class="dropdown-toggle" data-toggle="dropdown">Devices <b class="caret"></b></a>
@@ -128,6 +126,9 @@
                     <li><a href="#/system/users/new">Add a New User</a></li>
                   </ul>
                 </li>
+                <li class="nav-item" style="float:right;" ng-controller="LogoutCtrl">
+                   <a  ng-click="logout()" ng-show="loggedIn">Log out</a></li>
+                <li class="nav-item" style="float:right;"><a href="#">Help</a></li>
               </ul> <!-- /.nav --> 
             </div><!-- /.nav-collapse.collapse -->
           </div> <!-- /.container --> 
