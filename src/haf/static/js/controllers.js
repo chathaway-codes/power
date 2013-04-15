@@ -11,6 +11,7 @@ function LoginCtrl($rootScope, $scope, $http) {
     $scope.form = {username: '', password: ''};
 
     $scope.login = function() {
+        $("#login-spinner").css('display', 'inline-block');
         var payload = $.param($scope.form);
         var config = {
             headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8', 'X-CSRFToken': $.cookie('csrftoken')}
@@ -19,6 +20,7 @@ function LoginCtrl($rootScope, $scope, $http) {
         var failure = function(data) {
             $scope.error = "Incorrect username or password.";
             $scope.form = {username: '', password: ''};
+            $("#login-spinner").css('display', 'none');
             console.log($scope);
         }
 
@@ -27,6 +29,7 @@ function LoginCtrl($rootScope, $scope, $http) {
             if(data.data == "success") {
                 $rootScope.$broadcast('event:loginConfirmed');
                 window.LOGGED_IN = true;
+                $("#login-spinner").css('display', 'none');
             }
             else
                 failure(data);

@@ -12,6 +12,7 @@
     "intro.js": "~0.3.0",
     "datejs": "latest",
     "backbone": "~1.0.0",
-    "underscore": "~1.4.4"
+    "underscore": "~1.4.4",
+    "introjs": "latest"
   }
 }

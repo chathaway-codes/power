@@ -28,7 +28,7 @@ Device. This can be edited."><div class="span4" align="right">Enabled</div>
 edited, though the drop-down list displays all Satellites, not just available ones."><div class="span4" align="right">Associated Satellite</div>
 				<div class="span8">
                 <div ng-show="device.satellite == '' && !editSatellite" ng-click="editSatellite=true">Not associated with a satellite</div>
-            <div ng-show="device.satellite != '' && !editSatellite" ng-click="editSatellite=true">{{ device.satellite.serial_number }}</div>
+            <div ng-show="device.satellite != '' && !editSatellite" ng-click="editSatellite=true">{{ device.satellite.serial_number }}.</div>
                <div ng-show="editSatellite">
                 <select ng-model="device.satellite">
                     <option ng-repeat="satellite in satellites" value="{{ satellite.resource_uri }}">{{ satellite.serial_number }}</option>
