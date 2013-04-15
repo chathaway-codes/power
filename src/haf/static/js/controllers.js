@@ -68,12 +68,16 @@ function GraphsCtrl($scope, Graph) {
         $scope.objects.splice(object, 1);
         object.$delete({id: object.id})
     }
-    
+		
     $scope.sort = {
         column: 'name',
         descending: false
     };
     
+		$scope.selectedCls = function(column) {
+        return column == $scope.sort.column && 'sort-' + $scope.sort.descending;
+    };
+		
     $scope.changeSorting = function(column) {
         var sort = $scope.sort;
         if($scope.sort.column == column) {

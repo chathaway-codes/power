@@ -2,8 +2,8 @@
     <div class="span8">
         <h2>Graph Management</h2>
     </div><!-- /.span8 -->
-    <div class="span3">
-        <a class="btn btn-primary" href="#/powr/graphs/new">New Graph</a>
+    <div class="span4" align="right">
+        <a class="btn btn-primary" href="#/graphs/new">New Graph</a>
     </div><!-- /.span3 -->
   </div><!-- /.row-fluid -->
   <div class="row-fluid">
@@ -14,9 +14,9 @@
   <div class="row-fluid" style="margin-top: 20px;">
     <table class="table table-striped table-bordered">
       <tr>
-          <th ng-click="changeSorting('name')">Name</th>
-          <th ng-click="changeSorting('graph_type')">Type</th>
-          <th ng-click="changeSorting('description')">Description</th>
+          <th ng-class="selectedCls('name')"  ng-click="changeSorting('name')" class="ng-attr-widget ng-directive" >Name</th>
+          <th ng-class="selectedCls('graph_type')"  ng-click="changeSorting('graph_type')"class="ng-attr-widget ng-directive">Type</th>
+          <th ng-class="selectedCls('description')"  ng-click="changeSorting('description')"class="ng-attr-widget ng-directive">Description</th>
       </tr>
       <tr ng-repeat="object in objects | orderBy:sort.column:sort.descending | filter:filter" ng-model="object">
           <td><a href="#/graphs/{{ object.id }}">{{ object.name }}</a></td>

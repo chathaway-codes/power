@@ -2,7 +2,7 @@
     <div class="span8">
         <h2>Devices</h2>
     </div><!-- /.span8 -->
-    <div class="span3" data-step="2" data-intro="This button will take you to a wizard where you can add a Device to be monitored.">
+    <div class="span4" data-step="2" data-intro="This button will take you to a wizard where you can add a Device to be monitored." align="right">
         <button class="btn btn-primary" type="button" ng-click="goNewDevice()">New Device</button>
     </div><!-- /.span3 -->
   </div><!-- /.row-fluid -->
@@ -11,7 +11,7 @@
 characters.">
         <input ng-model="filter.name" class="input-medium search-query" placeholder="Filter..">
     </div>
-    <div class="span4" data-step="3" data-intro="This button allows you to view all Devices that have been disabled.">
+    <div class="span4" data-step="3" data-intro="This button allows you to view all Devices that have been disabled." align="right">
         <button class="btn" ng-click="filter.enabled = !filter.enabled" ng-show="filter.enabled">Show Disabled Devices</button>
         <button class="btn" ng-click="filter.enabled = !filter.enabled" ng-show="!filter.enabled">Show Enabled Devices</button>
     </div><!-- /.span4 -->

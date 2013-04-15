@@ -124,3 +124,10 @@ body {
 	border-bottom-color: rgba(0,0,0,0);
 	content: '';
 }*/
+.sort-true {
+     background:no-repeat right center url(../img/arrow-up-icon.png);
+}
+.sort-false {
+    background:no-repeat right center url(../img/arrow-down-icon.png);
+
+}
