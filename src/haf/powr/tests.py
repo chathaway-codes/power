@@ -89,13 +89,9 @@ class web_ui_tests(LiveServerTestCase):
         driver.get(self.base_url + "/admin/")
         driver.find_element_by_link_text("Devices").click()
         driver.find_element_by_link_text("Add device").click()
-        driver.find_element_by_id("object").clear()
-        driver.find_element_by_id("object").send_keys("lamp")
-        driver.find_element_by_id("location").clear()
-        driver.find_element_by_id("location").send_keys("the kitchen")
-        driver.find_element_by_id("unique").clear()
-        driver.find_element_by_id("unique").send_keys("blue shade")
-        driver.find_element_by_id("submit").click()
+        driver.find_element_by_id("id_name").clear()
+        driver.find_element_by_id("id_name").send_keys("The lamp in the kitchen with the blue shade")
+        driver.find_element_by_name("_save").click()
         time.sleep(2)
         
         # And test to make sure there is a Device is the database
@@ -109,7 +105,7 @@ class web_ui_tests(LiveServerTestCase):
         driver = self.driver
         driver.get(self.base_url + "/admin/")
         driver.find_element_by_link_text("Devices").click()
-        driver.find_element_by_link_text("lamp in the kitchen with the blue shade").click()
+        driver.find_element_by_link_text("The lamp in the kitchen with the blue shade").click()
         driver.find_element_by_id("id_name").clear()
         driver.find_element_by_id("id_name").send_keys(new_name)
         driver.find_element_by_name("_save").click()
@@ -125,7 +121,7 @@ class web_ui_tests(LiveServerTestCase):
         driver = self.driver
         driver.get(self.base_url + "/admin/")
         driver.find_element_by_link_text("Devices").click()
-        driver.find_element_by_link_text("lamp in the kitchen with the blue shade").click()
+        driver.find_element_by_link_text("The lamp in the kitchen with the blue shade").click()
         driver.find_element_by_id("id_enabled").click()
         driver.find_element_by_name("_save").click()
         time.sleep(2)
@@ -152,35 +148,35 @@ class web_ui_tests(LiveServerTestCase):
         # And make sure the second user was added
         self.assertEqual(User.objects.count(), 2, "There should be two users now")
     
-    def test_add_satellite(self):
-        """
-        This test is currently broken :(
-        """
-        if True:
-            return
-        self.login()
-        
-        driver = self.driver
-        driver.get(self.base_url + "/admin/")
-        driver.find_element_by_link_text("Satellites").click()
-        driver.find_element_by_link_text("Add satellite").click()
-        self.assertEquals(driver.find_element_by_id("instructions").text, "Please push the red connect button on the Satellite you wish to connect.") 
-        driver.find_element_by_id("next").click()
-        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
-        self.assertEquals(driver.find_element_by_id("instructions").text, "Searching for Satellite..")
-        # ERROR: Caught exception [unknown command [pause(5000)]]
-        time.sleep(5)
-        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
-        self.assertEqual(driver.find_element_by_id("instructions").text, "I found the following Satellite:")
-        # Warning: assertTextPresent may require manual changes
-        self.assertNotEqual(driver.find_element_by_id("satellite_id"), "")
-        driver.find_element_by_id("next").click()
-        self.assertEqual(driver.find_element_by_id("instructions").text, "Satellite added! Please return to the home page.")
-        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
-        
-        # Then verify that the satellite was added
-        from powr.models import Satellite
-        self.assertEquals(Satellite.objects.count(), 1)
+#    def test_add_satellite(self):
+#        """
+#        This test is currently broken :(
+#        """
+#        if True:
+#            return
+#        self.login()
+#        
+#        driver = self.driver
+#        driver.get(self.base_url + "/admin/")
+#        driver.find_element_by_link_text("Satellites").click()
+#        driver.find_element_by_link_text("Add satellite").click()
+#        self.assertEquals(driver.find_element_by_id("instructions").text, "Please push the red connect button on the Satellite you wish to connect.") 
+#        driver.find_element_by_id("next").click()
+#        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
+#        self.assertEquals(driver.find_element_by_id("instructions").text, "Searching for Satellite..")
+#        # ERROR: Caught exception [unknown command [pause(5000)]]
+#        time.sleep(5)
+#        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
+#        self.assertEqual(driver.find_element_by_id("instructions").text, "I found the following Satellite:")
+#        # Warning: assertTextPresent may require manual changes
+#        self.assertNotEqual(driver.find_element_by_id("satellite_id"), "")
+#        driver.find_element_by_id("next").click()
+#        self.assertEqual(driver.find_element_by_id("instructions").text, "Satellite added! Please return to the home page.")
+#        # ERROR: Caught exception [Error: unknown strategy [class] for locator [class=instructions]]
+#        
+#        # Then verify that the satellite was added
+#        from powr.models import Satellite
+#        self.assertEquals(Satellite.objects.count(), 1)
     
     def test_del_user(self):
         # First create the user to delete
@@ -200,9 +196,18 @@ class web_ui_tests(LiveServerTestCase):
     
     def login(self):
         driver = self.driver
-        driver.get(self.base_url + "/login/?next=/")
-        driver.find_element_by_id("id_username").clear()
-        driver.find_element_by_id("id_username").send_keys(self.user['name'])
-        driver.find_element_by_id("id_password").clear()
-        driver.find_element_by_id("id_password").send_keys(self.user['password'])
-        driver.find_element_by_css_selector("input[type=\"submit\"]").click()
+        driver.get(self.base_url + "#/dashboard")
+        
+        # Sleep for a second
+        time.sleep(2)
+        
+        driver.find_element_by_id("login-username").clear()
+        driver.find_element_by_id("login-username").send_keys(self.user['name'])
+        driver.find_element_by_id("login-password").clear()
+        driver.find_element_by_id("login-password").send_keys(self.user['password'])
+        driver.find_element_by_id("login-username").clear()
+        driver.find_element_by_id("login-username").send_keys(self.user['name'])
+        driver.find_element_by_id("login-submit").click()
+        
+        # Sleep for a second
+        time.sleep(2)

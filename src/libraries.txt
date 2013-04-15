@@ -11,3 +11,4 @@ pyserial==2.6
 python-dateutil>=1.5
 wsgiref>=0.1.2
 git+git://github.com/chuck211991/django_boostrap.git
+selenium==2.32.0

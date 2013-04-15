@@ -162,8 +162,8 @@
               <h3 style="color: red">{{ error }}</h3>
               {% endverbatim %}
               <input id="login-username" type="text" class="input-block-level" placeholder="Username" ng-model="form.username">
-              <input type="password" class="input-block-level" placeholder="Password" ng-model="form.password">
-              <button class="btn btn-large btn-primary" type="submit" ng-click="login()">Sign in</button>
+              <input id="login-password" type="password" class="input-block-level" placeholder="Password" ng-model="form.password">
+              <button id="login-submit" class="btn btn-large btn-primary" type="submit" ng-click="login()">Sign in</button>
             </form>
       </div>
   </div><!-- /.modal.fade -->
