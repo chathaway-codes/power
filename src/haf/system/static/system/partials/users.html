@@ -17,9 +17,9 @@ descending order in each column. By clicking on the name of a User you can view 
 information pertaining to that User.">
     <table class="table table-striped table-bordered">
       <tr>
-          <th ng-click="changeSorting('username')">Username</th>
-          <th ng-click="changeSorting('first_name')">First Name</th>
-          <th ng-click="changeSorting('last_name')">Last Name</th>
+          <th ng-class="selectedCls('username')" ng-click="changeSorting('username')">Username</th>
+          <th ng-class="selectedCls('first_name')" ng-click="changeSorting('first_name')">First Name</th>
+          <th ng-class="selectedCls('last_name')" ng-click="changeSorting('last_name')">Last Name</th>
       </tr>
       <tr ng-repeat="object in objects | orderBy:sort.column:sort.descending | filter:filter" ng-model="object">
           <td><a href="#/system/users/{{ object.id }}">{{ object.username }}</a></td>

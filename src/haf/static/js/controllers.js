@@ -271,7 +271,9 @@ function UsersListCtrl($scope, User) {
         $scope.objects.splice(object, 1);
         object.$delete({id: object.id})
     }
-    
+    $scope.selectedCls = function(column) {
+        return column == $scope.sort.column && 'sort-' + $scope.sort.descending;
+    };
     $scope.sort = {
         column: 'username',
         descending: false

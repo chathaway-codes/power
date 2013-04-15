@@ -2,29 +2,35 @@
   <div id="graph_wizard">
     <form action="">
       <div class="step" id="devices">
-        <fieldset>
-          <legend><strong>Step 0: </strong>Name your graph</legend>
+        
+          <div class="row-fluid" ><div class="span8">
           <div class="row">
-            <div class="span2 offset1">
+            <div class="span4" align="right">
                 <h5>Name</h5>
-            </div><!-- /.span4.offset1 -->
-            <div class="span6 offset1">
+            </div>
+            <div class="span8">
                 <input type="text" placeholder="Name" ng-model='chart.name'>
-            </div><!-- /.span4.offset1 -->
+            </div>
         </div><!-- /.row -->
         <div class="row">
-            <div class="span2 offset1">
+            <div class="span4" align="right">
                 <h5>Description</h5>
-            </div><!-- /.span4.offset1 -->
-            <div class="span6 offset1">
+            </div>
+            <div class="span8">
                 <textarea rows='3' columns='20' placeholder="Description" ng-model='chart.description'></textarea>
-            </div><!-- /.span4.offset1 -->
+            </div>
           </div><!-- /.row -->
-        </fieldset>
+          </div>
+          
+       
+    <div class="span4"><img src="static/img/graphgraphic.png" /></div>
+  </div> 
+          
+        
       </div> <!-- /.step /#devices -->
       <div class="step" id="devices">
         <fieldset>
-          <legend><strong>Step 1: </strong>Select the Devices to Graph</legend>
+          <legend>Devices to Graph</legend>
           <div class="row">
             <div class="span4 offset1">
                 <div class="row">
@@ -57,7 +63,7 @@
       </div> <!-- /.step /#devices -->
       <div class="step" id="type">
         <fieldset>
-          <legend><strong>Step 2: </strong>Select the Graph Type</legend>
+          <legend>Graph Type</legend>
           <div class="row">
             <div class="span4 offset1">
               <label class="radio">
@@ -97,7 +103,7 @@
       </div> <!-- /.step /#type -->
       <div class="step" id="timespan">
         <fieldset>
-          <legend><strong>Step 3: </strong>Choose the timeframe</legend>
+          <legend>Graph Timeframe</legend>
           
           <div class="row">
             <div class="span4 offset1">
