@@ -1,0 +1,64 @@
+	POW-R - Final Presentation
+	Outline
+
+Each Introduce Ourselves:
+	Title Slide
+		- Names, General Roles, Majors
+		- Project Abstract
+
+Nate Speaks:		
+	Introduction
+		- Problem we solved
+		- Rationale
+
+Grace Speaks:		
+	Requirements Overview
+		- System Level
+	Hardware Requirements
+		- Server
+		- Satellite
+	Software Requirements
+		- Database
+		- Display
+
+Nate Speaks:
+	Architecture
+		- Overview of how components intereact
+	Satellite Design
+	Satellite Implementation
+
+Niloc Speaks:
+	The Zigbees
+	Server Hardware Design
+	Server Hardware Implementation
+
+Charles Speaks:
+	Software Backend / Server Design
+	Software Backend / Server Implementation
+		- Software used
+		- Frameworks used
+		- REST API
+	Display Design
+	Display Implementation
+		- Frameworks used
+		- HCI Related stuff
+
+Grace Speaks:	
+	Testing
+		- Unit
+		- Integration
+		- System
+		- Acceptance
+	Test Results
+
+Forest Speaks:
+	Conclusion: Validate that we solvd problem
+	Business Value
+	Unresolved issues
+	Limitations of our implementation
+
+Niloc Speaks:
+	Lessons Learned
+	What we would do differently if we started over
+	Future plans / improvements that could be made
+	Thank you, Questions, Website URL
