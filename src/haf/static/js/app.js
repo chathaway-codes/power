@@ -123,6 +123,7 @@ function renderGraph(model, el) {
     
     // Start assembling the query parameter for the data
     var query = "";
+    console.log(model);
     if(model.timeframe_method == 'ABS') {
         var start_date = new Date(model.start_date);
         var stop_date = new Date(model.stop_date);

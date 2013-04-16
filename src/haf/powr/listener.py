@@ -5,8 +5,11 @@ def process(satellite, rest):
     
     # Get all the data we need
     voltage, current = rest.split(':')
-    voltage = int(voltage, 10)
-    current = int(current, 10) / 1000.0
+    voltage = int(voltage, 10) / 3.87
+    current = int(current, 10)
+    current = .0016*current + .3612
+
+    print "recording: %s volts and %s amps" % (voltage, current)
     
     # Find the correct PowerCost for now
     power_cost = PowerCost.find_power_cost()

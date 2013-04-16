@@ -137,14 +137,14 @@ function GraphsNewCtrl($scope, $location, Device, Graph) {
         $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
     }
 
-    $('#startabsolutetime').datetimepicker({
+    /*$('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
     });
 
 
     $('#endabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
-    });
+    });*/
 }
 GraphsNewCtrl.$inject = ['$scope', '$location', 'Device', 'Graph'];
 
@@ -185,6 +185,8 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
     }
     
     $scope.showGraph = function() {
+        //$scope.chart.start_date = $("#startabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
+        //$scope.chart.end_date = $("#endabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
         renderGraph($scope.chart, $('#graph'));
     }
     
@@ -197,14 +199,14 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
         });
     }
     
-    $('#startabsolutetime').datetimepicker({
+    /*$('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
     });
 
 
     $('#endabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
-    });
+    });*/
 }
 GraphsUpdateCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph'];
 

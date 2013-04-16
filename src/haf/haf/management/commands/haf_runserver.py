@@ -52,6 +52,8 @@ class Command(BaseCommand):
             except ValueError as detail:
                 sys.stderr.write("Failed to parse line: %s\n" % s)
                 sys.stderr.write("Error: %s\n" % detail)
+            except ImportError as detail:
+                sys.stderr.write("Failed to parse line: %s\n" % detail)
             
     def signal_handler(self, signal, frame):
         self.running = False
