@@ -220,6 +220,7 @@ function renderGraph(model, el) {
         });
         console.log(variables);
     } else if(model.graph_type == 'STAC') {
+        var div = "";
     };
     
     // Then fetch the data and make the chart

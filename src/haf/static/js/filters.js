@@ -5,7 +5,7 @@ angular.module('powrGraphFilters', []).
                 'LINE': 'Line Graph',
                 'BAR': 'Bar Graph',
                 'PIE': 'Pie Chart',
-                'STAC': 'Stacked Area',
+                'STAC': 'Data Table',
             };
             return GRAPH_TYPE_CHOICES[input];
         }

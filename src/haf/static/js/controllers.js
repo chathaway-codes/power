@@ -25,11 +25,9 @@ function LoginCtrl($rootScope, $scope, $http) {
             $scope.error = "Incorrect username or password.";
             $scope.form = {username: '', password: ''};
             $("#login-spinner").css('display', 'none');
-            console.log($scope);
         }
 
         $http.post(window.LOGIN_URL, payload, config).then(function(data) {
-            console.log(data);
             if(data.data == "success") {
                 $rootScope.$broadcast('event:loginConfirmed');
                 window.LOGGED_IN = true;
@@ -47,6 +45,7 @@ function LogoutCtrl($rootScope, $scope, $http) {
         $http.get(window.LOGOUT_URL).then(function(data) {
             $scope.loggedIn = false;
             $rootScope.$broadcast('event:logoutConfirmed');
+            showLogin();
         }, function(data) {
         });
     }
@@ -81,7 +80,7 @@ function GraphsCtrl($scope, Graph) {
         descending: false
     };
     
-		$scope.selectedCls = function(column) {
+    $scope.selectedCls = function(column) {
         return column == $scope.sort.column && 'sort-' + $scope.sort.descending;
     };
 		
@@ -97,45 +96,13 @@ function GraphsCtrl($scope, Graph) {
 }
 GraphsCtrl.$inject = ['$scope', 'Graph'];
 
-function GraphsNewCtrl($scope, $location, Device, Graph) {
-    $scope.STATIC_URL = window.STATIC_URL;
-    $scope.device_list = Device.query({"enabled": "true"});
+function GraphsNewCtrl($scope, $location, $routeParams, Device, Graph, Data) {
+    
+    GraphsEditBase($scope, $location, $routeParams, Device, Graph, Data);
+    
     $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
     $scope.selected_devices = [];
     $scope.selected_devices_rm = [];
-    
-    $scope.addDevice = function() {
-        var items = $scope.selected_devices;
-        
-        // Remove the item from the devices_available box
-        // And append them to the devices_selected box
-        for(var i=0; i < items.length; i++) {
-            $scope.chart.devices.push(items[i]);
-            $scope.device_list.splice($scope.device_list.indexOf(items[i]), 1);
-        }
-        $scope.selected_devices = [];
-    }
-    $scope.remDevice = function() {
-        var items = $scope.selected_devices_rm;
-        
-        // Remove the item from the devices_available box
-        // And append them to the devices_selected box
-        for(var i=0; i < items.length; i++) {
-            $scope.device_list.push(items[i]);
-            $scope.chart.devices.splice($scope.chart.devices.indexOf(items[i]), 1);
-        }
-        $scope.selected_devices = [];
-    }
-    
-    $scope.save = function() {
-        // Add in the 
-        console.log($scope.chart);
-        Graph.create($scope.chart, function() {
-            $location.path('/graphs');
-            alert('Graph created');
-        });
-        $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
-    }
 
     /*$('#startabsolutetime').datetimepicker({
         timeFormat: "hh:mm tt"
@@ -146,11 +113,10 @@ function GraphsNewCtrl($scope, $location, Device, Graph) {
         timeFormat: "hh:mm tt"
     });*/
 }
-GraphsNewCtrl.$inject = ['$scope', '$location', 'Device', 'Graph'];
+GraphsNewCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph', 'Data'];
 
-function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
-    $scope.STATIC_URL = window.STATIC_URL;
-    $scope.device_list = Device.query({"enabled": "true"});
+function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph, Data) {
+    GraphsEditBase($scope, $location, $routeParams, Device, Graph, Data);
     $scope.chart = Graph.get({id: $routeParams.id}, function() {
         // Remove all registered devices from this list
         for(var i=0; i < $scope.chart.devices.length; i++) {
@@ -158,6 +124,14 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
             $scope.device_list.splice($scope.device_list.indexOf(dev), 1);
         }
     });
+    $scope.selected_devices = [];
+    $scope.selected_devices_rm = [];
+}
+GraphsUpdateCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph', 'Data'];
+
+function GraphsEditBase($scope, $location, $routeParams, Device, Graph, Data) {
+    $scope.STATIC_URL = window.STATIC_URL;
+    $scope.device_list = Device.query({"enabled": "true"});
     $scope.selected_devices = [];
     $scope.selected_devices_rm = [];
     
@@ -172,6 +146,7 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
         }
         $scope.selected_devices = [];
     }
+    
     $scope.remDevice = function() {
         var items = $scope.selected_devices_rm;
         
@@ -185,22 +160,67 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
     }
     
     $scope.showGraph = function() {
-        //$scope.chart.start_date = $("#startabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
-        //$scope.chart.end_date = $("#endabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
-        renderGraph($scope.chart, $('#graph'));
+        if($scope.chart.graph_type != 'STAC') {
+            //$scope.chart.start_date = $("#startabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
+            //$scope.chart.end_date = $("#endabsolutetime").datepicker('getDate').toString('yyyy-MM-dd hh:mm:ss');
+            renderGraph($scope.chart, $('#graph'));
+        } else {
+            $scope.datas = [];
+            
+            for(var i=0; i < $scope.chart.devices.length; i++) {
+                var device = $scope.chart.devices[i];
+                var datas = Data.query({device_id: device.id}, function(datas) {
+                    datas.forEach(function(d) {
+                        d.timestamp = (new Date(d.timestamp)).toLocaleString();
+                        d.device = device.name;
+                    });
+                    $scope.datas = $scope.datas.concat(datas);
+                });
+            }
+        }
     }
     
     $scope.save = function() {
         // Add in the 
-        console.log($scope.chart);
         Graph.create($scope.chart, function() {
             $location.path('/graphs');
             alert('Graph updated');
         });
     }
     
+    $scope.create = function() {
+        // Add in the 
+        Graph.create($scope.chart, function() {
+            $location.path('/graphs');
+            alert('Graph created');
+        });
+        $scope.chart = {'devices': [], 'starting_unit': 'Y', 'timespan_unit': 'Y'};
+    }
+    
+    /*
+     * These are for sorting the data table
+     */
+    $scope.sort = {
+        column: 'date',
+        descending: false
+    };
+    
+    $scope.selectedCls = function(column) {
+        return column == $scope.sort.column && 'sort-' + $scope.sort.descending;
+    };
+    
+    $scope.changeSorting = function(column) {
+        var sort = $scope.sort;
+        if($scope.sort.column == column) {
+            $scope.sort.descending = !sort.descending;
+        } else {
+            $scope.sort.column = column;
+            $scope.sort.descending = false;
+        }
+    };
+    
     /*$('#startabsolutetime').datetimepicker({
-        timeFormat: "hh:mm tt"
+        t *imeFormat: "hh:mm tt"
     });
 
 
@@ -208,7 +228,8 @@ function GraphsUpdateCtrl($scope, $location, $routeParams, Device, Graph) {
         timeFormat: "hh:mm tt"
     });*/
 }
-GraphsUpdateCtrl.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph'];
+
+//GraphsEditBase.$inject = ['$scope', '$location', '$routeParams', 'Device', 'Graph', 'Data'];
 
 /*
  * Device Controllers
@@ -229,6 +250,10 @@ function DevicesListCtrl($scope, $location, Device) {
     $scope.disable = function(object) {
         object.enabled = !object.enabled;
         object.$save({id: object['id']});
+        if(object.enabled)
+            alert('Device enabled: ' + object['name']);
+        else
+            alert('Device disabled: ' + object['name']);
     }
 }
 DevicesListCtrl.$inject = ['$scope', '$location', 'Device'];
@@ -239,6 +264,7 @@ function DevicesNewCtrl($scope, $location, Satellite, Device) {
     $scope.save = function(device) {
         Device.create($scope.device);
         $location.path('/devices');
+        alert('Device created: ' + $scope.device.name);
     };
 
     $scope.reset = function() {
@@ -263,6 +289,7 @@ function DevicesDetailCtrl($scope, $routeParams, Device, Satellite) {
     $scope.save = function() {
         $scope.device.$save({id: $scope.device.id});
         original = $scope.device;
+        alert('Device updated: ' + $scope.device.name);
     }
     $scope.cancel = function() {
         $scope.device = original;
@@ -279,6 +306,7 @@ function UsersListCtrl($scope, User) {
     $scope.delete = function(object) {
         $scope.objects.splice(object, 1);
         object.$delete({id: object.id})
+        alert('User deleted: ' + object.username);
     }
     $scope.selectedCls = function(column) {
         return column == $scope.sort.column && 'sort-' + $scope.sort.descending;
@@ -305,6 +333,7 @@ function UsersNewCtrl($scope, $location, User) {
         if($scope.object.password == $scope.confirm_password) {
             User.create($scope.object);
             $location.path('/system/users');
+            alert('User created: ' + $scope.object.username);
         } else {
             $scope.message = "Password's don't match!";
         }
@@ -322,6 +351,7 @@ function UsersDetailCtrl($scope, $routeParams, User) {
     $scope.save = function() {
         $scope.object.$save({id: $scope.object.id});
         original = $scope.object;
+        alert('User updated: ' + $scope.object.username);
     }
     $scope.cancel = function() {
         $scope.object = original;
@@ -332,7 +362,7 @@ function UsersDetailCtrl($scope, $routeParams, User) {
             $scope.object.password = $scope.password;
             $scope.save();
             $('#passwordModal').modal('hide');
-            $scope.message = "Password updated!";
+            alert('Password for ' + $scope.object.username + ' updated!');
         } else {
             $scope.password_error = "Password's don't match!";
         }

@@ -10,6 +10,10 @@ angular.module('powrDeviceServices', ['ngResource']).
             save: {method: "PUT"},
             create: {method: "POST"}
         });
+    }).
+    factory('Data', function($resource) {
+        return $resource(window.API_RAW+'/data/:id', {}, {
+        });
     });
 
 angular.module('powrSatelliteServices', ['ngResource']).

@@ -77,9 +77,9 @@
               <label class="radio">
                 <img src="{{ STATIC_URL }}powr/img/Chart_Stacked_Area_Plot.png" />
                 <input type="radio" name="type_graphtype" value="STAC" ng-model="chart.graph_type">
-                Stacked Area 
+                Data table
               </label>
-              <span class="help-block">Shows power usage of the device(s) over a specific time stacked one on top of each other to show total usage for the selected devices</span> </div>
+              <span class="help-block">Shows the power consumption specified in a table</span> </div>
           </div> <!-- /.row -->
           <div class="row">
             <div class="span4 offset1">
@@ -190,7 +190,23 @@
           <button type="submit" class="btn btn-primary" id="save_button" ng-click="save()">Save Graph</button>
         </fieldset>
       </div> <!-- /#button_bar -->
-      <div id="graph" style="height:300px; width:500px; margin:auto;" align="center">
-      </div> <!-- /#preview -->
+      <div ng-switch on="chart.graph_type">
+        <div ng-switch-when="STAC">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th ng-class="selectedCls('timestamp')"  ng-click="changeSorting('timestamp')" class="ng-attr-widget ng-directive" >Date</th>
+                        <th ng-class="selectedCls('device')"  ng-click="changeSorting('device')"class="ng-attr-widget ng-directive">Device</th>
+                        <th ng-class="selectedCls('watt')"  ng-click="changeSorting('watt')"class="ng-attr-widget ng-directive">Watts</th>
+                        <th ng-class="selectedCls('voltage')"  ng-click="changeSorting('voltage')"class="ng-attr-widget ng-directive">Voltage</th>
+                    </tr>
+                    <tr ng-repeat="object in datas | orderBy:sort.column:sort.descending | filter:filter" ng-model="object">
+                        <td>{{ object.timestamp }}</td>
+                        <td>{{ object.device }}</td>
+                        <td>{{ object.watt }}</td>
+                        <td>{{ object.avg_volt }}</td>
+                    </tr>
+                </table><!-- /.table.table-striped.table-bordered -->
+        </div>
+        <div ng-switch-default id="graph" style="height:300px; width:500px; margin:auto;" align="center"></div> <!-- /#preview -->
     </form>
   </div><!-- /#graph_wizard --> 
