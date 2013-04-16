@@ -10,7 +10,8 @@
 	
 	SoftwareSerial XBS(10, 11);
 	SoftwareSerial LCDS(7, 6);
-	byte setcursorLCD = 12;
+	byte setCursorLCD = 12;
+	byte turnOnBackLight = 19;
         
 	char readChar;
 	void setup(){
@@ -19,7 +20,9 @@
           LCDS.begin(9600);
           LCDS.listen();
           // Cursor move command
-          LCDS.write(setcursorLCD);
+          LCDS.write(setCursorLCD);
+          LCDS.write(setCursorLCD);		  
+          LCDS.write(turnOnBackLight);
           LCDS.print("IP: 192.168.1.187");
           XBS.listen();
 	}
