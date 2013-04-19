@@ -28,7 +28,7 @@ Nate Speaks:
 	Satellite Implementation
 
 Niloc Speaks:
-	The Zigbees
+	The XBees
 	Server Hardware Design
 	Server Hardware Implementation
 
