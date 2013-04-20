@@ -7,6 +7,7 @@
 	*/
 	
 #include<SoftwareSerial.h>
+#include <MsTimer2.h>
 	
 	SoftwareSerial XBS(10, 11);
 	SoftwareSerial LCDS(7, 6);
@@ -15,16 +16,20 @@
         
 	char readChar;
 	void setup(){
+          noInterrupts();
 	  Serial.begin(9600);
 	  XBS.begin(9600);
           LCDS.begin(9600);
           LCDS.listen();
           // Cursor move command
           LCDS.write(setCursorLCD);
-          LCDS.write(setCursorLCD);		  
+		  
           LCDS.write(turnOnBackLight);
           LCDS.print("IP: 192.168.1.187");
           XBS.listen();
+          interrupts();
+          MsTimer2::set(15000, resetLCD);
+          MsTimer2::start();       
 	}
 	
 	void loop(){
@@ -33,3 +38,11 @@
 	    Serial.print(readChar);   
 	  }
 	}
+
+        void resetLCD(){
+          LCDS.listen();
+          LCDS.write(setCursorLCD);
+          LCDS.write(turnOnBackLight);
+          LCDS.print("IP: 192.168.1.187");
+          XBS.listen();
+        }
