@@ -1,0 +1,98 @@
+
+
+\section{Interesting Problems}
+\subsection{Interesting Problems}
+\frame{
+ \begin{center}
+  { \huge Interesting Problems}
+ \end{center}
+}
+ 
+
+\frame{
+ \frametitle{Power Bill Guestimator}
+ \begin{itemize}
+  \item Power companies have different ways of charging
+  \begin{enumerate}[A.]
+   \item Power consumptions tiers
+   \item Prime-time vs Off-time
+  \end{enumerate}
+  \item Cost of power can fluctuate (over long periods of time)
+  \item Need to keep a history
+  \item Database-consolidation can't mix power "tiers"
+ \end{itemize}
+}
+ 
+\frame{
+ \frametitle{Power Bill Guestimator Solutions}
+ \begin{itemize}
+  \item Support all methods of charging power
+  \item Store key in data table indicating what power "tier" applies
+  \item Calculate current power tier at runtime
+  \begin{enumerate}[A.]
+   \item Scheduling problem
+   \item Calculate during save for efficiency
+  \end{enumerate}
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Limited Resources}
+ \begin{itemize}
+  \item Server must be low powered
+  \begin{enumerate}[A.]
+   \item Limited processing power
+   \item Limit memory capacity
+  \end{enumerate}
+  \item Server must store data for years
+  \item Server must be able to serve many clients
+  \item Server must be online 24/7 with some reliability
+  \item Server must be able to process data from all Satellites
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Limited Resources Solution}
+ \begin{itemize}
+  \item Bare-bones operating system
+  \item Compacting database
+  \item Offload templating to clients via Javascript
+  \begin{enumerate}[A.]
+   \item REST API
+   \item JSON
+  \end{enumerate}
+  \item Use well-known and tested components
+  \item Use a database which supports simultaneous read/writes
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Limited Time}
+ \begin{itemize}
+  \item We have 2 software engineers, not full time
+  \item We have 3 computer engineers, not full time
+  \begin{enumerate}[A.]
+   \item Most focus on the hardware
+  \end{enumerate}
+  \item Lots of implied requirements
+  \begin{enumerate}[A.]
+   \item Access control
+   \item Extensible API
+   \item History tables
+  \end{enumerate}
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Limited Time - Solutions}
+ \begin{itemize}
+  \item Modular - Prototype components with the expectation of complete replacements
+  \item Open Source - Utilize free libraries
+  \item One stone for many birds
+  \begin{enumerate}[A.]
+   \item Use this project for other classes
+   \item Use architecture and design that we're familiar with
+   \item Reusable components
+  \end{enumerate}
+ \end{itemize}
+}

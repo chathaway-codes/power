@@ -1,0 +1,42 @@
+\section{Software Implementation}
+
+\frame{
+ \begin{center}
+  { \huge Software Implementation}
+ \end{center}
+}
+
+\frame {
+ \frametitle{Software Implementation}
+ \begin{itemize}
+  \item Went more-or-less according to plan
+  \begin{enumerate}
+   \item We switched away from Backbone.js and iCanHaz because AngularJS covered both domains
+   \item We didn't use Asynchronous Module Definition (AMD) because very few libraries supported it
+   \item There were some small modifications to the REST API to make it more compatible with the world
+  \end{enumerate}
+  \item Biggest software problem was the complexity of the setup
+  \begin{enumerate}
+   \item Because of the number of libraries and frameworks, it was difficult to do development in Windows
+   \item We developed two solutions; a completely isolated Python development environment, and a VirtualBox for people with Windows
+  \end{enumerate}
+ \end{itemize}
+}
+
+
+\frame {
+ \frametitle{Software Implementation}
+ \begin{itemize}
+  \item Some things didn't make it to the final product for a variety of reasons
+  \begin{itemize}
+   \item Adding satellites was ditched because it was too confusing for an end user
+   \item The power-bill-guestimater was ditched because it would be impossible to accurately track all power consumption, thus leading to incorrect guestimates
+   \item The user-management stuff was simplified because we don't need a complex permission system
+  \end{itemize}
+  \item Some things were added
+  \begin{itemize}
+   \item We used Intro.JS to create a "help" feature in our website
+   \item We added a JS compressor to keep the codebase small when delivered to the client
+  \end{itemize}
+ \end{itemize}
+}
