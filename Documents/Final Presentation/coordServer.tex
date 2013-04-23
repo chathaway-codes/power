@@ -1,18 +1,42 @@
 \subsection{Server and Coordinator}
 
 \frame{
- \frametitle{Coordinator Arduino}
-  \begin{itemize}
-  \item Hosts Coordinator XBee
-  \item Powers LCD to display IP address of Server
-  \item Sends Server data readings over serial
+ \frametitle{Coordinator Design}
+  Must:
+ \begin{itemize}
+		\item Host Coordinator XBee
+		\item Host LCD to display IP
+		\item Listen for readings
+		\item Send readings to Server
  \end{itemize}
 }
 
 \frame{
- \frametitle{Server}
+ \frametitle{Coordinator Implementation}
+ Arduino:
  \begin{itemize}
-  \item Raspberry Pi 
+	\item Talks to LCD using SoftwareSerial
+	\item Listens for readings from XBee
+	\item Sends readings over USB cable
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Server Design}
+ Server must:
+ \begin{itemize}
+  \item Be small
+  \item Consume as little power as possible
+  \item Listen for readings from Coordinator 
+  \item Store readings
+  \item Host all of the Display
+ \end{itemize}
+}
+
+\frame{
+ \frametitle{Server Implementation}
+  Raspberry Pi:
+ \begin{itemize}
   \item Small form factor (\textasciitilde 8.5 x 5.6 cm)
   \item Low power consumption (\textasciitilde 3.5 W)
   \item Acts as data center and web server for Display
