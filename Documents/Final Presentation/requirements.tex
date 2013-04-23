@@ -1,0 +1,94 @@
+\section{Requirements}
+
+\frame{
+ \begin{center}
+  { \huge Requirements}
+ \end{center}
+}
+ 
+\subsection{Requirements}
+
+\frame{
+  \frametitle{Product Requirements}
+    \begin{itemize}
+	  \item Complete Requirements Document
+	  \item Scope of Product versus scope of Project
+	  \item Notable Product Requirements:
+	  \begin{itemize}
+	 	\item Satellite power requirement of less than 1 Watt
+		\item Server power requirement of less than 10 Watts
+		\item Power Bill Guesstimator
+		\item Production cost of Satellite to be under \$7.50 (USD)
+	  \end{itemize}
+	\end{itemize}
+}
+
+\subsection{Functional Requirements}
+
+\frame{
+  \frametitle{Functional Requirements - Satellites}
+    \begin{itemize}
+	  \item The Satellite shall have the ability to plug into standard National Electrical Manufacturers Association (NEMA) 5-15 mains electrical outlets.
+	  \item The Satellite shall report with less than 5\% error on current and voltage readings.
+	  \item The Satellite shall transmit information every 60 seconds.
+	  \item Losing readings shall be considered an error.
+	  \item The Satellite shall have the ability to connect to the Server wirelessly.
+	\end{itemize}
+}
+
+\frame{
+  \frametitle{Functional Requirements - Server}
+    \begin{itemize}
+	  \item The physical Server shall reside inside the monitored building.
+	  \item The Server shall host the web server for the Display.
+	  \item The Server shall have the ability to sync with Satellites.
+	  \item The Server shall have the ability to connect to the user's network.
+	  \item The Server shall have the ability to connect to Satellites wirelessly.
+	\end{itemize}
+}
+
+\frame{
+  \frametitle{Functional Requirements - Display}
+    \begin{itemize}
+	  \item The Display must provide Device management. This includes the ability to:
+		\begin{itemize}
+		  \item  Add Devices, Disable Devices (does not include deleting Devices)
+		  \item Modify Devices
+		  \item Rename Devices
+		  \item Change outlet association
+		\end{itemize}
+	  \item The Display must provide Satellite management. This includes the ability to:
+		\begin{itemize}
+		  \item Add Satellites
+		  \item Remove Satellites
+		\end{itemize}
+	\end{itemize}
+}
+\frame{
+  \frametitle{Functional Requirements - Display cont.}
+    \begin{itemize}
+	  \item The Display shall provide the ability to view data in graphs, including:
+		\begin{itemize}
+		  \item View Device Power Consumption (Showing power consumption on a per-device basis)
+		  \item View Power Consumption Over Time (Showing power consumption over a specified range of time including total and per-device power consumption)
+		\end{itemize}
+
+	  \item The Display shall have the ability to compare power usage of devices. The Display shall provide the ability to view data in graphs: 
+		\begin{itemize}
+		  \item View Device Cost Over Time
+		  \item Showing the cost to run a device over a specified time range 		  		  \item Showing a comparison of device costs over a specified range with a given interval.
+		\end{itemize}
+	\end{itemize}
+}
+\subsection{Non-Functional Requirements}
+ 
+\frame{
+  \frametitle{Non-Functional Requirements}
+    \begin{itemize}
+	  \item The Satellite shall be conveniently sized and shaped.
+	  \item The Satellite shall have a small LED on it to indicate it is powered.
+	  \item The Display shall have a an intuitive interface that is easy to learn.
+	  \item The Display shall provide the user with feedback within 300 ms (responsiveness).
+	  \item The Display shall retain all data pertaining to a Device when it is associated with a new Satellite.
+	\end{itemize}
+}
